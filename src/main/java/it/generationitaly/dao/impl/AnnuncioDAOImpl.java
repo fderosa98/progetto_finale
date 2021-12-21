@@ -16,29 +16,62 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 
 	@Override
 	public List<Annuncio> findAll(Connection connection) throws DAOException {
-			List<Annuncio> annunci = new ArrayList<Annuncio>();
-			String sql= "SELECT * FROM annuncio";
+		List<Annuncio> annunci = new ArrayList<Annuncio>();
+		String sql = "SELECT * FROM annuncio";
+		System.out.println(sql);
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.prepareStatement(sql);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				Annuncio annuncio = new Annuncio();
+				annuncio.setId(resultSet.getInt(1));
+				annuncio.setTitolo(resultSet.getString(2));
+				annuncio.setDescrizione(resultSet.getString(3));
+				annunci.add(annuncio);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException();
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
+		}
+		return annunci;
+	}
+
+	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, double prezzo)
+			throws DAOException {
+		String sql = "SELECT * FROM automobile";
+		int count = 0;
+		if (marca != null || prezzo > 0) {
+			sql += "WHERE marca LIKE=?";
+			count++;
+			if (modello != null) {
+				sql += "AND modello LIKE=?";
+			}
+		}
+			if (prezzo > 0) {
+				sql += "WHERE prezzo<=?";
+				count++;
+			}
+
 			System.out.println(sql);
 			PreparedStatement statement = null;
 			ResultSet resultSet = null;
 			try {
+
 				statement = connection.prepareStatement(sql);
-				resultSet= statement.executeQuery();
-				while(resultSet.next()) {
-					Annuncio annuncio = new Annuncio();
-					annuncio.setId(resultSet.getInt(1));
-					annuncio.setTitolo(resultSet.getString(2));
-					annuncio.setDescrizione(resultSet.getString(3));
-					annunci.add(annuncio);
+				statement.setString(1, "%" + marca + "%");
+				statement.setString(2, "%" + modello + "%");
+				statement.setDouble(3, prezzo);
+				resultSet = statement.executeQuery();
+				while (resultSet.next()) {
+
 				}
 			} catch (SQLException e) {
-				System.err.println(e.getMessage());
-				throw new DAOException();
-			} finally {
-				DBUtil.close(resultSet);
-				DBUtil.close(statement);
 			}
-			return annunci;
+		return null;
 	}
-
 }
