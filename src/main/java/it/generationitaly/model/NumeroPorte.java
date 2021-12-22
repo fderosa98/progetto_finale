@@ -13,13 +13,15 @@ public enum NumeroPorte {
 	public int getValue() {
 		return value;
 	}
-	
+
+
 	public static NumeroPorte fromValue(int value) {
-		for (NumeroPorte nPorte : values()) {
-			if(nPorte.getValue() == value) {
-				return nPorte;
+		for (NumeroPorte numeroPorte : values()) {
+			if (numeroPorte.getValue() == value) {
+				return numeroPorte;
 			}
 		}
 		return null;
 	}
+
 }

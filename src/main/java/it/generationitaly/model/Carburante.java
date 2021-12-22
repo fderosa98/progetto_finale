@@ -12,13 +12,15 @@ public enum Carburante {
 	public String getValue() {
 		return value;
 	}
-	
+
+
 	public static Carburante fromValue(String value) {
 		for (Carburante carburante : values()) {
-			if(carburante.getValue() == value) {
+			if (carburante.getValue().equals(value)) {
 				return carburante;
 			}
 		}
 		return null;
 	}
+
 }
