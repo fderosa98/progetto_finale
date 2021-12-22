@@ -2,16 +2,24 @@ package it.generationitaly.model;
 
 public enum NumeroPorte {
 
-	DUE("2"), TRE("3"), QUATTRO("4"), CINQUE("5");
+	DUE(2), TRE(3), QUATTRO(4), CINQUE(5);
 
-	private final String value;
+	private final int value;
 
-	private NumeroPorte(String value) {
+	private NumeroPorte(int value) {
 		this.value = value;
 	}
 
-	public String getValue() {
+	public int getValue() {
 		return value;
 	}
-
+	
+	public static NumeroPorte fromValue(int value) {
+		for (NumeroPorte nPorte : values()) {
+			if(nPorte.getValue() == value) {
+				return nPorte;
+			}
+		}
+		return null;
+	}
 }

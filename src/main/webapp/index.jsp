@@ -7,15 +7,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>pagina di prova</title>
+</head>
+
+<body>
 
 <form action="ricerca-auto" method="get">
 <label for="marca">Inserisci marca</label>
 <input type="text" name="marca" id="marca">
-<label for="modello"></label>
-<input type="text" name="modello" id="modello"> 
-<input type="submit" value="Ricerca Auto">
-</form>
-
+<br>
+<label for="modello">Inserisci modello</label>
+<input type="text" name="modello" id="modello">
+<br>
+<label for="prezzo">Inserisci prezzo (fino a)</label>
+<input type="text" name="prezzo" id="prezzo">
+<br>
+<input type="submit" value="Cerca">
+</form>  
 
 </body>
 </html>
