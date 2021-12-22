@@ -47,7 +47,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, double prezzo)
 			throws DAOException {
 		String sql = "SELECT * FROM annuncio join automobile on annuncio.automobile_id = automobile.id";
-
+		List<Annuncio> annunci = new ArrayList<Annuncio>();
 		if (marca != null || prezzo > 0) {
 			sql += " WHERE";
 			if (marca != null) {
@@ -96,14 +96,22 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 				automobile.setAnno(resultSet.getInt(10));
 				automobile.setPrezzo(resultSet.getDouble(11));
 				automobile.setKm(resultSet.getInt(12));
-				automobile.setCarburante(Carburante.valueOf(resultSet.getString(13)));
-				automobile.setNumeroPorte(NumeroPorte.valueOf(resultSet.getString(14)));
+				automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
+				automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
+
+				annuncio.setAutomobile(automobile);
+				automobile.setAnnuncio(annuncio);
+				annunci.add(annuncio);
+
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
-			throw new DAOException();
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
 		}
-		return null;
+		return annunci;
 	}
 
 //	private String createQuery(String marca, String modello, double prezzo) {

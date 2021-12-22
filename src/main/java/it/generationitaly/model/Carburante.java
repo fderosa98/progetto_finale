@@ -9,8 +9,17 @@ public enum Carburante {
 		this.value = value;
 	}
 
-	public String getDescription() {
+	public String getValue() {
 		return value;
 	}
-	
+
+	public static Carburante fromValue(String value) {
+		for (Carburante carburante : values()) {
+			if (carburante.getValue().equals(value)) {
+				return carburante;
+			}
+		}
+		return null;
+	}
+
 }
