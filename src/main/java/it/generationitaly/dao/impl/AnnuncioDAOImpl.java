@@ -45,22 +45,22 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	}
 
 	@Override
-	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, double prezzo)
+	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo)
 			throws DAOException {
 		List<Annuncio> annunci = new ArrayList<Annuncio>();
 		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id";
-		if (marca != null || prezzo > 0) {
+		if (marca != "" || prezzo > 0) {
 			sql += " WHERE";
-			if (marca != null) {
+			if (marca != "") {
 				sql += " marca LIKE ?";
 			}
-			if (modello != null) {
+			if (modello != "") {
 				sql += " AND modello LIKE ?";
 			}
-			if (marca != null && prezzo > 0) {
+			if (marca != "" && prezzo > 0) {
 				sql += " AND prezzo<=?";
 			}
-			if (marca == null && prezzo > 0) {
+			if (marca == "" && prezzo > 0) {
 				sql += " prezzo<=?";
 			}
 		}
@@ -69,18 +69,18 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		ResultSet resultSet = null;
 		try {
 			statement = connection.prepareStatement(sql);
-			if (marca != null) {
+			if (marca != "") {
 				statement.setString(1, "%" + marca + "%");
 			}
-			if (modello != null) {
+			if (modello != "") {
 				statement.setString(2, "%" + modello + "%");
 			}
-			if (marca == null && prezzo > 0) {
-				statement.setDouble(1, prezzo);
-			} else if (marca != null && modello == null && prezzo > 0) {
-				statement.setDouble(2, prezzo);
-			} else if (marca != null && modello != null && prezzo > 0) {
-				statement.setDouble(3, prezzo);
+			if (marca == "" && prezzo > 0) {
+				statement.setInt(1, prezzo);
+			} else if (marca != "" && modello == "" && prezzo > 0) {
+				statement.setInt(2, prezzo);
+			} else if (marca != "" && modello != "" && prezzo > 0) {
+				statement.setInt(3, prezzo);
 			}
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
@@ -94,7 +94,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 				automobile.setMarca(resultSet.getString(8));
 				automobile.setModello(resultSet.getString(9));
 				automobile.setAnno(resultSet.getInt(10));
-				automobile.setPrezzo(resultSet.getDouble(11));
+				automobile.setPrezzo(resultSet.getInt(11));
 				automobile.setKm(resultSet.getInt(12));
 				automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
 				automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));

@@ -24,7 +24,7 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 	}
 
 	@Override
-	public List<Annuncio> findFiltered(String marca, String modello, double prezzo) throws ServiceException {
+	public List<Annuncio> findFiltered(String marca, String modello, int prezzo) throws ServiceException {
 		List<Annuncio> annunci = new ArrayList<Annuncio>();
 		Connection connection = null;
 		try {

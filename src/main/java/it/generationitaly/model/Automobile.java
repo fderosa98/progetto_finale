@@ -5,7 +5,7 @@ public class Automobile {
 	private String marca;
 	private String modello;
 	private int anno;
-	private double prezzo;
+	private int prezzo;
 	private int km;
 	private Carburante carburante;
 	private NumeroPorte numeroPorte;
@@ -47,7 +47,7 @@ public class Automobile {
 		return prezzo;
 	}
 
-	public void setPrezzo(double prezzo) {
+	public void setPrezzo(int prezzo) {
 		this.prezzo = prezzo;
 	}
 

@@ -3,16 +3,15 @@ package it.generationitaly.control;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import it.generationitaly.model.Annuncio;
 import it.generationitaly.service.AnnuncioService;
 import it.generationitaly.service.ServiceException;
 import it.generationitaly.service.impl.AnnuncioServiceImpl;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class RicercaAutoServlet
@@ -37,11 +36,12 @@ public class RicercaAutoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String marca = request.getParameter("marca");
 		String modello = request.getParameter("modello");
-		double prezzo = Double.parseDouble(request.getParameter("prezzo"));
-		
+		int prezzo = 0;
+		if (request.getParameter("prezzo") != "") {
+		prezzo = Integer.parseInt((request.getParameter("prezzo")));
+		}
 		try {
 			List<Annuncio> annunci = annuncioService.findFiltered(marca, modello, prezzo);
-			
 			request.setAttribute("annunci", annunci);
 			request.getRequestDispatcher("annunci.jsp").forward(request, response);
 		} catch (ServiceException e) {

@@ -14,7 +14,7 @@
 
 	<% List<Annuncio> annunci = (List<Annuncio>)request.getAttribute("annunci"); %>
 
-	
+	<% if (annunci != null) { %>
 	<table class="table table-striped" id="myTable">
 		<thead>
 			<tr class="table-dark">
@@ -34,6 +34,9 @@
 				<td><%= annuncio.getAutomobile().getModello() %></td>
 				<td><%= annuncio.getAutomobile().getPrezzo() %></td>
 			</tr>
+		<% } %>
+		<% } else { %>
+		<p> Nessuna corrispondenza trovata</p>
 		<% } %>
 		
 		</tbody>

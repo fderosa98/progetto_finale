@@ -19,13 +19,13 @@
 
 <form action="ricerca-auto" method="get">
 <label for="marca">Inserisci marca</label>
-<input type="text" name="marca" id="marca">
+<input type="text" name="marca" id="marca" value="">
 <br>
 <label for="modello">Inserisci modello</label>
-<input type="text" name="modello" id="modello">
+<input type="text" name="modello" id="modello" value="">
 <br>
 <label for="prezzo">Inserisci prezzo (fino a)</label>
-<input type="text" name="prezzo" id="prezzo">
+<input type="number" name="prezzo" id="prezzo" value="">
 <br>
 <input type="submit" value="Cerca">
 </form>  
