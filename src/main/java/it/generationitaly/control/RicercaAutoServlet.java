@@ -1,6 +1,7 @@
 package it.generationitaly.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.generationitaly.model.Annuncio;
@@ -21,6 +22,7 @@ public class RicercaAutoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private AnnuncioService annuncioService = new AnnuncioServiceImpl();
+	private List<Annuncio> annunci = new ArrayList<Annuncio>();
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,11 +39,12 @@ public class RicercaAutoServlet extends HttpServlet {
 		String marca = request.getParameter("marca");
 		String modello = request.getParameter("modello");
 		int prezzo = 0;
+		
 		if (request.getParameter("prezzo") != "") {
 		prezzo = Integer.parseInt((request.getParameter("prezzo")));
 		}
 		try {
-			List<Annuncio> annunci = annuncioService.findFiltered(marca, modello, prezzo);
+			annunci = annuncioService.findFiltered(marca, modello, prezzo);
 			request.setAttribute("annunci", annunci);
 			request.getRequestDispatcher("annunci.jsp").forward(request, response);
 		} catch (ServiceException e) {

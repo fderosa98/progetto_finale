@@ -25,12 +25,14 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 
 	@Override
 	public List<Annuncio> findFiltered(String marca, String modello, int prezzo) throws ServiceException {
-		List<Annuncio> annunci = new ArrayList<Annuncio>();
 		Connection connection = null;
+		List<Annuncio> annunci = null;
+		// System.out.println("bubu");
 		try {
 			connection = DataSource.getInstance().getConnection();
 			DBUtil.setAutoCommit(connection, false);
 			annunci = annuncioDAO.findFiltered(connection, marca, modello, prezzo);
+			// System.out.println(annunci + "ioiooioioioioioioioioioioio");
 			DBUtil.commit(connection);
 		} catch (DAOException e) {
 			System.err.println(e.getMessage());
@@ -38,6 +40,7 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		} finally {
 			DBUtil.close(connection);
 		}
+		
 		return annunci;
 	}
 

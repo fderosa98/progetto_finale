@@ -14,7 +14,7 @@
 
 	<% List<Annuncio> annunci = (List<Annuncio>)request.getAttribute("annunci"); %>
 
-	<% if (annunci != null) { %>
+	<% if (!annunci.isEmpty()) { %>
 	<table class="table table-striped" id="myTable">
 		<thead>
 			<tr class="table-dark">

@@ -88,6 +88,8 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 				annuncio.setId(resultSet.getInt(1));
 				annuncio.setTitolo(resultSet.getString(2));
 				annuncio.setDescrizione(resultSet.getString(3));
+				
+				//System.out.println(annuncio);
 
 				Automobile automobile = new Automobile();
 				automobile.setId(resultSet.getInt(5));
@@ -99,9 +101,14 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 				automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
 				automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
 				
+				//System.out.println(automobile);
+				
 				annuncio.setAutomobile(automobile);
+				
 				automobile.setAnnuncio(annuncio);
 				annunci.add(annuncio);
+				
+				//System.out.println(annunci);
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -110,7 +117,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(statement);
 			DBUtil.close(resultSet);
 		}
-		return null;
+		return annunci;
 	}
 
 //	private String createQuery(String marca, String modello, double prezzo) {

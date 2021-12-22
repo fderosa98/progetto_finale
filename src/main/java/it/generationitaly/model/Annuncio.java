@@ -68,6 +68,12 @@ public class Annuncio {
 	public void setFoto(List<Foto> foto) {
 		this.foto = foto;
 	}
+
+	@Override
+	public String toString() {
+		return "Annuncio [id=" + id + ", titolo=" + titolo + ", descrizione=" + descrizione + ", automobile="
+				+ automobile + ", utente=" + utente + ", indirizzo=" + indirizzo + ", foto=" + foto + "]";
+	}
 	
 	
 

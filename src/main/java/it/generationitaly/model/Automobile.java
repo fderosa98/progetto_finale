@@ -83,4 +83,12 @@ public class Automobile {
 		this.annuncio = annuncio;
 	}
 
+	@Override
+	public String toString() {
+		return "Automobile [id=" + id + ", marca=" + marca + ", modello=" + modello + ", anno=" + anno + ", prezzo="
+				+ prezzo + ", km=" + km + ", carburante=" + carburante + ", numeroPorte=" + numeroPorte + "]";
+	}
+
+	
+	
 }
