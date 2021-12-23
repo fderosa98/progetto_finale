@@ -8,6 +8,7 @@ public class Utente {
 	private String nome;
 	private String cognome;
 	private String email;
+	private long telefono;
 	private String username;
 	private String password;
 	private List<Annuncio> annunci = new ArrayList<Annuncio>();
@@ -67,5 +68,15 @@ public class Utente {
 	public void setAnnunci(List<Annuncio> annunci) {
 		this.annunci = annunci;
 	}
+
+	public long getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(long telefono) {
+		this.telefono = telefono;
+	}
+	
+	
 
 }

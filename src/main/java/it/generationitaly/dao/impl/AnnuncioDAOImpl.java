@@ -120,24 +120,31 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		return annunci;
 	}
 
-//	private String createQuery(String marca, String modello, double prezzo) {
-//		String sql = "SELECT * FROM automobile";
-//		if (marca != null || prezzo > 0) {
-//			sql += " WHERE";
-//			if (marca != null) {
-//				sql += " marca LIKE ?";
-//			}
-//			if (modello != null) {
-//				sql += " AND modello LIKE ?";
-//			}
-//			if (marca != null && prezzo > 0) {
-//				sql += " AND prezzo<=?";
-//			}
-//			if (marca == null && prezzo > 0) {
-//				sql += " prezzo<=?";
-//			}
-//		}
-//		return sql;
-//	}
+	@Override
+	public Annuncio findById(Connection connection, int id) throws DAOException {
+		String sql = "SELECT * FROM annuncio WHERE id=?";
+		System.out.println(sql);
+		Annuncio annuncio = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, id);
+			resultSet = statement.executeQuery();
+			if(resultSet.next()) {
+				annuncio = new Annuncio();
+				annuncio.setId(resultSet.getInt(1));
+				annuncio.setTitolo(resultSet.getString(2));
+				annuncio.setDescrizione(resultSet.getString(3));
+				}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		}finally {
+			DBUtil.close(statement);
+			DBUtil.close(resultSet);
+		}
+		return annuncio;
+	}
 
 }

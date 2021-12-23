@@ -44,4 +44,23 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		return annunci;
 	}
 
+	@Override
+	public Annuncio findById(int id) throws ServiceException {
+		Annuncio annuncio = null;
+		Connection connection = null;
+		try {
+		    connection = DataSource.getInstance().getConnection();
+			DBUtil.setAutoCommit(connection, false);
+			annuncio = annuncioDAO.findById(connection,id);
+			DBUtil.commit(connection);
+		} catch (DAOException e) {
+			System.err.println(e.getMessage());
+			throw new ServiceException(e.getMessage(), e);
+		}finally {
+			DBUtil.close(connection);
+			
+		}
+		return annuncio;
+	}
+
 }

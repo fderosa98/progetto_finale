@@ -10,5 +10,7 @@ public interface AnnuncioDAO {
 	List<Annuncio> findAll(Connection connection) throws DAOException;
 	
 	List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo) throws DAOException;
+	
+	public Annuncio findById(Connection connection, int id) throws DAOException;
 
 }
