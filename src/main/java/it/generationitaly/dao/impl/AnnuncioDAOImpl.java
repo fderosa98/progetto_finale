@@ -13,7 +13,10 @@ import it.generationitaly.dao.DBUtil;
 import it.generationitaly.model.Annuncio;
 import it.generationitaly.model.Automobile;
 import it.generationitaly.model.Carburante;
+import it.generationitaly.model.Foto;
+import it.generationitaly.model.Indirizzo;
 import it.generationitaly.model.NumeroPorte;
+import it.generationitaly.model.Utente;
 
 public class AnnuncioDAOImpl implements AnnuncioDAO {
 
@@ -147,4 +150,100 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		return annuncio;
 	}
 
+	@Override
+	public void saveAnnuncio(Connection connection, Annuncio annuncio) throws DAOException {
+		String sql = "INSERT INTO annuncio(titolo,descrizione,utente_id,automobile_id,indirizzo_id) VALUES(?,?,?,?)";
+        System.out.println(sql);
+        PreparedStatement statement = null;
+        ResultSet generatedKeys = null;
+        try {
+            statement = connection.prepareStatement(sql, new String[] { "id" });
+            statement.setString(1, annuncio.getTitolo());
+            statement.setString(2, annuncio.getDescrizione());
+            statement.setInt(3, annuncio.getUtente().getId());
+            statement.setInt(4, annuncio.getAutomobile().getId());
+            statement.setInt(5, annuncio.getIndirizzo().getId());
+            statement.executeUpdate();
+            generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int id = generatedKeys.getInt(1);
+                annuncio.setId(id);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new DAOException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(generatedKeys);
+            DBUtil.close(statement);
+        }
 }
+	
+	@Override
+    public Annuncio findDettaglioById(Connection connection, int id) throws DAOException {
+        String sql = "select * from annuncio join indirizzo on annuncio.indirizzo_id = indirizzo.id join utente on annuncio.utente_id = utente.id join automobile on automobile.id = annuncio.automobile_id join foto on annuncio.id = foto.annuncio_id where annuncio.id=?";
+        System.out.println(sql);
+        Annuncio annuncio = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                if (annuncio == null) {
+                    annuncio = new Annuncio();
+                    annuncio.setId(resultSet.getInt(1));
+                    annuncio.setTitolo(resultSet.getString(2));
+                    annuncio.setDescrizione(resultSet.getString(3));
+
+                    Utente utente = new Utente();
+                    utente.setId(resultSet.getInt(10));
+                    utente.setNome(resultSet.getString(11));
+                    utente.setCognome(resultSet.getString(12));
+                    utente.setEmail(resultSet.getString(13));
+                    utente.setTelefono(resultSet.getLong(14));
+
+                    Indirizzo indirizzo = new Indirizzo();
+                    indirizzo.setId(resultSet.getInt(7));
+                    indirizzo.setCitta(resultSet.getString(8));
+                    indirizzo.setProvincia(resultSet.getString(9));
+
+                    Automobile automobile = new Automobile();
+                    automobile.setId(resultSet.getInt(17));
+                    automobile.setMarca(resultSet.getString(18));
+                    automobile.setModello(resultSet.getString(19));
+                    automobile.setAnno(resultSet.getInt(20));
+                    automobile.setPrezzo(resultSet.getInt(21));
+                    automobile.setKm(resultSet.getInt(22));
+                    automobile.setCarburante(Carburante.fromValue(resultSet.getString(23)));
+                    automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(24)));
+
+                    annuncio.setAutomobile(automobile);
+                    annuncio.setUtente(utente);
+                    annuncio.setIndirizzo(indirizzo);
+
+                    automobile.setAnnuncio(annuncio);
+                    indirizzo.setAnnuncio(annuncio);
+                }
+
+                Foto foto = new Foto();
+                foto.setId(resultSet.getInt(25));
+                foto.setUrl(resultSet.getString(26));
+                foto.setPrincipale(resultSet.getBoolean(27));
+
+                foto.setAnnuncio(annuncio);
+
+                annuncio.getFoto().add(foto);
+
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new DAOException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(resultSet);
+            DBUtil.close(statement);
+        }
+        return annuncio;
+
+    }
+  }

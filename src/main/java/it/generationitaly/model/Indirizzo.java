@@ -6,9 +6,9 @@ import java.util.List;
 public class Indirizzo {
 
 	private int id;
-	private String città;
+	private String citta;
 	private String provincia;
-	private List<Annuncio> annunci = new ArrayList<Annuncio>();			
+	private Annuncio annuncio;	
 
 	public int getId() {
 		return id;
@@ -18,12 +18,12 @@ public class Indirizzo {
 		this.id = id;
 	}
 
-	public String getCittà() {
-		return città;
+	public String getCitta() {
+		return citta;
 	}
 
-	public void setCittà(String città) {
-		this.città = città;
+	public void setCitta(String citta) {
+		this.citta = citta;
 	}
 
 	public String getProvincia() {
@@ -34,14 +34,15 @@ public class Indirizzo {
 		this.provincia = provincia;
 	}
 
-	public List<Annuncio> getAnnunci() {
-		return annunci;
+	public Annuncio getAnnuncio() {
+		return annuncio;
 	}
 
-	public void setAnnunci(List<Annuncio> annunci) {
-		this.annunci = annunci;
+	public void setAnnuncio(Annuncio annuncio) {
+		this.annuncio = annuncio;
 	}
 
+	
 	
 	
 
