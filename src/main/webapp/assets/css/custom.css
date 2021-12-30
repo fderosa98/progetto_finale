@@ -1,0 +1,258 @@
+html {
+    overflow-x: hidden;
+}
+ul.nav.navbar-nav {
+    margin: 0;
+}
+#navigation.collapse.navbar-collapse {
+    width: 60%;
+}
+.header_wrap {
+    width: 39%;
+}
+.navbar-expand-lg .navbar-nav > li.dropdown > a {
+    padding: 20px 42px 20px 13px;
+}
+.dropdown-toggle::after {
+	display: none;
+}
+button.btn.btn-block.search {
+    width: 100%;
+}
+.recent-tab {
+    width: 18%;
+}
+.recent-tab .nav.nav-tabs a {
+    padding: 4px 17px;
+}
+ul#myTab {
+    padding: 0 0;
+}
+div#navbarSupportedContent {
+    width: 61%;
+    padding-right: 0;
+    float: left;
+}
+.navbar-expand-lg .navbar-nav > li > a {
+    padding: 20px 12px;
+}
+
+textarea.form-control {
+    height: auto;
+}
+
+/*
+===== index-2-page-style ===== */
+.facts_section_bg {
+    position: unset;
+}
+body.index2 .header_wrap {
+    width: 23%;
+}
+body.index2 .navbar-header {
+    width: 16%;
+}
+body.index2 #banner2 .carousel-caption {
+    top: 22%;
+	transform: unset;
+}
+.col-md-6.vc_col.section-padding.paddin-remove {
+    padding: 0;
+}
+.col-md-6.vc_col.section-padding.about {
+    padding: 0;
+}
+.container.custom-con {
+    padding: 0;
+}
+.row.header-row.padding-remove {
+    padding: 0;
+}
+.header_wrap.margin-remove {
+    margin-left: 0;
+}
+
+
+/*
+===== index-3-page-style ===== */
+.index3 .navbar-header {
+    width: 33%;
+}
+.index3 ul.nav.navbar-nav.ml-auto {
+    margin-top: 30px;
+    z-index: 99999;
+}
+.index3 .compare_item {
+    display: none;
+}
+.index3 .label_icon {
+    display: none;
+}
+.index3 button.btn.btn-block {
+    width: 100%;
+}
+.index3 .navbar-expand-lg .navbar-nav > li.dropdown > a {
+    padding: 20px 42px 20px 10px;
+}
+.listing-image {
+    position: relative;
+}
+.index3 .label_icon {
+    display: block;
+}
+.index3 .compare_item {
+    display: block;
+}
+.index3 button.navbar-toggler {
+    float: right;
+}
+
+/*
+===== listing-grid-page-style ===== */
+
+
+
+/*
+===== listing-detail-page-style ===== */
+.listing-detail .listing_detail_wrap .nav-tabs > li a {
+    padding: 0px 65px;
+}
+.listing-detail ul#myTab {
+    background: #eeeeee;
+}
+
+/*
+===== contact-page-style ===== */
+textarea.form-control.height-remove.white_bg {
+    height: auto;
+}
+
+/*
+===== dealers-list-page-style ===== */
+div#navbarSupportedContentt {
+    width: 60%;
+}
+
+button.close {
+    float: right;
+}
+
+button.btn.btn-block {
+    width: 100%;
+}
+
+
+.row.header-row.mobile {
+    display: none;
+}
+.row.header-row.desktop {
+    display: block;
+}
+
+/* ==== 6-Aug ==== */
+.index2 ul.dropdown-menu {
+    margin-top: 16px;
+}
+ul.dropdown-menu {
+    margin-top: 3px;
+}
+
+@media only screen and (max-width: 479px) {
+.recent-tab {
+    width: 65%;
+}
+.row.header-row.desktop {
+    display: none;
+}
+.row.header-row.mobile {
+    display: block;
+}
+.right {
+    float: left;
+}
+.right .navbar-header {
+    float: left;
+}
+div#navbarSupportedContent {
+    width: auto;
+}
+.navbar-header.desktop {
+    display: none;
+}
+.user_login.mobile ul.dropdown-menu.show {
+    left: -260%;
+}
+.user_login.mobile .user_login > ul > li a {
+    font-size: 22px;
+}
+body.index2 .navbar-header {
+    width: 100%;
+}
+body.index2 .header_wrap {
+    width: 100%;
+}
+.index3 .navbar-header {
+    width: 100%;
+}
+
+.index3 .header_style3 .navbar-expand-lg .navbar-nav > li > a {
+    padding: 12px 0px;
+    text-align: left;
+}
+
+.about .navbar-header {
+    float: left;
+    width: 100%;
+}
+
+.dealer_logo {
+    width: 100%;
+}
+
+body.listing-grid .navbar-header {
+    width: 100%;
+}
+
+body.listing-classic .navbar-header {
+    width: 100%;
+}
+
+body.listing-detail .navbar-header {
+    width: 100%;
+}
+.navbar-header {
+    width: 100%;
+}
+
+.header_search {
+    display: none;
+}
+
+body.index2 #banner2 .carousel-caption {
+    top: 6%;
+}
+.facts_section_bg {
+    position: absolute;
+    height: 180px;
+    top: unset;
+}
+.col-md-6.vc_col.section-padding.paddin-remove {
+    padding: 80px 0;
+}
+.listing_detail_header .share_vehicle {
+    display: unset;
+}
+body.index2 button.navbar-toggler {
+    float: right;
+}
+.facts_section_bg.service-image {
+    position: unset;
+}
+.col-md-6.vc_col.section-padding.paddin-remove.our {
+    padding: 0;
+}
+}
+
+
+
+
