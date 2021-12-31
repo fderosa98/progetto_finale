@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<title>MacAuto - Responsive Car Dealer HTML5 Template</title>
+<title>MacAuto - Lista auto</title>
 <!--Bootstrap -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
 <!--Custome Style -->
@@ -87,57 +87,69 @@
   </div>
   
   <!-- Navigation -->
-  <nav id="navigation_bar" class="navbar navbar-expand-lg">
-    <div class="container">
-    <div class="row header-row desktop">
-      <div class="navbar-header">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
-      </div>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav">
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-          	 <ul class="dropdown-menu">
-              <li><a href="index-2.html">Home Page 2</a></li>
-            </ul>
-          </li>
-          <li><a href="about-us.html">Chi siamo</a></li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">ICatalogo</a>
-            <ul class="dropdown-menu">
-              <li><a href="listing-classic.html">Stile Classico</a></li>
-              <li><a href="listing-detail-2.html">Dettaglio Stile</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pagine</a>
-            <ul class="dropdown-menu">
-              <li><a href="services.html">Servizi</a></li>
-              <li><a href="contact-us.html">Contattaci</a></li>
-              <li><a href="compare.html">Confronta i veicoli</a></li>
-              <li><a href="404.html">404 Error</a></li>
-            </ul>
-          </li>
-	  <div class="header_wrap">
-        <div class="user_login">
-          <ul>
-            <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> Jhon Anderson <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="profile-settings.html">Impostazioni del profilo</a></li>
-                <li><a class="dropdown-item" href="my-vehicles.html">I Miei Veicoli</a></li>
-                <li><a class="dropdown-item" href="post-vehicle.html">Posta un veicolo</a></li>
-                <li><a class="dropdown-item" href="#">Sign Out</a></li>
-              </ul>
-            </li>
+ <nav id="navigation_bar" class="navbar navbar-expand-lg">
+  <div class="container">
+  <div class="row header-row desktop">
+    <div class="navbar-header">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav">
+        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+           <ul class="dropdown-menu">
+            <li><a href="index-2 U.html">Index-2</a></li> 
           </ul>
-        </div>
-        <div class="header_search">
-          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-          <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="Search..." class="form-control">
-            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
+        </li> -->
+        <li><a href="index.html"> Home</a></li> <!-- modifica dal dropdown di Home-->
+        <li><a href="about-us.html">Chi siamo</a></li> <!-- modifica dal dropdown di Chi siamo-->
+        <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
+          <ul class="dropdown-menu">
+            <li><a href="about-us U.html">About-us-u</a></li>
+          </ul>
+        </li>-->
+        <li><a href="listing-classic.html">Catalogo</a></li><!-- modifica dal dropdown di Catalogo-->
+        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Rivenditori</a>
+          <ul class="dropdown-menu">
+            <li><a href="dealers-list.html">List View</a></li>
+            <li><a href="dealers-profile.html">Detail Page</a></li>
+          </ul>
+        </li> -->
+         <!-- <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Sezione Da togliere?</a>
+          <ul class="dropdown-menu">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="compare.html">Compare Vehicles</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="404.html">404 Error</a></li>
+    
+          </ul>
+        </li> -->
+        <li><a href="contact-us">Contattaci</a></li>
+      </ul>
+    </div>
+  <div class="header_wrap">
+      <div class="user_login">
+        <ul>
+          <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>IlBolter<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="profile-settings.html">impostazioni</a></li>
+              <li><a class="dropdown-item" href="my-vehicles.html">Le mie auto</a></li>
+              <li><a class="dropdown-item" href="post-vehicle.html">Crea un Annucio</a></li>
+              <li><a class="dropdown-item" href="#">Esci</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="header_search">
+        <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
+        <form action="#" method="get" id="header-search-form">
+          <input type="text" placeholder="Cerca..." class="form-control">
+          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
       </div>
     </div>
+  </div>
 	
 	 <!-- mobile-view -->
 	  <div class="row header-row mobile">
