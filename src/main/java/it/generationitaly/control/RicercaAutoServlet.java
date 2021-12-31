@@ -8,11 +8,11 @@ import it.generationitaly.model.Annuncio;
 import it.generationitaly.service.AnnuncioService;
 import it.generationitaly.service.ServiceException;
 import it.generationitaly.service.impl.AnnuncioServiceImpl;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class RicercaAutoServlet
@@ -46,7 +46,7 @@ public class RicercaAutoServlet extends HttpServlet {
 		try {
 			annunci = annuncioService.findFiltered(marca, modello, prezzo);
 			request.setAttribute("annunci", annunci);
-			request.getRequestDispatcher("annunci.jsp").forward(request, response);
+			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}
