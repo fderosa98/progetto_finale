@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<title>MacAuto - Lista auto</title>
+<title>MacAuto - Responsive Car Dealer HTML5 Template</title>
 <!--Bootstrap -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
 <!--Custome Style -->
@@ -87,69 +87,57 @@
   </div>
   
   <!-- Navigation -->
- <nav id="navigation_bar" class="navbar navbar-expand-lg">
-  <div class="container">
-  <div class="row header-row desktop">
-    <div class="navbar-header">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
-    </div>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbar-nav">
-        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-           <ul class="dropdown-menu">
-            <li><a href="index-2 U.html">Index-2</a></li> 
-          </ul>
-        </li> -->
-        <li><a href="index.html"> Home</a></li> <!-- modifica dal dropdown di Home-->
-        <li><a href="about-us.html">Chi siamo</a></li> <!-- modifica dal dropdown di Chi siamo-->
-        <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
-          <ul class="dropdown-menu">
-            <li><a href="about-us U.html">About-us-u</a></li>
-          </ul>
-        </li>-->
-        <li><a href="listing-classic.html">Catalogo</a></li><!-- modifica dal dropdown di Catalogo-->
-        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Rivenditori</a>
-          <ul class="dropdown-menu">
-            <li><a href="dealers-list.html">List View</a></li>
-            <li><a href="dealers-profile.html">Detail Page</a></li>
-          </ul>
-        </li> -->
-         <!-- <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Sezione Da togliere?</a>
-          <ul class="dropdown-menu">
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
-            <li><a href="compare.html">Compare Vehicles</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="404.html">404 Error</a></li>
-    
-          </ul>
-        </li> -->
-        <li><a href="contact-us">Contattaci</a></li>
-      </ul>
-    </div>
-  <div class="header_wrap">
-      <div class="user_login">
-        <ul>
-          <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>IlBolter<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="profile-settings.html">impostazioni</a></li>
-              <li><a class="dropdown-item" href="my-vehicles.html">Le mie auto</a></li>
-              <li><a class="dropdown-item" href="post-vehicle.html">Crea un Annucio</a></li>
-              <li><a class="dropdown-item" href="#">Esci</a></li>
+  <nav id="navigation_bar" class="navbar navbar-expand-lg">
+    <div class="container">
+    <div class="row header-row desktop">
+      <div class="navbar-header">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav">
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+          	 <ul class="dropdown-menu">
+              <li><a href="index-2.html">Home Page 2</a></li>
             </ul>
           </li>
-        </ul>
-      </div>
-      <div class="header_search">
-        <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-        <form action="#" method="get" id="header-search-form">
-          <input type="text" placeholder="Cerca..." class="form-control">
-          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
+          <li><a href="about-us.html">Chi siamo</a></li>
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
+            <ul class="dropdown-menu">
+              <li><a href="listing-classic.html">Stile Classico</a></li>
+              <li><a href="listing-detail-2.html">Dettaglio Stile</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pagine</a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html">Servizi</a></li>
+              <li><a href="contact-us.html">Contattaci</a></li>
+              <li><a href="compare.html">Confronta i veicoli</a></li>
+              <li><a href="404.html">404 Error</a></li>
+            </ul>
+          </li>
+	  <div class="header_wrap">
+        <div class="user_login">
+          <ul>
+            <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> Jhon Anderson <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="profile-settings.html">Impostazioni del profilo</a></li>
+                <li><a class="dropdown-item" href="my-vehicles.html">I Miei Veicoli</a></li>
+                <li><a class="dropdown-item" href="post-vehicle.html">Posta un veicolo</a></li>
+                <li><a class="dropdown-item" href="#">Sign Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="header_search">
+          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
+          <form action="#" method="get" id="header-search-form">
+            <input type="text" placeholder="Search..." class="form-control">
+            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 	
 	 <!-- mobile-view -->
 	  <div class="row header-row mobile">
@@ -234,11 +222,11 @@
   <div class="container">
     <div class="page-header_wrap">
       <div class="page-heading">
-        <h1>Liste auto</h1>
+        <h1>Lista auto</h1>
       </div>
       <ul class="coustom-breadcrumb">
         <li><a href="#">Home</a></li>
-        <li>Liste auto</li>
+        <li>Lista auto</li>
       </ul>
     </div>
   </div>
@@ -333,34 +321,43 @@
             </form>
           </div>
         </div>
-       
-        <div class="product-listing-m gray-bg">
-          <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image" /> </a>
-            <div class="label_icon">Nuovo</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" value="" id="compare22">
-                <label for="compare22">Confronta</label>
-              </div>
-            </div>
-          </div>
-          <div class="product-listing-content">
-            <h5><a href="#">Testo del nome dell'auto</a></h5>
-            <p class="list-price">$90,000</p>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-          	<form action="dettaglio-annuncio" method="get">
-            <button type="submit" class="btn">Visualizza Dettagli <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-            <!-- div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div> -->
-          	</form>
-          </div>
-        </div>
+       	<c:if test="${not empty annunci}">
+			<c:forEach items="${annunci}" var="annuncio">
+	        <div class="product-listing-m gray-bg">
+	        <c:forEach items="${annuncio.foto}" var="foto">
+	        <c:if test="${foto.principale}">
+	        <div class="product-listing-img"><img src="${foto.url}" class="img-fluid" alt="image">
+	            <div class="label_icon">Nuovo</div>
+<!-- 	            <div class="compare_item"> -->
+<!-- 	              <div class="checkbox"> -->
+<!-- 	                <input type="checkbox" value="" id="compare22"> -->
+<!-- 	                <label for="compare22">Confronta</label> -->
+<!-- 	              </div> -->
+<!-- 	            </div> -->
+	          </div>
+	         </c:if>
+	        </c:forEach>
+	         
+
+	          <div class="product-listing-content">
+	            <h5>${annuncio.titolo}</h5>
+	            <p class="list-price">${annuncio.automobile.prezzo}</p>
+	            <ul>
+	              <li><i class="fa fa-road" aria-hidden="true"></i>${annucio.automobile.km}</li>
+	              <li><i class="fa fa-tachometer" aria-hidden="true"></i>${annuncio.automobile.anno}</li>
+	              <li><i class="fa fa-user" aria-hidden="true"></i>${annuncio.automobile.numeroPorte}</li>
+<!-- 	              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li> -->
+<!-- 	              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li> -->
+<!-- 	              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li> -->
+	            </ul>
+	          	<form action="dettaglio-annuncio" method="get">
+	            <button type="submit" class="btn">Visualizza Dettagli <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+	            <!-- div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div> -->
+	          	</form>
+	          </div>
+	        </div>
+	        </c:forEach>
+		</c:if>
  
 	
        <!-- <div class="product-listing-m gray-bg">
@@ -506,7 +503,7 @@
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Trova l'auto dei tuoi sogni </h5>
           </div>
           <div class="sidebar_filter">
-            <form action="ricerca-auto" method="get">
+            <form action="ricerca-annuncio" method="get">
               <div class="form-group select">
                 <select class="form-control" name="prezzo" id="prezzo">
                   <option value="">prezzo fino a</option>

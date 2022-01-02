@@ -50,8 +50,10 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	@Override
 	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo)
 			throws DAOException {
+		int index = 0;
 		List<Annuncio> annunci = new ArrayList<Annuncio>();
-		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id";
+		Annuncio annuncio = null;
+		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN foto ON annuncio.id = foto.annuncio_id";
 		if (marca != "" || prezzo > 0) {
 			sql += " WHERE";
 			if (marca != "") {
@@ -87,31 +89,36 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			}
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				Annuncio annuncio = new Annuncio();
-				annuncio.setId(resultSet.getInt(1));
-				annuncio.setTitolo(resultSet.getString(2));
-				annuncio.setDescrizione(resultSet.getString(3));
-				
-				//System.out.println(annuncio);
+				if (index != resultSet.getInt(1)) {
+					index++;
+					annuncio = new Annuncio();
+					annuncio.setId(resultSet.getInt(1));
+					annuncio.setTitolo(resultSet.getString(2));
+					annuncio.setDescrizione(resultSet.getString(3));
 
-				Automobile automobile = new Automobile();
-				automobile.setId(resultSet.getInt(5));
-				automobile.setMarca(resultSet.getString(8));
-				automobile.setModello(resultSet.getString(9));
-				automobile.setAnno(resultSet.getInt(10));
-				automobile.setPrezzo(resultSet.getInt(11));
-				automobile.setKm(resultSet.getInt(12));
-				automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
-				automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
-				
-				//System.out.println(automobile);
-				
-				annuncio.setAutomobile(automobile);
-				
-				automobile.setAnnuncio(annuncio);
-				annunci.add(annuncio);
-				
-				//System.out.println(annunci);
+					Automobile automobile = new Automobile();
+					automobile.setId(resultSet.getInt(5));
+					automobile.setMarca(resultSet.getString(8));
+					automobile.setModello(resultSet.getString(9));
+					automobile.setAnno(resultSet.getInt(10));
+					automobile.setPrezzo(resultSet.getInt(11));
+					automobile.setKm(resultSet.getInt(12));
+					automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
+					automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
+
+					annuncio.setAutomobile(automobile);
+
+					automobile.setAnnuncio(annuncio);
+					annunci.add(annuncio);
+				}
+				if (annuncio.getId() == resultSet.getInt(18)) {
+					Foto foto = new Foto();
+					foto.setId(resultSet.getInt(15));
+					foto.setUrl(resultSet.getString(16));
+					foto.setPrincipale(resultSet.getBoolean(17));
+					annuncio.getFoto().add(foto);
+					foto.setAnnuncio(annuncio);
+				}
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -134,16 +141,16 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, id);
 			resultSet = statement.executeQuery();
-			if(resultSet.next()) {
+			if (resultSet.next()) {
 				annuncio = new Annuncio();
 				annuncio.setId(resultSet.getInt(1));
 				annuncio.setTitolo(resultSet.getString(2));
 				annuncio.setDescrizione(resultSet.getString(3));
-				}
+			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOException(e.getMessage(), e);
-		}finally {
+		} finally {
 			DBUtil.close(statement);
 			DBUtil.close(resultSet);
 		}
@@ -153,97 +160,96 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	@Override
 	public void saveAnnuncio(Connection connection, Annuncio annuncio) throws DAOException {
 		String sql = "INSERT INTO annuncio(titolo,descrizione,utente_id,automobile_id,indirizzo_id) VALUES(?,?,?,?)";
-        System.out.println(sql);
-        PreparedStatement statement = null;
-        ResultSet generatedKeys = null;
-        try {
-            statement = connection.prepareStatement(sql, new String[] { "id" });
-            statement.setString(1, annuncio.getTitolo());
-            statement.setString(2, annuncio.getDescrizione());
-            statement.setInt(3, annuncio.getUtente().getId());
-            statement.setInt(4, annuncio.getAutomobile().getId());
-            statement.setInt(5, annuncio.getIndirizzo().getId());
-            statement.executeUpdate();
-            generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                int id = generatedKeys.getInt(1);
-                annuncio.setId(id);
-            }
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            throw new DAOException(e.getMessage(), e);
-        } finally {
-            DBUtil.close(generatedKeys);
-            DBUtil.close(statement);
-        }
-}
-	
+		System.out.println(sql);
+		PreparedStatement statement = null;
+		ResultSet generatedKeys = null;
+		try {
+			statement = connection.prepareStatement(sql, new String[] { "id" });
+			statement.setString(1, annuncio.getTitolo());
+			statement.setString(2, annuncio.getDescrizione());
+			statement.setInt(3, annuncio.getUtente().getId());
+			statement.setInt(4, annuncio.getAutomobile().getId());
+			statement.setInt(5, annuncio.getIndirizzo().getId());
+			statement.executeUpdate();
+			generatedKeys = statement.getGeneratedKeys();
+			if (generatedKeys.next()) {
+				int id = generatedKeys.getInt(1);
+				annuncio.setId(id);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(generatedKeys);
+			DBUtil.close(statement);
+		}
+	}
+
 	@Override
-    public Annuncio findDettaglioById(Connection connection, int id) throws DAOException {
-        String sql = "select * from annuncio join indirizzo on annuncio.indirizzo_id = indirizzo.id join utente on annuncio.utente_id = utente.id join automobile on automobile.id = annuncio.automobile_id join foto on annuncio.id = foto.annuncio_id where annuncio.id=?";
-        System.out.println(sql);
-        Annuncio annuncio = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        try {
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
-            resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                if (annuncio == null) {
-                    annuncio = new Annuncio();
-                    annuncio.setId(resultSet.getInt(1));
-                    annuncio.setTitolo(resultSet.getString(2));
-                    annuncio.setDescrizione(resultSet.getString(3));
+	public Annuncio findDettaglioById(Connection connection, int id) throws DAOException {
+		String sql = "SELECT * FROM annuncio JOIN indirizzo ON annuncio.indirizzo_id = indirizzo.id JOIN utente ON annuncio.utente_id = utente.id JOIN automobile ON automobile.id = annuncio.automobile_id JOIN foto ON annuncio.id = foto.annuncio_id WHERE annuncio.id=?";
+		System.out.println(sql);
+		Annuncio annuncio = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, id);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				if (annuncio == null) {
+					annuncio = new Annuncio();
+					annuncio.setId(resultSet.getInt(1));
+					annuncio.setTitolo(resultSet.getString(2));
+					annuncio.setDescrizione(resultSet.getString(3));
 
-                    Utente utente = new Utente();
-                    utente.setId(resultSet.getInt(10));
-                    utente.setNome(resultSet.getString(11));
-                    utente.setCognome(resultSet.getString(12));
-                    utente.setEmail(resultSet.getString(13));
-                    utente.setTelefono(resultSet.getLong(14));
+					Utente utente = new Utente();
+					utente.setId(resultSet.getInt(10));
+					utente.setNome(resultSet.getString(11));
+					utente.setCognome(resultSet.getString(12));
+					utente.setEmail(resultSet.getString(13));
+					utente.setTelefono(resultSet.getLong(14));
 
-                    Indirizzo indirizzo = new Indirizzo();
-                    indirizzo.setId(resultSet.getInt(7));
-                    indirizzo.setCitta(resultSet.getString(8));
-                    indirizzo.setProvincia(resultSet.getString(9));
+					Indirizzo indirizzo = new Indirizzo();
+					indirizzo.setId(resultSet.getInt(7));
+					indirizzo.setCitta(resultSet.getString(8));
+					indirizzo.setProvincia(resultSet.getString(9));
 
-                    Automobile automobile = new Automobile();
-                    automobile.setId(resultSet.getInt(17));
-                    automobile.setMarca(resultSet.getString(18));
-                    automobile.setModello(resultSet.getString(19));
-                    automobile.setAnno(resultSet.getInt(20));
-                    automobile.setPrezzo(resultSet.getInt(21));
-                    automobile.setKm(resultSet.getInt(22));
-                    automobile.setCarburante(Carburante.fromValue(resultSet.getString(23)));
-                    automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(24)));
+					Automobile automobile = new Automobile();
+					automobile.setId(resultSet.getInt(17));
+					automobile.setMarca(resultSet.getString(18));
+					automobile.setModello(resultSet.getString(19));
+					automobile.setAnno(resultSet.getInt(20));
+					automobile.setPrezzo(resultSet.getInt(21));
+					automobile.setKm(resultSet.getInt(22));
+					automobile.setCarburante(Carburante.fromValue(resultSet.getString(23)));
+					automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(24)));
 
-                    annuncio.setAutomobile(automobile);
-                    annuncio.setUtente(utente);
-                    annuncio.setIndirizzo(indirizzo);
+					annuncio.setAutomobile(automobile);
+					annuncio.setUtente(utente);
+					annuncio.setIndirizzo(indirizzo);
 
-                    automobile.setAnnuncio(annuncio);
-                    indirizzo.setAnnuncio(annuncio);
-                }
+					automobile.setAnnuncio(annuncio);
+					indirizzo.setAnnuncio(annuncio);
+				}
 
-                Foto foto = new Foto();
-                foto.setId(resultSet.getInt(25));
-                foto.setUrl(resultSet.getString(26));
-                foto.setPrincipale(resultSet.getBoolean(27));
+				Foto foto = new Foto();
+				foto.setId(resultSet.getInt(25));
+				foto.setUrl(resultSet.getString(26));
+				foto.setPrincipale(resultSet.getBoolean(27));
 
-                foto.setAnnuncio(annuncio);
+				foto.setAnnuncio(annuncio);
 
-                annuncio.getFoto().add(foto);
+				annuncio.getFoto().add(foto);
 
-            }
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            throw new DAOException(e.getMessage(), e);
-        } finally {
-            DBUtil.close(resultSet);
-            DBUtil.close(statement);
-        }
-        return annuncio;
-
-    }
-  }
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
+		}
+		return annuncio;
+	}
+}

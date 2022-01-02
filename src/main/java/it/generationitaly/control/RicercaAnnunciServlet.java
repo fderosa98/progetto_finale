@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RicercaAutoServlet
  */
-@WebServlet("/ricerca-auto")
-public class RicercaAutoServlet extends HttpServlet {
+@WebServlet("/ricerca-annunci")
+public class RicercaAnnunciServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private AnnuncioService annuncioService = new AnnuncioServiceImpl();
@@ -27,7 +27,7 @@ public class RicercaAutoServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RicercaAutoServlet() {
+    public RicercaAnnunciServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
