@@ -48,7 +48,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	}
 
 	@Override
-	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo)
+	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo, String orderBy)
 			throws DAOException {
 		int index = 0;
 		List<Annuncio> annunci = new ArrayList<Annuncio>();

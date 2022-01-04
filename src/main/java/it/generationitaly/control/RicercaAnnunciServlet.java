@@ -20,41 +20,45 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ricerca-annunci")
 public class RicercaAnnunciServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private AnnuncioService annuncioService = new AnnuncioServiceImpl();
 	private List<Annuncio> annunci = new ArrayList<Annuncio>();
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RicercaAnnunciServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public RicercaAnnunciServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String marca = request.getParameter("marca");
 		String modello = request.getParameter("modello");
 		int prezzo = 0;
-		
+		String orderBy = request.getParameter("orderBy");
+
+		// System.out.println((orderBy != null));
 		if (request.getParameter("prezzo") != "") {
-		prezzo = Integer.parseInt((request.getParameter("prezzo")));
+			prezzo = Integer.parseInt((request.getParameter("prezzo")));
 		}
 		try {
-			annunci = annuncioService.findFiltered(marca, modello, prezzo);
+			annunci = annuncioService.findFiltered(marca, modello, prezzo, orderBy);
 			request.setAttribute("annunci", annunci);
+			request.setAttribute("marca", marca);
+			request.setAttribute("modello", modello);
+			request.setAttribute("prezzo", prezzo);
+
 			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}
-		
-		
-		
-		
-	}
 
+	}
 
 }

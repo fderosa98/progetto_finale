@@ -46,13 +46,13 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 	}
 
 	@Override
-	public List<Annuncio> findFiltered(String marca, String modello, int prezzo) throws ServiceException {
+	public List<Annuncio> findFiltered(String marca, String modello, int prezzo, String orderBy) throws ServiceException {
 		Connection connection = null;
 		List<Annuncio> annunci = null;
 		try {
 			connection = DataSource.getInstance().getConnection();
 			DBUtil.setAutoCommit(connection, false);
-			annunci = annuncioDAO.findFiltered(connection, marca, modello, prezzo);
+			annunci = annuncioDAO.findFiltered(connection, marca, modello, prezzo, orderBy);
 			DBUtil.commit(connection);
 		} catch (DAOException e) {
 			System.err.println(e.getMessage());
