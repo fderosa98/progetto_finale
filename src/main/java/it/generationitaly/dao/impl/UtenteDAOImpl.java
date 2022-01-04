@@ -41,4 +41,35 @@ public class UtenteDAOImpl implements UtenteDAO {
         }
 	}
 
+	@Override
+	public Utente findByUsername(Connection connection, String username) throws DAOException {
+		String sql = "SELECT * FROM utente WHERE username=?";
+		System.out.println(sql);
+		Utente utente = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, username);
+			resultSet = statement.executeQuery();
+			if (resultSet.next()) {
+				utente = new Utente();
+				utente.setId(resultSet.getInt(1));
+				utente.setNome(resultSet.getString(2));
+				utente.setCognome(resultSet.getString(3));
+				utente.setEmail(resultSet.getString(4));
+				utente.setTelefono(resultSet.getLong(5));
+				utente.setUsername(resultSet.getString(6));
+				utente.setPassword(resultSet.getString(7));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
+		}
+		return utente;
+	}
+
 }

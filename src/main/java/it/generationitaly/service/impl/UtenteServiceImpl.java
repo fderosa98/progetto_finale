@@ -34,4 +34,23 @@ public class UtenteServiceImpl implements UtenteService {
 			
 		}
 
+		@Override
+		public Utente findByUsername(String username) throws ServiceException {
+			Utente utente = null;
+			Connection connection = null;
+			try {
+				connection = DataSource.getInstance().getConnection();
+				DBUtil.setAutoCommit(connection, false);
+				utente = utenteDAO.findByUsername(connection, username);
+				DBUtil.commit(connection);
+			} catch (DAOException e) {
+				System.err.println(e.getMessage());
+				DBUtil.rollback(connection);
+				throw new ServiceException(e.getMessage(), e);
+			} finally {
+				DBUtil.close(connection);
+			}
+			return utente;
+		}
+
 }
