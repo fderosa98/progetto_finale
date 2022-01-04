@@ -50,10 +50,9 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	@Override
 	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo, String orderBy)
 			throws DAOException {
-		int index = 0;
-		List<Annuncio> annunci = new ArrayList<Annuncio>();
-		Annuncio annuncio = null;
 		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN foto ON annuncio.id = foto.annuncio_id";
+		List<Annuncio> annunci = new ArrayList<Annuncio>();
+		int index = 0;
 		if (marca != "" || prezzo > 0) {
 			sql += " WHERE";
 			if (marca != "") {
@@ -62,13 +61,19 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			if (modello != "") {
 				sql += " AND modello LIKE ?";
 			}
-			if (marca != "" && prezzo > 0) {
-				sql += " AND prezzo<=?";
-			}
-			if (marca == "" && prezzo > 0) {
-				sql += " prezzo<=?";
+			if (prezzo > 0) {
+				if (marca != "") {
+					sql += " AND prezzo<=?";
+				} else {
+					sql += " prezzo<=?";
+				}
 			}
 		}
+		if (orderBy != null) {
+			sql += " ORDER BY " + orderBy;
+			System.out.println(orderBy);
+		}
+
 		System.out.println(sql);
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -87,14 +92,17 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			} else if (marca != "" && modello != "" && prezzo > 0) {
 				statement.setInt(3, prezzo);
 			}
+			
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
+				Annuncio annuncio = new Annuncio();
 				if (index != resultSet.getInt(1)) {
-					index++;
-					annuncio = new Annuncio();
+					index = resultSet.getInt(1);
 					annuncio.setId(resultSet.getInt(1));
 					annuncio.setTitolo(resultSet.getString(2));
 					annuncio.setDescrizione(resultSet.getString(3));
+
+					// System.out.println(annuncio);
 
 					Automobile automobile = new Automobile();
 					automobile.setId(resultSet.getInt(5));
@@ -106,18 +114,19 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 					automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
 					automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
 
+					// System.out.println(automobile);
 					annuncio.setAutomobile(automobile);
-
 					automobile.setAnnuncio(annuncio);
 					annunci.add(annuncio);
 				}
+
 				if (annuncio.getId() == resultSet.getInt(18)) {
 					Foto foto = new Foto();
 					foto.setId(resultSet.getInt(15));
 					foto.setUrl(resultSet.getString(16));
 					foto.setPrincipale(resultSet.getBoolean(17));
-					annuncio.getFoto().add(foto);
 					foto.setAnnuncio(annuncio);
+					annuncio.getFoto().add(foto);
 				}
 			}
 		} catch (SQLException e) {
@@ -127,6 +136,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(statement);
 			DBUtil.close(resultSet);
 		}
+		System.out.println(annunci);
 		return annunci;
 	}
 

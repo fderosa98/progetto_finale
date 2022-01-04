@@ -308,16 +308,21 @@
           </div>
           <div class="result-sorting-by">
             <p>Ordina per:</p>
-            <form action="#" method="post">
-              <div class="form-group select sorting-select">
-                <select class="form-control ">
-                  <option>Prezzo (dal più basso al più alto)</option>
-                  <option>$100 to $500</option>
-                  <option>$500 to $1000</option>
-                  <option>$1000 to $1500</option>
-                  <option>$1500 to $2000</option>
-                </select>
-              </div>
+              <form action="ricerca-annunci" method="get">
+	              <div class="form-group select sorting-select">
+	                <select name="orderBy" class="form-control" onchange="this.form.submit()">
+	                <option selected disabled>Scegli tipo ordinamento</option>
+	                  <option value="prezzo asc">Dal più economico</option>
+	                  <option value="prezzo desc">Dal più caro</option>
+	                  <option value="km asc">Chilometraggio crescente</option>
+	                  <option value="km desc">Chilometraggio decrescente</option>
+	                  <option value="anno asc">Anno immatricolazione meno recente</option>
+	                  <option value="anno desc">Anno immatricolazione più recente</option>
+	                </select>
+	                <input type="hidden" name="marca" value="${marca}"/>
+	                <input type="hidden" name="modello" value="${modello}"/>
+	                <input type="hidden" name="prezzo" value="${prezzo}"/>
+	              </div>
             </form>
           </div>
         </div>
@@ -325,21 +330,15 @@
 			<c:forEach items="${annunci}" var="annuncio">
 	        <div class="product-listing-m gray-bg">
 	        <c:forEach items="${annuncio.foto}" var="foto">
-	        <c:if test="${foto.principale}">
-	        <div class="product-listing-img"><img src="${foto.url}" class="img-fluid" alt="image">
-	            <div class="label_icon">Nuovo</div>
-<!-- 	            <div class="compare_item"> -->
-<!-- 	              <div class="checkbox"> -->
-<!-- 	                <input type="checkbox" value="" id="compare22"> -->
-<!-- 	                <label for="compare22">Confronta</label> -->
-<!-- 	              </div> -->
-<!-- 	            </div> -->
-	          </div>
-	         </c:if>
+		        <c:if test="${foto.principale}">
+			        <div class="product-listing-img"><img src="${foto.url}" class="img-fluid" alt="image">
+			            <div class="label_icon">Nuovo</div>
+		         	</div>
+		        </c:if>
 	        </c:forEach>
 	         
 
-	          <div class="product-listing-content">
+	        <div class="product-listing-content">
 	            <h5>${annuncio.titolo}</h5>
 	            <p class="list-price">${annuncio.automobile.prezzo}</p>
 	            <ul>
@@ -503,7 +502,7 @@
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Trova l'auto dei tuoi sogni </h5>
           </div>
           <div class="sidebar_filter">
-            <form action="ricerca-annuncio" method="get">
+            <form action="ricerca-annunci" method="get">
               <div class="form-group select">
                 <select class="form-control" name="prezzo" id="prezzo">
                   <option value="">prezzo fino a</option>
