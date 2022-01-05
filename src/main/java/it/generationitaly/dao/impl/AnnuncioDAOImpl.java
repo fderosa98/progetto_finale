@@ -48,12 +48,13 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	}
 
 	@Override
-	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzo, String orderBy)
-			throws DAOException {
+	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzoMin,
+			int prezzoMax, String orderBy) throws DAOException {
 		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN foto ON annuncio.id = foto.annuncio_id";
 		List<Annuncio> annunci = new ArrayList<Annuncio>();
 		int index = 0;
-		if (marca != "" || prezzo > 0) {
+//		sql = createQueryUsingParam(sql, marca, modello, prezzo, orderBy);
+		if (marca != "" || prezzoMin > 0 || prezzoMax > 0) {
 			sql += " WHERE";
 			if (marca != "") {
 				sql += " marca LIKE ?";
@@ -61,11 +62,25 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			if (modello != "") {
 				sql += " AND modello LIKE ?";
 			}
-			if (prezzo > 0) {
+			if (prezzoMin > 0 && prezzoMax == 0) {
+				if (marca != "") {
+					sql += " AND prezzo>=?";
+				} else {
+					sql += " prezzo>=?";
+				}
+			}
+			if (prezzoMin == 0 && prezzoMax > 0) {
 				if (marca != "") {
 					sql += " AND prezzo<=?";
 				} else {
 					sql += " prezzo<=?";
+				}
+			}
+			if (prezzoMin > 0 && prezzoMax > 0) {
+				if (marca != "") {
+					sql += " AND prezzo BETWEEN ? AND ?";
+				} else {
+					sql += " prezzo BETWEEN ? AND ?";
 				}
 			}
 		}
@@ -73,7 +88,6 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			sql += " ORDER BY " + orderBy;
 			System.out.println(orderBy);
 		}
-
 		System.out.println(sql);
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -81,18 +95,38 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			statement = connection.prepareStatement(sql);
 			if (marca != "") {
 				statement.setString(1, "%" + marca + "%");
+				if (modello != "") {
+					statement.setString(2, "%" + modello + "%");
+					if (prezzoMin > 0 && prezzoMax == 0) {
+						statement.setInt(3, prezzoMin);
+					} else if (prezzoMin == 0 && prezzoMax > 0) {
+						statement.setInt(3, prezzoMax);
+					} else if (prezzoMin > 0 && prezzoMax > 0) {
+						statement.setInt(3, prezzoMin);
+						statement.setInt(4, prezzoMax);
+					}
+				}
+				if (modello == "") {
+					if (prezzoMin > 0 && prezzoMax == 0) {
+						statement.setInt(2, prezzoMin);
+					} else if (prezzoMin == 0 && prezzoMax > 0) {
+						statement.setInt(2, prezzoMax);
+					} else if (prezzoMin > 0 && prezzoMax > 0) {
+						statement.setInt(2, prezzoMin);
+						statement.setInt(3, prezzoMax);
+					}
+				}
+			} else {
+				if (prezzoMin > 0 && prezzoMax == 0) {
+					statement.setInt(1, prezzoMin);
+				} else if (prezzoMin == 0 && prezzoMax > 0) {
+					statement.setInt(1, prezzoMax);
+				} else if (prezzoMin > 0 && prezzoMax > 0) {
+					statement.setInt(1, prezzoMin);
+					statement.setInt(2, prezzoMax);
+				}
 			}
-			if (modello != "") {
-				statement.setString(2, "%" + modello + "%");
-			}
-			if (marca == "" && prezzo > 0) {
-				statement.setInt(1, prezzo);
-			} else if (marca != "" && modello == "" && prezzo > 0) {
-				statement.setInt(2, prezzo);
-			} else if (marca != "" && modello != "" && prezzo > 0) {
-				statement.setInt(3, prezzo);
-			}
-			
+
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				Annuncio annuncio = new Annuncio();
@@ -261,5 +295,29 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(statement);
 		}
 		return annuncio;
+	}
+
+	private String createQueryUsingParam(String sql, String marca, String modello, int prezzo, String orderBy) {
+		if (marca != "" || prezzo > 0) {
+			sql += " WHERE";
+			if (marca != "") {
+				sql += " marca LIKE ?";
+			}
+			if (modello != "") {
+				sql += " AND modello LIKE ?";
+			}
+			if (prezzo > 0) {
+				if (marca != "") {
+					sql += " AND prezzo<=?";
+				} else {
+					sql += " prezzo<=?";
+				}
+			}
+		}
+		if (orderBy != null) {
+			sql += " ORDER BY " + orderBy;
+			System.out.println(orderBy);
+		}
+		return sql;
 	}
 }

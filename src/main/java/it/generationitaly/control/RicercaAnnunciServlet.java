@@ -40,19 +40,23 @@ public class RicercaAnnunciServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String marca = request.getParameter("marca");
 		String modello = request.getParameter("modello");
-		int prezzo = 0;
+		int prezzoMin = 0;
+		int prezzoMax = 0;
 		String orderBy = request.getParameter("orderBy");
 
-		// System.out.println((orderBy != null));
-		if (request.getParameter("prezzo") != "") {
-			prezzo = Integer.parseInt((request.getParameter("prezzo")));
+		if (request.getParameter("prezzoMin") != "") {
+			prezzoMin = Integer.parseInt((request.getParameter("prezzoMin")));
+		}
+		if (request.getParameter("prezzoMax") != "") {
+			prezzoMax = Integer.parseInt((request.getParameter("prezzoMax")));
 		}
 		try {
-			annunci = annuncioService.findFiltered(marca, modello, prezzo, orderBy);
+			annunci = annuncioService.findFiltered(marca, modello, prezzoMin, prezzoMax, orderBy);
 			request.setAttribute("annunci", annunci);
 			request.setAttribute("marca", marca);
 			request.setAttribute("modello", modello);
-			request.setAttribute("prezzo", prezzo);
+			request.setAttribute("prezzoMin", prezzoMin);
+			request.setAttribute("prezzoMax", prezzoMax);
 
 			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {
