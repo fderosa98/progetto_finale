@@ -417,16 +417,22 @@
           </div>
           <div class="result-sorting-by">
             <p>Ordina per:</p>
-            <form action="#" method="post">
-              <div class="form-group select sorting-select">
-                <select class="form-control ">
-                  <option>Prezzo (dal più basso al più alto)</option>
-                  <option>$100 to $500</option>
-                  <option>$500 to $1000</option>
-                  <option>$1000 to $1500</option>
-                  <option>$1500 to $2000</option>
-                </select>
-              </div>
+          <form action="ricerca-annunci" method="get">
+	              <div class="form-group select sorting-select">
+	                <select name="orderBy" class="form-control" onchange="this.form.submit()">
+	                <option selected disabled>Scegli tipo ordinamento</option>
+	                  <option value="prezzo asc">Dal più economico</option>
+	                  <option value="prezzo desc">Dal più caro</option>
+	                  <option value="km asc">Chilometraggio crescente</option>
+	                  <option value="km desc">Chilometraggio decrescente</option>
+	                  <option value="anno asc">Anno immatricolazione meno recente</option>
+	                  <option value="anno desc">Anno immatricolazione più recente</option>
+	                </select>
+	                <input type="hidden" name="marca" value="${marca}"/>
+	                <input type="hidden" name="modello" value="${modello}"/>
+	                <input type="hidden" name="prezzoMin" value="${prezzoMin}"/>
+	                <input type="hidden" name="prezzoMax" value="${prezzoMax}"/>
+	              </div>
             </form>
           </div>
         </div>
@@ -460,6 +466,7 @@
 <!-- 	              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li> -->
 	            </ul>
 	          	<form action="dettaglio-annuncio" method="get">
+	          	<input type="hidden" name="idAnnuncio" value="${annuncio.id}"/>
 	            <button type="submit" class="btn">Visualizza Dettagli <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
 	            <!-- div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div> -->
 	          	</form>
