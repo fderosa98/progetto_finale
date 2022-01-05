@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Risultati ricerca auto</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -53,91 +53,103 @@
 </head>
 <body class="listing-classic">
 
-<!--Header--> 
-<header>
-  <div class="default-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="index.html"><img src="assets/images/logo.png" alt="image"/></a> </div>
-        </div>
-        <div class="col-sm-9 col-md-10">
-          <div class="header_info">
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Per l'assistenza, inviateci una mail: </p>
-              <a href="mailto:info@example.com">info@example.com</a> </div>
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Assistenza telefonica Chiamaci: </p>
-              <a href="tel:61-1234-5678-09">+61-1234-5678-9</a> </div>
-            <div class="social-follow">
-              <ul>
-                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-              </ul>
+ <!--Header-->
+  <header>
+    <div class="default-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-md-2">
+            <div class="logo"> <a href="index.html"><img src="assets/images/logo.png" alt="image"/></a> </div>
+          </div>
+          <div class="col-sm-9 col-md-10">
+            <div class="header_info">
+              <div class="header_widgets">
+                <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                <p class="uppercase_text">Scrivici: </p>
+                <a href="Paolo_maccari@outlook.com" class="disabled">Paolo_maccari@outlook.com</a> </div>
+              <div class="header_widgets">
+                <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
+                <p class="uppercase_text">Contattaci: </p>
+                <a href="tel:39 342 093 9646" class="disabled">+39 342 162 6277</a> </div>
+              <div class="social-follow">
+                <ul>
+                  <li><a href="#" class="disabled"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="disabled"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="disabled"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="disabled"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+              <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Login / Registrati</a> </div>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi/Registrati</a> </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   
   <!-- Navigation -->
   <nav id="navigation_bar" class="navbar navbar-expand-lg">
-    <div class="container">
-    <div class="row header-row desktop">
-      <div class="navbar-header">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
-      </div>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav">
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-          	 <ul class="dropdown-menu">
-              <li><a href="index-2.html">Home Page 2</a></li>
-            </ul>
-          </li>
-          <li><a href="about-us.html">Chi siamo</a></li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
-            <ul class="dropdown-menu">
-              <li><a href="listing-classic.html">Stile Classico</a></li>
-              <li><a href="listing-detail-2.html">Dettaglio Stile</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pagine</a>
-            <ul class="dropdown-menu">
-              <li><a href="services.html">Servizi</a></li>
-              <li><a href="contact-us.html">Contattaci</a></li>
-              <li><a href="compare.html">Confronta i veicoli</a></li>
-              <li><a href="404.html">404 Error</a></li>
-            </ul>
-          </li>
-	  <div class="header_wrap">
-        <div class="user_login">
-          <ul>
-            <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> Jhon Anderson <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="profile-settings.html">Impostazioni del profilo</a></li>
-                <li><a class="dropdown-item" href="my-vehicles.html">I Miei Veicoli</a></li>
-                <li><a class="dropdown-item" href="post-vehicle.html">Posta un veicolo</a></li>
-                <li><a class="dropdown-item" href="#">Sign Out</a></li>
-              </ul>
-            </li>
+  <div class="container">
+  <div class="row header-row desktop">
+    <div class="navbar-header">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav">
+        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+           <ul class="dropdown-menu">
+            <li><a href="index-2 U.html">Index-2</a></li> 
           </ul>
-        </div>
-        <div class="header_search">
-          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-          <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="Search..." class="form-control">
-            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
+        </li> -->
+        <li><a href="index.html"> Home</a></li> <!-- modifica dal dropdown di Home-->
+        <li><a href="about-us.html">Chi siamo</a></li> <!-- modifica dal dropdown di Chi siamo-->
+        <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
+          <ul class="dropdown-menu">
+            <li><a href="about-us U.html">About-us-u</a></li>
+          </ul>
+        </li>-->
+        <li><a href="listing-classic.jsp">Catalogo</a></li><!-- modifica dal dropdown di Catalogo-->
+        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Rivenditori</a>
+          <ul class="dropdown-menu">
+            <li><a href="dealers-list.html">List View</a></li>
+            <li><a href="dealers-profile.html">Detail Page</a></li>
+          </ul>
+        </li> -->
+         <!-- <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Sezione Da togliere?</a>
+          <ul class="dropdown-menu">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="compare.html">Compare Vehicles</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="404.html">404 Error</a></li>
+    
+          </ul>
+        </li> -->
+        <li><a href="contact-us.html">Contattaci</a></li>
+      </ul>
+    </div>
+  <div class="header_wrap">
+      <div class="user_login">
+        <ul>
+          <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>Profilo Utente<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="profile-settings.html">impostazioni</a></li>
+              <li><a class="dropdown-item" href="my-vehicles.html">Le mie auto</a></li>
+              <li><a class="dropdown-item" href="post-vehicle.html">Crea un Annucio</a></li>
+              <li><a class="dropdown-item" href="#">Esci</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="header_search">
+        <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
+        <form action="#" method="get" id="header-search-form">
+          <input type="text" placeholder="Cerca..." class="form-control">
+          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
       </div>
     </div>
+  </div>
 	
 	 <!-- mobile-view -->
 	  <div class="row header-row mobile">
@@ -150,7 +162,7 @@
         <ul class="nav navbar-nav">
           <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
           	 <ul class="dropdown-menu">
-              <li><a href="index-2.html">Home Page 2</a></li>
+              <li><a href="index.html">Home Page 2</a></li>
             </ul>
           </li>
           <li><a href="about-us.html">Chi siamo</a></li>
@@ -214,6 +226,103 @@
   </nav>
   <!-- Navigation end --> 
   
+  <!--Login-Form -->
+<div class="modal fade" id="loginform">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    	
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Login</h3>
+      </div>
+      <div class="modal-body">
+        
+          <div class="login_wrap">
+		  <div class="mx-auto">
+            <div class="text-center">
+              <form action="#" method="get">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nome utente o Indirizzo email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password*">
+                </div>
+                <div class="form-group checkbox">
+                  <input type="checkbox" id="remember">
+                  <label for="remember">Ricordati di me</label>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Login" class="btn btn-block">
+                </div>
+              </form>
+            </div>
+             <!-- <div class="col-md-6 col-sm-6">
+              <h6 class="gray_text">Accedi in modo veloce</h6>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> LIscriviti con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
+            <div class="mid_divider"></div> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></br>
+        <!--<a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">Hai dimenticato la password?</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--/Login-Form --> 
+
+<!--Register-Form -->
+<div class="modal fade" id="signupform">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Iscriviti</h3>
+      </div>
+      <div class="modal-body">
+        
+          <div class="signup_wrap">
+		  <div class="row">
+            <div class="text-center">
+              <form action="#" method="get">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Nome e cognome">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Indirizzo Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Conferma password">
+                </div>
+                <div class="form-group checkbox">
+                  <input type="checkbox" id="terms_agree">
+                  <label for="terms_agree">Sono d'accordo con <a href="#">Termini e Condizioni</a></label>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Registrati" class="btn btn-block">
+                </div>
+              </form>
+            </div>
+            <!--<div class="col-md-6 col-sm-6">
+              <h6 class="gray_text">Accedi in modo veloce</h6>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Iscriviti con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Iscriviti con Twetter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
+            <div class="mid_divider"></div>
+          </div> -->
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        <p>Hai già un account? <a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi qui</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Register-Form --> 
+  
 </header>
 <!-- /Header --> 
 
@@ -246,7 +355,7 @@
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Trova l'auto dei tuoi sogni </h5>
           </div>
           <div class="sidebar_filter">
-            <form action="#" method="get">
+            <form action="ricerca-auto" method="get">
               <div class="form-group select">
                 <select class="form-control">
                   <option>Seleziona la posizione</option>
@@ -308,21 +417,16 @@
           </div>
           <div class="result-sorting-by">
             <p>Ordina per:</p>
-              <form action="ricerca-annunci" method="get">
-	              <div class="form-group select sorting-select">
-	                <select name="orderBy" class="form-control" onchange="this.form.submit()">
-	                <option selected disabled>Scegli tipo ordinamento</option>
-	                  <option value="prezzo asc">Dal più economico</option>
-	                  <option value="prezzo desc">Dal più caro</option>
-	                  <option value="km asc">Chilometraggio crescente</option>
-	                  <option value="km desc">Chilometraggio decrescente</option>
-	                  <option value="anno asc">Anno immatricolazione meno recente</option>
-	                  <option value="anno desc">Anno immatricolazione più recente</option>
-	                </select>
-	                <input type="hidden" name="marca" value="${marca}"/>
-	                <input type="hidden" name="modello" value="${modello}"/>
-	                <input type="hidden" name="prezzo" value="${prezzo}"/>
-	              </div>
+            <form action="#" method="post">
+              <div class="form-group select sorting-select">
+                <select class="form-control ">
+                  <option>Prezzo (dal più basso al più alto)</option>
+                  <option>$100 to $500</option>
+                  <option>$500 to $1000</option>
+                  <option>$1000 to $1500</option>
+                  <option>$1500 to $2000</option>
+                </select>
+              </div>
             </form>
           </div>
         </div>
@@ -330,15 +434,21 @@
 			<c:forEach items="${annunci}" var="annuncio">
 	        <div class="product-listing-m gray-bg">
 	        <c:forEach items="${annuncio.foto}" var="foto">
-		        <c:if test="${foto.principale}">
-			        <div class="product-listing-img"><img src="${foto.url}" class="img-fluid" alt="image">
-			            <div class="label_icon">Nuovo</div>
-		         	</div>
-		        </c:if>
+	        <c:if test="${foto.principale}">
+	        <div class="product-listing-img"><img src="${foto.url}" class="img-fluid" alt="image">
+	            <div class="label_icon">Nuovo</div>
+<!-- 	            <div class="compare_item"> -->
+<!-- 	              <div class="checkbox"> -->
+<!-- 	                <input type="checkbox" value="" id="compare22"> -->
+<!-- 	                <label for="compare22">Confronta</label> -->
+<!-- 	              </div> -->
+<!-- 	            </div> -->
+	          </div>
+	         </c:if>
 	        </c:forEach>
 	         
 
-	        <div class="product-listing-content">
+	          <div class="product-listing-content">
 	            <h5>${annuncio.titolo}</h5>
 	            <p class="list-price">${annuncio.automobile.prezzo}</p>
 	            <ul>
@@ -502,15 +612,7 @@
             <h5><i class="fa fa-filter" aria-hidden="true"></i> Trova l'auto dei tuoi sogni </h5>
           </div>
           <div class="sidebar_filter">
-            <form action="ricerca-annunci" method="get">
-              <div class="form-group select">
-                <select class="form-control" name="prezzo" id="prezzo">
-                  <option value="">prezzo fino a</option>
-                  <option value="10000">10000</option>
-                  <option value="20000">20000</option>
-                  <option value="100000">100000</option>
-                </select>
-              </div>
+            <form action="ricerca-auto" method="get">
               <div class="form-group select">
               <div class="select">
                 <select class="form-control" name="marca" id="marca">
@@ -530,6 +632,14 @@
                   <option value="Fiesta">Fiesta</option>
                   <option value="Hybrid">Hybrid</option>
                   <option value="classe c">classe c</option>
+                </select>
+              </div>
+              <div class="form-group select">
+                <select class="form-control" name="prezzo" id="prezzo">
+                  <option value="">prezzo fino a</option>
+                  <option value="10000">10000</option>
+                  <option value="20000">20000</option>
+                  <option value="100000">100000</option>
                 </select>
               </div>
               <!-- <div class="form-group select">
@@ -561,9 +671,9 @@
         </div>
         <div class="sidebar_widget sell_car_quote">
           <div class="white-text div_zindex text-center">
-            <h3>Scegli la tua auto</h3>
-            <p>Richiedi un preventivo e vendi la tua auto ora!</p>
-            <a href="#" class="btn">Richiedi un preventivo <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <h3>Ti serve una mano?</h3>
+            <p>Possiamo aiutarti a trovare l'auto che fa per te!</p>
+            <a href="contact-us.html" class="btn">Contattaci <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
           <div class="dark-overlay"></div>
         </div>
         <div class="sidebar_widget">
@@ -610,17 +720,15 @@
 <section class="brand-section gray-bg">
   <div class="container">
     <div class="brand-hadding">
-      <h5>Popular Brands</h5>
+      <h4>Le più vendute</h4>
     </div>
     <div class="brand-logo-list">
       <div id="popular_brands">
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logoford.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logoaudi.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logomercedes.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logovolkswagen.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logopeugeot.png" class="img-fluid" alt="image"></a></div>
       </div>
     </div>
   </div>
@@ -633,45 +741,45 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
-          <h6>Top Categores</h6>
+          <h6>annunci/modelli piu visitati/venduti</h6>
           <ul>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
+            <li><a href="#" class="disabled">Marca dell'auto</a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
-          <h6>About Us</h6>
+          <h6>Chi siamo</h6>
           <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Auto ibride</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Marchi</a></li>
-            <li><a href="#">Condizioni d'uso</a></li>
+            <li><a href="#" class="disabled">Privacy</a></li>
+            <li><a href="#" class="disabled">Auto ibride</a></li>
+            <li><a href="#" class="disabled">Cookies</a></li>
+            <li><a href="#" class="disabled">Marchi</a></li>
+            <li><a href="#" class="disabled">Condizioni d'uso</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
           <h6>Link utili</h6>
           <ul>
-            <li><a href="#">I nostri partner</a></li>
-            <li><a href="#">Carriera</a></li>
-            <li><a href="#">Mappa del sito</a></li>
-            <li><a href="#">Investitori</a></li>
-            <li><a href="#">Richiedi un preventivo</a></li>
+            <li><a href="#" class="disabled">I nostri partner</a></li>
+            <li><a href="#" class="disabled">Carriere</a></li>
+            <li><a href="#" class="disabled">Mappa del sito</a></li>
+            <li><a href="#" class="disabled">Investitori</a></li>
+            <li><a href="#" class="disabled">Richiedi un preventivo</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
-          <h6>Abbonarsi alla newsletter</h6>
+          <h6>Iscriviti alla newsletter</h6>
           <div class="newsletter-form">
             <form action="#">
               <div class="form-group">
-                <input type="email" class="form-control newsletter-input" required placeholder="Inserisci l'indirizzo e-mail" />
+                <a class="disabled" ><input type="email" class="form-control newsletter-input disabled" required placeholder="Inserisci l'indirizzo e-mail" /></a>
               </div>
-              <button type="submit" class="btn btn-block">Iscriviti <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+              <a class="disabled" ><button type="submit" class="btn btn-block">Iscriviti <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button></a>
             </form>
-            <p class="subscribed-text">Inviamo ogni settimana ai nostri utenti iscritti grandi offerte e le ultime notizie sull'auto.</p>
+            <p class="subscribed-text">Inviamo ogni settimana grandi offerte e le ultime notizie sull'auto ai nostri utenti iscritti.</p>
           </div>
         </div>
       </div>
@@ -681,24 +789,24 @@
     <div class="container">
       <div class="row">
         
-        <div class="col-md-6 ">
+        <div class="col-md-6">
           <p class="copy-right">Copyright &copy; 2021 MacAuto. Tutti i diritti riservati</p>
         </div>
 		<div class="col-md-6 text-right">
           <div class="footer_widget">
-            <p>Scarica la nostra APP:</p>
+            <p>Scarica l'app</p>
             <ul>
-              <li><a href="#"><i class="fa fa-android" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-android" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
             </ul>
           </div>
           <div class="footer_widget">
-            <p>Connect with Us:</p>
+            <p>Social:</p>
             <ul>
-              <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+              <li><a href="#" class= disabled><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             </ul>
           </div>
         </div>
@@ -712,111 +820,19 @@
 <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
 <!--/Back to top--> 
 
-<!--Login-Form -->
-<div class="modal fade" id="loginform">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Login</h3>
-      </div>
-      <div class="modal-body">
-        
-          <div class="login_wrap">
-		  <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username or Email address*">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password*">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">Ricordati di me</label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Login" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> LAccedi con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Accedi con Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></p></br>
-        <p><a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">Hai dimenticato la password?</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Login-Form --> 
 
-<!--Register-Form -->
-<div class="modal fade" id="signupform">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Iscriviti</h3>
-      </div>
-      <div class="modal-body">
-        
-          <div class="signup_wrap">
-		  <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full Name">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="terms_agree">
-                  <label for="terms_agree">Sono d'accordo con <a href="#">Termini e Condizioni</a></label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Sign Up" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Accedi con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Accedi con Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Hai già un account? <a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi qui</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Register-Form --> 
 
 <!--Forgot-password-Form -->
 <div class="modal fade" id="forgotpassword">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Recupera password</h3>
+        <h3 class="modal-title">Recupero password</h3>
       </div>
       <div class="modal-body">
-        <div class="row">
+        <div class="text-center">
           <div class="forgotpassword_wrap">
             <div class="col-md-12">
               <form action="#" method="get">
@@ -827,10 +843,10 @@
                   <input type="submit" value="Reset My Password" class="btn btn-block">
                 </div>
               </form>
-              <div class="text-center">
+              <!-- <div class="text-center">
                 <p class="gray_text">Per ragioni di sicurezza non conserviamo la tua password. La tua password sarà resettata e te ne sarà inviata una nuova.</p>
-                <p><a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Ritorna al Login</a></p>
-              </div>
+                <p><a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Torna al Login</a></p>
+              </div> -->
             </div>
           </div>
         </div>
@@ -838,7 +854,7 @@
     </div>
   </div>
 </div>
-<!--/Forgot-password-Form --> 
+<!--/Forgot-password-Form -->  
 
 <!-- Scripts --> 
 <script src="assets/js/jquery.min.js"></script>

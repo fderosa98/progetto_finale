@@ -431,6 +431,10 @@ blockquote,
 
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
 
 
 /*-------------------------
@@ -677,7 +681,7 @@ table thead th, table thead td {
   padding: 110px 0;
 }
 .section-header {
-  padding-bottom: 55px;
+  padding-bottom: 25px;
 }
 .section-header h2 {
   margin-bottom: 30px;
@@ -733,8 +737,10 @@ table thead th, table thead td {
   width: 650px;
 }
 .modal-content {
-  padding: 0 32px 22px;
+  padding: 18px 83px 32px;
+  width:70%
 }
+
 .modal-header {
 	padding:15px 0;
 	margin-bottom:25px;
@@ -2804,7 +2810,6 @@ table.info-tabel tr td {
 	float:right;
 }
 
-
 .listing_detail_header {
   background: rgba(0, 0, 0, 0) url("../images/1920x830.jpg") no-repeat fixed center center / cover ;
   padding: 80px 0;
@@ -4061,7 +4066,7 @@ table.info-tabel tr td {
   text-align: center;
   top: 50%;
   width: 32px;
-  transform:translateY(-50%)
+  transform:translateY(-50%);
    -moz-transform:translateY(-50%);
     -o-transform:translateY(-50%);
      -webkit-transform:translateY(-50%);

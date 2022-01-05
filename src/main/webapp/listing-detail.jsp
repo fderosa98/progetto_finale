@@ -53,91 +53,101 @@
 
 <!--Header-->
 <header>
-  <div class="default-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="index.html"><img src="assets/images/logo.png" alt="image"/></a> </div>
-        </div>
-        <div class="col-sm-9 col-md-10">
-          <div class="header_info">
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Per l'assistenza, inviateci una mail: </p>
-              <a href="mailto:info@example.com">info@example.com</a> </div>
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Assistenza telefonica Chiamaci: </p>
-              <a href="tel:61-1234-5678-09">+61-1234-5678-9</a> </div>
-            <div class="social-follow">
-              <ul>
-                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-              </ul>
+    <div class="default-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-md-2">
+            <div class="logo"> <a href="index.html"><img src="assets/images/logo.png" alt="image"/></a> </div>
+          </div>
+          <div class="col-sm-9 col-md-10">
+            <div class="header_info">
+              <div class="header_widgets">
+                <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                <p class="uppercase_text">Scrivici: </p>
+                <a href="Paolo_maccari@outlook.com" class="disabled">Paolo_maccari@outlook.com</a> </div>
+              <div class="header_widgets">
+                <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
+                <p class="uppercase_text">Contattaci: </p>
+                <a href="tel:39 342 093 9646" class="disabled">+39 342 162 6277</a> </div>
+              <div class="social-follow">
+                <ul>
+                  <li><a href="#" class="disabled"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="disabled"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="disabled"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+              <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Login / Registrati</a> </div>
             </div>
-            <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Login / Register</a> </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   
   <!-- Navigation -->
   <nav id="navigation_bar" class="navbar navbar-expand-lg">
-    <div class="container">
-    <div class="row header-row desktop">
-      <div class="navbar-header">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
-      </div>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav">
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-          	 <ul class="dropdown-menu">
-              <li><a href="index-2.html">Home Page 2</a></li>
-            </ul>
-          </li>
-          <li><a href="about-us.html">Chi siamo</a></li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
-            <ul class="dropdown-menu">
-              <li><a href="listing-classic.html">Lista auto</a></li>
-              <li><a href="listing-detail-2.html">Dettagli stile lista</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pagine</a>
-            <ul class="dropdown-menu">
-              <li><a href="services.html">Servizi</a></li>
-              <li><a href="contact-us.html">Contattaci</a></li>
-              <li><a href="compare.html">Confronta veicoli</a></li>
-              <li><a href="404.html">404 Error</a></li>
+  <div class="container">
+  <div class="row header-row desktop">
+    <div class="navbar-header">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav">
+        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+           <ul class="dropdown-menu">
+            <li><a href="index-2 U.html">Index-2</a></li> 
+          </ul>
+        </li> -->
+        <li><a href="index.html"> Home</a></li> <!-- modifica dal dropdown di Home-->
+        <li><a href="about-us.html">Chi siamo</a></li> <!-- modifica dal dropdown di Chi siamo-->
+        <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
+          <ul class="dropdown-menu">
+            <li><a href="about-us U.html">About-us-u</a></li>
+          </ul>
+        </li>-->
+        <li><a href="listing-classic.jsp">Catalogo</a></li><!-- modifica dal dropdown di Catalogo-->
+        <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Rivenditori</a>
+          <ul class="dropdown-menu">
+            <li><a href="dealers-list.html">List View</a></li>
+            <li><a href="dealers-profile.html">Detail Page</a></li>
+          </ul>
+        </li> -->
+         <!-- <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Sezione Da togliere?</a>
+          <ul class="dropdown-menu">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="compare.html">Compare Vehicles</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="404.html">404 Error</a></li>
+    
+          </ul>
+        </li> -->
+        <li><a href="contact-us.html">Contattaci</a></li>
+      </ul>
+    </div>
+  <div class="header_wrap">
+      <div class="user_login">
+        <ul>
+          <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>IlBolter<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="profile-settings.html">impostazioni</a></li>
+              <li><a class="dropdown-item" href="my-vehicles.html">Le mie auto</a></li>
+              <li><a class="dropdown-item" href="post-vehicle.html">Crea un Annucio</a></li>
+              <li><a class="dropdown-item" href="#">Esci</a></li>
             </ul>
           </li>
         </ul>
       </div>
-	  <div class="header_wrap">
-        <div class="user_login">
-          <ul>
-            <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> Jhon Anderson <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="profile-settings.html">Impostazioni del profilo</a></li>
-                <li><a class="dropdown-item" href="my-vehicles.html">I Miei Veicoli</a></li>
-                <li><a class="dropdown-item" href="post-vehicle.html">Posta un auto</a></li>
-                <li><a class="dropdown-item" href="#">Firma fuori</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="header_search">
-          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-          <form action="#" method="get" id="header-search-form">
-            <input type="text" placeholder="Search..." class="form-control">
-            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
+      <div class="header_search">
+        <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
+        <form action="#" method="get" id="header-search-form">
+          <input type="text" placeholder="Cerca..." class="form-control">
+          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
       </div>
     </div>
+  </div>
 	
 	 <!-- mobile-view -->
 	  <div class="row header-row mobile">
@@ -150,22 +160,41 @@
         <ul class="nav navbar-nav">
           <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
           	 <ul class="dropdown-menu">
+              <li><a href="index.html">Home Page 1</a></li>
               <li><a href="index-2.html">Home Page 2</a></li>
+			  <li><a href="index-3.html">Home Page 3</a></li>
             </ul>
           </li>
-          <li><a href="about-us.html">Chi siamo</a></li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
+          <li><a href="about-us.html">About Us</a></li>
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Inventory</a>
             <ul class="dropdown-menu">
-              <li><a href="listing-classic.html">Lista</a></li>
-              <li><a href="listing-detail-2.html">Dettaglio Stile lista</a></li>
+              <li><a href="listing-grid.html">Grid Style</a></li>
+              <li><a href="listing-classic.html">Classic Style</a></li>
+              <li><a href="listing-detail.html">Detail Page Style 1</a></li>
+              <li><a href="listing-detail-2.html">Detail Page Style 2</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pagine</a>
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Dealers</a>
             <ul class="dropdown-menu">
-              <li><a href="services.html">Servizi</a></li>
-              <li><a href="contact-us.html">Contattaci</a></li>
-              <li><a href="compare.html">Confronta veicoli</a></li>
+              <li><a href="dealers-list.html">List View</a></li>
+              <li><a href="dealers-profile.html">Detail Page</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact-us.html">Contact Us</a></li>
+              <li><a href="compare.html">Compare Vehicles</a></li>
+              <li><a href="faq.html">FAQ</a></li>
               <li><a href="404.html">404 Error</a></li>
+              <li><a href="coming-soon.html">Coming Soon</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+            <ul class="dropdown-menu">
+              <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+              <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+              <li><a href="blog-detail.html">Blog Detail</a></li>
             </ul>
           </li>
         </ul>
@@ -175,10 +204,10 @@
           <ul>
             <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> Jhon Anderson <i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="profile-settings.html">Informazioni di profilo</a></li>
-                <li><a class="dropdown-item" href="my-vehicles.html">I Miei Veicoli</a></li>
-                <li><a class="dropdown-item" href="post-vehicle.html">Posta un auto</a></li>
-                <li><a class="dropdown-item" href="#">Firma fuori</a></li>
+                <li><a class="dropdown-item" href="profile-settings.html">Profile Settings</a></li>
+                <li><a class="dropdown-item" href="my-vehicles.html">My Vehicles</a></li>
+                <li><a class="dropdown-item" href="post-vehicle.html">Post a Vehicle</a></li>
+                <li><a class="dropdown-item" href="#">Sign Out</a></li>
               </ul>
             </li>
           </ul>
@@ -198,10 +227,10 @@
           <ul>
             <li class="dropdown"> <a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="profile-settings.html">Informazioni di profilo</a></li>
-                <li><a href="my-vehicles.html">I Miei veicoli</a></li>
-                <li><a href="post-vehicle.html">Posta un auto</a></li>
-                <li><a href="#">Firma fuori</a></li>
+                <li><a href="profile-settings.html">Profile Settings</a></li>
+                <li><a href="my-vehicles.html">My Vehicles</a></li>
+                <li><a href="post-vehicle.html">Post a Vehicle</a></li>
+                <li><a href="#">Sign Out</a></li>
               </ul>
             </li>
           </ul>
@@ -210,7 +239,6 @@
 	  
 	  </div>
 	  <!-- mobile-view -->
-	
 	
     </div>
   </nav>
@@ -225,17 +253,17 @@
     <div class="listing_detail_head white-text div_zindex row">
       <div class="col-md-9">
         <h2>Nome Auto</h2>
-        <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div>
+        <!-- <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div>
         <div class="add_compare">
-          <div class="checkbox">
+          <!-- <div class="checkbox">
             <input value="" id="compare14" type="checkbox">
             <label for="compare14">Aggiungi al confronto</label>
-          </div>
+          </div> 
           <div class="share_vehicle">
             <p>Condividi: <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="#"></a> </p>
           </div>
-        </div>
-      </div>
+        </div> -->
+      </div> 
       <div class="col-md-3">
         <div class="price_info">
           <p>$90,000</p>
@@ -266,39 +294,42 @@
   <div class="container">
     <h3>Trova l'auto dei tuoi sogni <span>(Ricerca facile da qui)</span></h3>
     
-      <form action="#" method="get">
+      <form action="ricerca-auto" method="get">
 	  <div class="row">
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
-            <select class="form-control">
-              <option value="">Seleziona posizione </option>
-              <option value="">Location 1 </option>
-              <option value="">Location 1 </option>
-            </select>
+            <select class="form-control" name="marca" id="marca" >
+                  <option value="">Seleziona la marca</option>
+                  <option value="mercedes">mercedes</option>
+                  <option value="peugeot">peugeot</option>
+                  <option value="fiat">fiat</option>
+                  <option value="toyota">toyota</option>
+                  <option value="ford">ford</option>
+            </select>      
+           </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6 black_input">
+          <div class="select">
+            <select class="form-control" name="modello" id="modello">
+            	<option value="">Seleziona il modello</option>
+                <option value="punto">punto</option>
+                <option value="Fiesta">Fiesta</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="classe c">classe c</option>
+             </select>
           </div>
         </div>
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
-            <select class="form-control">
-              <option>Seleziona marca</option>
-              <option>Brand 1</option>
-              <option>Brand 2</option>
-              <option>Brand 3</option>
-              <option>Brand 4</option>
+            <select class="form-control" name="prezzo" id="prezzo">
+               	<option value="">prezzo fino a</option>
+                <option value="10000">10000</option>
+                <option value="20000">20000</option>
+           		<option value="100000">100000</option>
             </select>
           </div>
         </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control">
-              <option>Seleziona modello</option>
-              <option>Series 1</option>
-              <option>Series 2</option>
-              <option>Series 3</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
+        <!--  <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control">
               <option>Anno del modello </option>
@@ -307,7 +338,7 @@
               <option>2014</option>
             </select>
           </div>
-        </div>
+        </div> 
         <div class="form-group col-md-6 col-sm-6 black_input">
           <label class="form-label">Fascia di prezzo (‚Ç¨)</label>
           <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
@@ -320,7 +351,7 @@
               <option>Auto usata</option>
             </select>
           </div>
-        </div>
+        </div> -->
         <div class="form-group col-md-3 col-sm-6">
           <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Cerca auto </button>
         </div>
@@ -556,15 +587,16 @@
           </div>
           
           <!--Vehicle-Video-->
-          <div class="video_wrap">
+        <!--   <div class="video_wrap">
             <h6>Guarda video </h6>
             <div class="video-box">
                <iframe class="mfp-iframe" src="https://www.youtube.com/embed/rqSoXtKMU3Q" allowfullscreen></iframe>
             </div>
-        </div>
+        </div> -->
+        
         
           <!--Comment-Form-->
-          <div class="comment_form">
+         <!--   <div class="comment_form">
             <h6>Lasciare un commento</h6>
             <form action="#">
               <div class="form-group">
@@ -580,11 +612,11 @@
                 <input type="submit" class="btn" value="Invia commento">
               </div>
             </form>
-          </div>
+          </div> -->
           <!--/Comment-Form--> 
           
         </div>
-      </div>
+      </div> 
       
       <!--Side-Bar-->
       <aside class="col-md-3">
@@ -782,17 +814,15 @@
 <section class="brand-section gray-bg">
   <div class="container">
     <div class="brand-hadding">
-      <h5>Marche Popolari</h5>
+      <h4>Le pi˘ vendute</h4>
     </div>
     <div class="brand-logo-list">
       <div id="popular_brands">
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
-        <div><a href="#"><img src="assets/images/100x60.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logoford.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logoaudi.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logomercedes.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logovolkswagen.png" class="img-fluid" alt="image"></a></div>
+        <div><a href="#" class="disabled"><img src="assets/images/loghi/logopeugeot.png" class="img-fluid" alt="image"></a></div>
       </div>
     </div>
   </div>
@@ -805,45 +835,45 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
-          <h6>Migliori Categorie</h6>
+          <h6>annunci/modelli piu visitati/venduti</h6>
           <ul>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
-            <li><a href="#">Marca dell'auto</a></li>
+            <li><a href="#" class="disabled">Marca dell'auto</a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
+            <li><a href="#" class="disabled">Marca dell'auto </a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
           <h6>Chi siamo</h6>
           <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Auto ibrida</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Marchi</a></li>
-            <li><a href="#">Termini e Condizioni</a></li>
+            <li><a href="#" class="disabled">Privacy</a></li>
+            <li><a href="#" class="disabled">Auto ibride</a></li>
+            <li><a href="#" class="disabled">Cookies</a></li>
+            <li><a href="#" class="disabled">Marchi</a></li>
+            <li><a href="#" class="disabled">Condizioni d'uso</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
           <h6>Link utili</h6>
           <ul>
-            <li><a href="#">I Nostri partner</a></li>
-            <li><a href="#">Carriera</a></li>
-            <li><a href="#">Mappa del sito</a></li>
-            <li><a href="#">Investitori</a></li>
-            <li><a href="#">Richiedi un preventivo</a></li>
+            <li><a href="#" class="disabled">I nostri partner</a></li>
+            <li><a href="#" class="disabled">Carriere</a></li>
+            <li><a href="#" class="disabled">Mappa del sito</a></li>
+            <li><a href="#" class="disabled">Investitori</a></li>
+            <li><a href="#" class="disabled">Richiedi un preventivo</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6">
-          <h6>Abbonati alla Newsletter</h6>
+          <h6>Iscriviti alla newsletter</h6>
           <div class="newsletter-form">
             <form action="#">
               <div class="form-group">
-                <input type="email" class="form-control newsletter-input" required placeholder="Inserisci l'indirizzo e-mail" />
+                <a class="disabled" ><input type="email" class="form-control newsletter-input disabled" required placeholder="Inserisci l'indirizzo e-mail" /></a>
               </div>
-              <button type="submit" class="btn btn-block">Iscriviti <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+              <a class="disabled" ><button type="submit" class="btn btn-block">Iscriviti <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button></a>
             </form>
-            <p class="subscribed-text">Inviamo ogni settimana ai nostri utenti iscritti grandi offerte e le ultime notizie sull'auto.</p>
+            <p class="subscribed-text">Inviamo ogni settimana grandi offerte e le ultime notizie sull'auto ai nostri utenti iscritti.</p>
           </div>
         </div>
       </div>
@@ -853,24 +883,24 @@
     <div class="container">
       <div class="row">
         
-        <div class="col-md-6 ">
+        <div class="col-md-6">
           <p class="copy-right">Copyright &copy; 2021 MacAuto. Tutti i diritti riservati</p>
         </div>
 		<div class="col-md-6 text-right">
           <div class="footer_widget">
-            <p>Scarica l'App</p>
+            <p>Scarica l'app</p>
             <ul>
-              <li><a href="#"><i class="fa fa-android" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-android" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
             </ul>
           </div>
           <div class="footer_widget">
-            <p>Collegati con noi:</p>
+            <p>Social:</p>
             <ul>
-              <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+              <li><a href="#" class="disabled"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+              <li><a href="#" class= disabled><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
             </ul>
           </div>
         </div>
@@ -1025,18 +1055,19 @@
 <div class="modal fade" id="loginform">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+    	
       <div class="modal-header">
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Accedi</h3>
+        <h3 class="modal-title">Login</h3>
       </div>
       <div class="modal-body">
         
           <div class="login_wrap">
-		  <div class="row">
-            <div class="col-md-6 col-sm-6">
+		  <div class="mx-auto">
+            <div class="text-center">
               <form action="#" method="get">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username or Email address*">
+                  <input type="text" class="form-control" placeholder="Nome utente o Indirizzo email">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Password*">
@@ -1050,20 +1081,21 @@
                 </div>
               </form>
             </div>
-            <div class="col-md-6 col-sm-6">
+             <!-- <div class="col-md-6 col-sm-6">
               <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Accedi con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> LAccedi con Google+</a> </div>
-            <div class="mid_divider"></div>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> LIscriviti con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
+            <div class="mid_divider"></div> -->
           </div>
         </div>
       </div>
       <div class="modal-footer text-center">
-        <p>Non hai un account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></p></br>
-        <p><a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">hai diementicato la password ?</a></p>
+        <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></br>
+        <!--<a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">Hai dimenticato la password?</a></p> -->
       </div>
     </div>
   </div>
 </div>
+
 <!--/Login-Form --> 
 
 <!--Register-Form -->
@@ -1072,44 +1104,44 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Sign Up</h3>
+        <h3 class="modal-title">Iscriviti</h3>
       </div>
       <div class="modal-body">
         
           <div class="signup_wrap">
 		  <div class="row">
-            <div class="col-md-6 col-sm-6">
+            <div class="text-center">
               <form action="#" method="get">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full Name">
+                  <input type="text" class="form-control" placeholder="Nome e cognome">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email Address">
+                  <input type="email" class="form-control" placeholder="Indirizzo Email">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password">
+                  <input type="password" class="form-control" placeholder="Conferma password">
                 </div>
                 <div class="form-group checkbox">
                   <input type="checkbox" id="terms_agree">
                   <label for="terms_agree">Sono d'accordo con <a href="#">Termini e Condizioni</a></label>
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Sign Up" class="btn btn-block">
+                  <input type="submit" value="Registrati" class="btn btn-block">
                 </div>
               </form>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <!--<div class="col-md-6 col-sm-6">
               <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i>Accedi con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> LAccedi con Google+</a> </div>
+              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Iscriviti con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Iscriviti con Twetter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
             <div class="mid_divider"></div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="modal-footer text-center">
-        <p>Hai gi√† un account? <a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi qui</a></p>
+        <p>Hai gi‡ un account? <a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi qui</a></p>
       </div>
     </div>
   </div>
@@ -1121,11 +1153,12 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title">Recupero password</h3>
       </div>
       <div class="modal-body">
-        <div class="row">
+        <div class="text-center">
           <div class="forgotpassword_wrap">
             <div class="col-md-12">
               <form action="#" method="get">
@@ -1136,10 +1169,10 @@
                   <input type="submit" value="Reset My Password" class="btn btn-block">
                 </div>
               </form>
-              <div class="text-center">
-                <p class="gray_text">per motivi di sicurezza non conserviamo la tua password. La tua password sar√† resettata e te ne sar√† inviata una nuova.</p>
+              <!-- <div class="text-center">
+                <p class="gray_text">Per ragioni di sicurezza non conserviamo la tua password. La tua password sar‡ resettata e te ne sar‡ inviata una nuova.</p>
                 <p><a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Torna al Login</a></p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -1147,7 +1180,7 @@
     </div>
   </div>
 </div>
-<!--/Forgot-password-Form --> 
+<!--/Forgot-password-Form -->
 
 <!-- Scripts --> 
 <script src="assets/js/jquery.min.js"></script>
