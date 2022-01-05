@@ -181,7 +181,7 @@
   	<div class="main_bg white-text">
         <h3>Trova l'auto dei tuoi sogni</h3>
        
-          <form action="ricerca-auto" method="get">
+          <form action="ricerca-annunci" method="get">
 		   <div class="row">
              <div class="form-group col-md-3 col-sm-6">
               <div class="select">           
@@ -208,11 +208,21 @@
             </div>
             <div class="form-group col-md-3 col-sm-6">
               <div class="select">
-                <select class="form-control" name="prezzo" id="prezzo">
+                <select class="form-control" name="prezzoMax" id="prezzoMax">
                	<option value="">prezzo fino a</option>
                   <option value="10000">10000</option>
                   <option value="20000">20000</option>
                   <option value="100000">100000</option>
+                </select>
+              </div>
+            </div>
+             <div class="form-group col-md-3 col-sm-6">
+              <div class="select">
+                <select class="form-control" name="prezzoMin" id="prezzoMin">
+               	<option value="">prezzo da</option>
+                  <option value="10000">500</option>
+                  <option value="20000">1000</option>
+                  <option value="100000">10000</option>
                 </select>
               </div>
             </div>
