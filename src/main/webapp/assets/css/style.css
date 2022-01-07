@@ -905,7 +905,7 @@ table thead th, table thead td {
 }
 .user_login {
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
+  border-radius: 50px;
   float: left;
   margin: 18px 10px 17px 0;
 }
@@ -2090,6 +2090,7 @@ form .slider.slider-horizontal {
      -webkit-transition-duration: 0.3s;
       -ms-transition-duration: 0.3s;
 }
+
 .about_info:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
@@ -2685,7 +2686,7 @@ table.info-tabel tr td {
   list-style: outside none none;
   margin: 0 17px 0 0;
   min-height: 113px;
-  min-width: 123px;
+  min-width: 220px;
   padding: 10px;
   text-align: center;
 }
@@ -3493,7 +3494,7 @@ table.info-tabel tr td {
 .sidebar_widget {
   border: 1px solid #e6e6e6;
   margin: 0 auto 40px;
-  padding: 20px 16px 30px;
+  padding: 20px 25px 20px;
   position: relative;
 }
 .widget_heading {

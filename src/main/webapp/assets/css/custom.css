@@ -8,7 +8,7 @@ ul.nav.navbar-nav {
     width: 60%;
 }
 .header_wrap {
-    width: 39%;
+    width: 15%;
 }
 .navbar-expand-lg .navbar-nav > li.dropdown > a {
     padding: 20px 42px 20px 13px;
@@ -44,7 +44,7 @@ textarea.form-control {
 /*
 ===== index-2-page-style ===== */
 .facts_section_bg {
-    position: unset;
+    position:fixed;
 }
 body.index2 .header_wrap {
     width: 23%;
@@ -57,7 +57,7 @@ body.index2 #banner2 .carousel-caption {
 	transform: unset;
 }
 .col-md-6.vc_col.section-padding.paddin-remove {
-    padding: 0;
+    padding: 0px 150px;
 }
 .col-md-6.vc_col.section-padding.about {
     padding: 0;
@@ -115,7 +115,7 @@ body.index2 #banner2 .carousel-caption {
 /*
 ===== listing-detail-page-style ===== */
 .listing-detail .listing_detail_wrap .nav-tabs > li a {
-    padding: 0px 65px;
+    padding: 0px 450px;
 }
 .listing-detail ul#myTab {
     background: #eeeeee;
