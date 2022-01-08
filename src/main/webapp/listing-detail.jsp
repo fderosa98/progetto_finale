@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +64,7 @@
   <div class="container">
     <div class="listing_detail_head white-text div_zindex row">
       <div class="col-md-9">
-        <h2>Nome Auto</h2> 
+        <h2>${annuncio.automobile.marca} ${annuncio.automobile.modello}</h2> 
 <!--         <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> 12250 F Garvey Ave South West Covina, CA 91791</span></div> -->
 <!--         <div class="add_compare"> -->
 <!--           <div class="checkbox"> -->
@@ -77,8 +78,7 @@
       </div> 
       <div class="col-md-3">
         <div class="price_info">
-          <p>$90,000</p>
-          <p class="old_price">$95,000</p>
+          <p>${annuncio.automobile.prezzo} €</p> 
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@
   <div class="container">
     <h3>Trova l'auto dei tuoi sogni <span>(Ricerca facile da qui)</span></h3>
     
-      <form action="ricerca-auto" method="get">
+      <form action="ricerca-annunci" method="get">
 	  <div class="row">
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
@@ -207,7 +207,7 @@
 <!--           </div> -->
 <!--         </div> -->
 <!--         <div class="form-group col-md-6 col-sm-6 black_input"> -->
-<!--           <label class="form-label">Fascia di prezzo (€)</label> -->
+<!--           <label class="form-label">Fascia di prezzo (â¬)</label> -->
 <!--           <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/> -->
 <!--         </div> -->
 <!--         <div class="form-group col-md-3 col-sm-6 black_input"> -->
@@ -236,15 +236,11 @@
       <div class="col-md-9">
         <div class="listing_images">
           <div id="listing_images_slider" class="listing_images_slider">
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
+	          <c:forEach items="${annuncio.foto}" var="foto">
+	          	<c:if test="${foto.principale}">
+	            	<div><img src="${foto.url}" alt="image"></div>
+	            </c:if>
+	          </c:forEach>
           </div>
           <div id="listing_images_slider_nav" class="listing_images_slider_nav">
             <div><img src="assets/images/900x560.jpg" alt="image"></div>
@@ -301,10 +297,10 @@
             <div class="tab-content" id="myTabContent"> 
               <!-- vehicle-overview -->
               <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab">
-                <h4>Cos'è il Lorem Ipsum?</h4>
+                <h4>Cos'Ã¨ il Lorem Ipsum?</h4>
                 <p>Ci sono molte varianti di passaggi di Lorem Ipsum disponibili, ma la maggior parte ha subito alterazioni in qualche forma, con umorismo iniettato, o parole casuali che non sembrano nemmeno lontanamente credibili. Se hai intenzione di usare un passaggio di Lorem Ipsum, devi essere sicuro che non ci sia nulla di imbarazzante nascosto in mezzo al testo. Tutti i generatori di Lorem Ipsum su Internet tendono a ripetere pezzi predefiniti come necessario, rendendo questo il primo vero generatore su Internet. Utilizza un dizionario di oltre 200 parole latine, combinato con una manciata di strutture di frasi modello, per generare Lorem Ipsum che sembra ragionevole.</p>
-                <p>Lorem Ipsum è semplicemente il testo fittizio dell'industria della stampa e della composizione. Il Lorem Ipsum è stato il testo fittizio standard dell'industria fin dal 1500, quando uno stampatore sconosciuto prese una galea di caratteri e la strapazzò per fare un libro di campioni di caratteri. È sopravvissuto non solo a cinque secoli, ma anche al salto nella composizione elettronica, rimanendo essenzialmente invariato.</p>
-                <h4>Cos'è il Lorem Ipsum?</h4>
+                <p>Lorem Ipsum Ã¨ semplicemente il testo fittizio dell'industria della stampa e della composizione. Il Lorem Ipsum Ã¨ stato il testo fittizio standard dell'industria fin dal 1500, quando uno stampatore sconosciuto prese una galea di caratteri e la strapazzÃ² per fare un libro di campioni di caratteri. Ã sopravvissuto non solo a cinque secoli, ma anche al salto nella composizione elettronica, rimanendo essenzialmente invariato.</p>
+                <h4>Cos'Ã¨ il Lorem Ipsum?</h4>
                 <p>Ci sono molte varianti di passaggi di Lorem Ipsum disponibili, ma la maggior parte ha subito alterazioni in qualche forma, con umorismo iniettato, o parole casuali che non sembrano nemmeno lontanamente credibili. Se hai intenzione di usare un passaggio di Lorem Ipsum, devi essere sicuro che non ci sia nulla di imbarazzante nascosto in mezzo al testo. Tutti i generatori di Lorem Ipsum su Internet tendono a ripetere pezzi predefiniti come necessario, rendendo questo il primo vero generatore su Internet. Utilizza un dizionario di oltre 200 parole latine, combinato con una manciata di strutture di frasi modello, per generare Lorem Ipsum che sembra ragionevole.</p>
               </div>
               
@@ -359,7 +355,7 @@
                         <td>4</td>
                       </tr>
                       <tr>
-                        <td>Chilometraggio-Città</td>
+                        <td>Chilometraggio-CittÃ </td>
                         <td>22.4kmpl</td>
                       </tr>
                       <tr>
@@ -367,11 +363,11 @@
                         <td>25.83kmpl</td>
                       </tr>
                       <tr>
-                        <td>Capacità del serbatoio del carburante</td>
+                        <td>CapacitÃ  del serbatoio del carburante</td>
                         <td>40 (Litri)</td>
                       </tr>
                       <tr>
-                        <td>Capacità dei posti a sedere</td>
+                        <td>CapacitÃ  dei posti a sedere</td>
                         <td>5</td>
                       </tr>
                       <tr>
@@ -693,7 +689,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Richiedi piÃ¹ informazioni</h3>
+        <h3 class="modal-title">Richiedi piÃÂ¹ informazioni</h3>
       </div>
       <div class="modal-body">
         <form action="#" method="get">

@@ -192,6 +192,7 @@
 <!-- 	              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li> -->
 	            </ul>
 	          	<form action="dettaglio-annuncio" method="get">
+	          	<input type="hidden" name="id" value="${annuncio.automobile.id}"/>
 	            <button type="submit" class="btn">Visualizza Dettagli <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
 	            <!-- div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div> -->
 	          	</form>

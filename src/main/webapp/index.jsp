@@ -186,7 +186,7 @@
   	<div class="main_bg white-text">
         <h3>Trova l'auto dei tuoi sogni</h3>
        
-          <form action="ricerca-auto" method="get">
+          <form action="ricerca-annunci" method="get">
 		   <div class="row">
              <div class="form-group col-md-3 col-sm-6">
               <div class="select">           

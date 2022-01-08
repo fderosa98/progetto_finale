@@ -1,7 +1,6 @@
 package it.generationitaly.service.impl;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 import it.generationitaly.dao.AnnuncioDAO;
@@ -16,7 +15,6 @@ import it.generationitaly.dao.impl.IndirizzoDAOImpl;
 import it.generationitaly.model.Annuncio;
 import it.generationitaly.model.Automobile;
 import it.generationitaly.model.Indirizzo;
-import it.generationitaly.model.Utente;
 import it.generationitaly.service.AnnuncioService;
 import it.generationitaly.service.ServiceException;
 
@@ -42,7 +40,7 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 			DBUtil.close(connection);
 			
 		}
-		return null;
+		return annunci;
 	}
 
 	@Override

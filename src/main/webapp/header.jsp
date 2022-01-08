@@ -43,7 +43,14 @@
       <ul class="nav navbar-nav">
       	<li><a href="index.jsp"> Home</a></li>
       	<li><a href="about-us.jsp">Chi siamo</a></li>
-      	<li><a href="listing-classic.jsp">Catalogo</a></li>
+      	
+      	<li>
+	      	<a href="javascript:;" onclick="document.getElementById('form_catalogo').submit();">Catalogo</a>  	
+      	</li>  
+      	
+      		<form id="form_catalogo" action="annunci" method="get">
+	      	</form>
+      	
       	<li><a href="contact-us.jsp">Contattaci</a></li>
         <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
            <ul class="dropdown-menu">
