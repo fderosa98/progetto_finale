@@ -1,6 +1,7 @@
 package it.generationitaly.service.impl;
 
 import java.sql.Connection;
+import java.util.List;
 
 import it.generationitaly.dao.DAOException;
 import it.generationitaly.dao.DBUtil;
@@ -90,5 +91,23 @@ public class UtenteServiceImpl implements UtenteService {
             DBUtil.close(connection);
         }
         return utente;
+	}
+
+	@Override
+	public List<Messaggio> findAllMessaggiConUtenti() throws ServiceException {
+		Connection connection = null;
+		List<Messaggio> messaggi = null;
+		try {
+			connection = DataSource.getInstance().getConnection();
+			DBUtil.setAutoCommit(connection, false);
+			messaggi = messaggioDAO.findAllMessaggiMittentiDestinatari(connection);
+			DBUtil.commit(connection);
+		} catch (DAOException e) {
+			System.err.println(e.getMessage());
+			throw new ServiceException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(connection);
+		}
+		return messaggi;
 	}
 }

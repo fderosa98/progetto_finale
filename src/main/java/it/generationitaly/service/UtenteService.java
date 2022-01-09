@@ -1,5 +1,7 @@
 package it.generationitaly.service;
 
+import java.util.List;
+
 import it.generationitaly.model.Messaggio;
 import it.generationitaly.model.Utente;
 
@@ -12,4 +14,6 @@ public interface UtenteService {
 	public Utente findById(int id) throws ServiceException;
 	
 	void saveMessaggio(Messaggio messaggio) throws ServiceException;
+	
+	List<Messaggio> findAllMessaggiConUtenti() throws ServiceException;
 }

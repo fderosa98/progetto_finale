@@ -111,11 +111,11 @@
           <div class="select">
             <select class="form-control" name="marca" id="marca">
               <option value="">Seleziona la marca </option>
-              <option value="mercedes">mercedes</option>
-              <option value="peugeot">peugeot</option>
-              <option value="fiat">fiat</option>
-              <option value="toyota">toyota</option>
-              <option value="ford">ford</option>
+              <c:forEach items="${annunci}" var="annun">
+              <c:out value="${annun.automobile.marca}"></c:out>
+              <option value="${annun.automobile.marca}"><c:out value="${annun.automobile.marca}"></c:out></option>
+              </c:forEach>
+              
             </select>
           </div>
         </div>
@@ -243,29 +243,25 @@
 	          </c:forEach>
           </div>
           <div id="listing_images_slider_nav" class="listing_images_slider_nav">
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
-            <div><img src="assets/images/900x560.jpg" alt="image"></div>
+           <c:forEach items="${annuncio.foto}" var="foto">
+           <c:if test="${!foto.principale}">
+            <div><img src="${foto.url}" alt="image"></div>
+          </c:if>
+           </c:forEach> 
           </div>
         </div>
         <div class="main_features">
           <ul>
             <li> <i class="fa fa-tachometer" aria-hidden="true"></i>
-              <h5>13,000</h5>
+              <h5>${annuncio.automobile.km}</h5>
               <p>Kilometri totali</p>
             </li>
             <li> <i class="fa fa-calendar" aria-hidden="true"></i>
-              <h5>2010</h5>
-              <p>Anno di riferimento</p>
+              <h5>${annuncio.automobile.anno}</h5>
+              <p>Anno di immatricolazione</p>
             </li>
             <li> <i class="fa fa-cogs" aria-hidden="true"></i>
-              <h5>Diesel</h5>
+              <h5>${annuncio.automobile.carburante.value}</h5>
               <p>Tipo di carburante</p>
             </li>
             <!--li> <i class="fa fa-power-off" aria-hidden="true"></i>
@@ -277,8 +273,8 @@
               <p>Motore</p>
             </li-->
             <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
-              <h5>5</h5>
-              <p>Posti a sedere</p>
+              <h5>${annuncio.automobile.numeroPorte.value}</h5>
+              <p>Numero di porte</p>
             </li>
           </ul>
         </div>
@@ -297,12 +293,9 @@
             <div class="tab-content" id="myTabContent"> 
               <!-- vehicle-overview -->
               <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab">
-                <h4>Cos'Ã¨ il Lorem Ipsum?</h4>
-                <p>Ci sono molte varianti di passaggi di Lorem Ipsum disponibili, ma la maggior parte ha subito alterazioni in qualche forma, con umorismo iniettato, o parole casuali che non sembrano nemmeno lontanamente credibili. Se hai intenzione di usare un passaggio di Lorem Ipsum, devi essere sicuro che non ci sia nulla di imbarazzante nascosto in mezzo al testo. Tutti i generatori di Lorem Ipsum su Internet tendono a ripetere pezzi predefiniti come necessario, rendendo questo il primo vero generatore su Internet. Utilizza un dizionario di oltre 200 parole latine, combinato con una manciata di strutture di frasi modello, per generare Lorem Ipsum che sembra ragionevole.</p>
-                <p>Lorem Ipsum Ã¨ semplicemente il testo fittizio dell'industria della stampa e della composizione. Il Lorem Ipsum Ã¨ stato il testo fittizio standard dell'industria fin dal 1500, quando uno stampatore sconosciuto prese una galea di caratteri e la strapazzÃ² per fare un libro di campioni di caratteri. Ã sopravvissuto non solo a cinque secoli, ma anche al salto nella composizione elettronica, rimanendo essenzialmente invariato.</p>
-                <h4>Cos'Ã¨ il Lorem Ipsum?</h4>
-                <p>Ci sono molte varianti di passaggi di Lorem Ipsum disponibili, ma la maggior parte ha subito alterazioni in qualche forma, con umorismo iniettato, o parole casuali che non sembrano nemmeno lontanamente credibili. Se hai intenzione di usare un passaggio di Lorem Ipsum, devi essere sicuro che non ci sia nulla di imbarazzante nascosto in mezzo al testo. Tutti i generatori di Lorem Ipsum su Internet tendono a ripetere pezzi predefiniti come necessario, rendendo questo il primo vero generatore su Internet. Utilizza un dizionario di oltre 200 parole latine, combinato con una manciata di strutture di frasi modello, per generare Lorem Ipsum che sembra ragionevole.</p>
-              </div>
+                <h4>${annuncio.titolo}</h4>
+                <p>${annuncio.descrizione}</p>
+               </div>
               
               <!-- Technical-Specification -->
               <!--div role="tabpanel" class="tab-pane" id="Technical" aria-labelledby="Technical-tab">
@@ -488,15 +481,18 @@
           <div class="widget_heading">
             <h5><i class="fa fa-address-card-o" aria-hidden="true"></i> Contatta il venditore </h5>         
           </div>
-            <p><span>Nome:</span> Paolo Maccari</p>
-            <p><span>Email:</span> contact@example.com</p>
-            <p><span>Cellulare:</span> +61-1234-5678-09</p>
+            <p><span>Nome: </span>${annuncio.utente.nome} ${annuncio.utente.cognome}</p>
+            <p><span>Email: </span> ${annuncio.utente.email}</p>
+            <p><span>Cellulare: </span> ${annuncio.utente.telefono}</p>
             <br>
-              <textarea rows="4" class="form-control" placeholder="Messaggio"></textarea>
+            <form action="invia-messaggio" method="post"> 
+            <input type="hidden" name="idDestinatario" value="${annuncio.utente.id}"/>
+              <textarea rows="4" class="form-control" placeholder="Messaggio" name="message"></textarea>
             <div class="form-group">
             <div style="text-align:center;">
-            <br>          
-            <input type="submit"value="Invia Messaggio" class="btn btn-block">
+            <br>         
+            <input type="submit" value="Invia Messaggio" class="btn btn-block">
+            </form>
             </div>
             </div>
         </div>
@@ -511,104 +507,32 @@
     <div class="similar_cars">
       <h3>Auto simili</h3>
       <div class="row">
+      <c:forEach items="${annunci}" var="annunc">
+      <c:if test="${(annunc.automobile.marca eq annuncio.automobile.marca) && annuncio.id != annunc.id}">
         <div class="col-md-3 grid_listing">
           <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">Nuova</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare13">
-                  <label for="compare13">Confronta</label>
-                </div>
-              </div>
+          <c:forEach items="${annunc.foto}" var="foto">
+          <c:if test="${foto.principale}">
+            <div class="product-listing-img"> <a href="#"><img src="${foto.url}" class="img-fluid" alt="image" /> </a>   
             </div>
+            </c:if>
+            </c:forEach>
             <div class="product-listing-content">
-              <h5><a href="#">Nome auto</a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+              <h5><a href="#">${annunc.automobile.marca} ${annunc.automobile.modello}</a></h5>
+              <p class="list-price">${annunc.automobile.prezzo} €</p>
+              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> ${annunc.indirizzo.citta}, ${annunc.indirizzo.provincia}</span></div>
               <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
+                <li><i class="fa fa-road" aria-hidden="true"></i>${annunc.automobile.km} Km</li>
+                <li><i class="fa fa-user-plus" aria-hidden="true"></i>${annunc.automobile.numeroPorte.value}</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>${annunc.automobile.anno}</li>
+                <li><i class="fa fa-car" aria-hidden="true"></i>${annunc.automobile.carburante.value}</li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">Nuova</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare20">
-                  <label for="compare20">Confronta</label>
-                </div>
-              </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="#">Nome auto</a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">Usata</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare15">
-                  <label for="compare15">Confronta</label>
-                </div>
-              </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="#">Nome auto</a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 grid_listing">
-          <div class="product-listing-m gray-bg">
-            <div class="product-listing-img"> <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image" /> </a>
-              <div class="label_icon">Usata</div>
-              <div class="compare_item">
-                <div class="checkbox">
-                  <input type="checkbox" value="" id="compare16">
-                  <label for="compare16">Confronta</label>
-                </div>
-              </div>
-            </div>
-            <div class="product-listing-content">
-              <h5><a href="#">Nome auto</a></h5>
-              <p class="list-price">$89,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-              <ul class="features_list">
-                <li><i class="fa fa-road" aria-hidden="true"></i>35,000 km</li>
-                <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-                <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </c:if>
+        </c:forEach>
+     </div>
     <!--/Similar-Cars--> 
     
   </div>

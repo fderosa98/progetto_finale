@@ -16,7 +16,7 @@ public enum Carburante {
 
 	public static Carburante fromValue(String value) {
 		for (Carburante carburante : values()) {
-			if (carburante.getValue().equals(value)) {
+			if (carburante.getValue().equalsIgnoreCase(value)) {
 				return carburante;
 			}
 		}

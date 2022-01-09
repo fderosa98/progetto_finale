@@ -23,7 +23,9 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	@Override
 	public List<Annuncio> findAll(Connection connection) throws DAOException {
 		List<Annuncio> annunci = new ArrayList<Annuncio>();
-		String sql = "SELECT * FROM annuncio";
+		int index = 0;
+		System.out.println("QUERY DI FIND ALL");
+		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN indirizzo ON annuncio.indirizzo_id = indirizzo.id JOIN utente on utente.id = annuncio.utente_id join foto ON annuncio.id = foto.annuncio_id";
 		System.out.println(sql);
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -32,10 +34,59 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				Annuncio annuncio = new Annuncio();
-				annuncio.setId(resultSet.getInt(1));
-				annuncio.setTitolo(resultSet.getString(2));
-				annuncio.setDescrizione(resultSet.getString(3));
-				annunci.add(annuncio);
+				if (index != resultSet.getInt(1)) {
+					index = resultSet.getInt(1);
+					annuncio.setId(resultSet.getInt(1));
+					annuncio.setTitolo(resultSet.getString(2));
+					annuncio.setDescrizione(resultSet.getString(3));
+
+					// System.out.println(annuncio);
+
+					Automobile automobile = new Automobile();
+					automobile.setId(resultSet.getInt(5));
+					automobile.setMarca(resultSet.getString(8));
+					automobile.setModello(resultSet.getString(9));
+					automobile.setAnno(resultSet.getInt(10));
+					automobile.setPrezzo(resultSet.getInt(11));
+					automobile.setKm(resultSet.getInt(12));
+					automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
+					automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
+					
+					// System.out.println(automobile);
+					annuncio.setAutomobile(automobile);
+					automobile.setAnnuncio(annuncio);
+					
+					
+					Indirizzo indirizzo = new Indirizzo();
+					indirizzo.setId(resultSet.getInt(15));
+					indirizzo.setCitta(resultSet.getString(16));
+					indirizzo.setProvincia(resultSet.getString(17));
+					
+					annuncio.setIndirizzo(indirizzo);
+					indirizzo.setAnnuncio(annuncio);
+					
+					Utente utente = new Utente();
+					utente.setId(resultSet.getInt(18));
+					utente.setNome(resultSet.getString(19));
+					utente.setCognome(resultSet.getString(20));
+					utente.setEmail(resultSet.getString(21));
+					utente.setTelefono(resultSet.getLong(22));
+					utente.setUsername(resultSet.getString(23));
+					utente.setPassword(resultSet.getString(24));
+					
+					annuncio.setUtente(utente);
+					
+					annunci.add(annuncio);
+				}
+
+				if (annuncio.getId() == resultSet.getInt(28)) {
+					Foto foto = new Foto();
+					foto.setId(resultSet.getInt(25));
+					foto.setUrl(resultSet.getString(26)); 
+					foto.setPrincipale(resultSet.getBoolean(27));
+					foto.setAnnuncio(annuncio);
+					annuncio.getFoto().add(foto);
+				}
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -44,16 +95,16 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(resultSet);
 			DBUtil.close(statement);
 		}
+		System.out.println(annunci);
 		return annunci;
 	}
 
 	@Override
 	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzoMin,
 			int prezzoMax, String orderBy) throws DAOException {
-		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN foto ON annuncio.id = foto.annuncio_id";
+		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN indirizzo ON annuncio.indirizzo_id = indirizzo.id JOIN foto ON annuncio.id = foto.annuncio_id";
 		List<Annuncio> annunci = new ArrayList<Annuncio>();
 		int index = 0;
-//		sql = createQueryUsingParam(sql, marca, modello, prezzo, orderBy);
 		if (marca != "" || prezzoMin > 0 || prezzoMax > 0) {
 			sql += " WHERE";
 			if (marca != "") {
@@ -147,18 +198,28 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 					automobile.setKm(resultSet.getInt(12));
 					automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
 					automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
-
+					
 					// System.out.println(automobile);
 					annuncio.setAutomobile(automobile);
 					automobile.setAnnuncio(annuncio);
+					
+					
+					Indirizzo indirizzo = new Indirizzo();
+					indirizzo.setId(resultSet.getInt(15));
+					indirizzo.setCitta(resultSet.getString(16));
+					indirizzo.setProvincia(resultSet.getString(17));
+					
+					annuncio.setIndirizzo(indirizzo);
+					indirizzo.setAnnuncio(annuncio);
+					
 					annunci.add(annuncio);
 				}
 
-				if (annuncio.getId() == resultSet.getInt(18)) {
+				if (annuncio.getId() == resultSet.getInt(21)) {
 					Foto foto = new Foto();
-					foto.setId(resultSet.getInt(15));
-					foto.setUrl(resultSet.getString(16));
-					foto.setPrincipale(resultSet.getBoolean(17));
+					foto.setId(resultSet.getInt(18));
+					foto.setUrl(resultSet.getString(19)); 
+					foto.setPrincipale(resultSet.getBoolean(20));
 					foto.setAnnuncio(annuncio);
 					annuncio.getFoto().add(foto);
 				}
@@ -170,7 +231,6 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(statement);
 			DBUtil.close(resultSet);
 		}
-		System.out.println(annunci);
 		return annunci;
 	}
 
@@ -232,6 +292,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 	@Override
 	public Annuncio findDettaglioById(Connection connection, int id) throws DAOException {
 		String sql = "SELECT * FROM annuncio JOIN indirizzo ON annuncio.indirizzo_id = indirizzo.id JOIN utente ON annuncio.utente_id = utente.id JOIN automobile ON automobile.id = annuncio.automobile_id JOIN foto ON annuncio.id = foto.annuncio_id WHERE annuncio.id=?";
+		System.out.println("QUERY DI FIND DETTAGLIO BY ID");
 		System.out.println(sql);
 		Annuncio annuncio = null;
 		PreparedStatement statement = null;
@@ -297,27 +358,4 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		return annuncio;
 	}
 
-	private String createQueryUsingParam(String sql, String marca, String modello, int prezzo, String orderBy) {
-		if (marca != "" || prezzo > 0) {
-			sql += " WHERE";
-			if (marca != "") {
-				sql += " marca LIKE ?";
-			}
-			if (modello != "") {
-				sql += " AND modello LIKE ?";
-			}
-			if (prezzo > 0) {
-				if (marca != "") {
-					sql += " AND prezzo<=?";
-				} else {
-					sql += " prezzo<=?";
-				}
-			}
-		}
-		if (orderBy != null) {
-			sql += " ORDER BY " + orderBy;
-			System.out.println(orderBy);
-		}
-		return sql;
-	}
 }

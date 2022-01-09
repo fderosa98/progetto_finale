@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class InviaMessaggioServlet
  */
-@WebServlet("/send-message")
+@WebServlet("/invia-messaggio")
 public class InviaMessaggioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,27 +38,32 @@ public class InviaMessaggioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// il mittente sará poi l'utente loggato in sessione
 		// int mittente_id = Integer.parseInt(request.getParameter("mittenteId"));
+		if(request.getSession().getAttribute("username") == null) {
+			response.sendRedirect("index.jsp");
+			return;
+		}
+		
 		String username = (String) request.getSession().getAttribute("username");
 		// il destinatario é colui che ha pubblicato l'annuncio su cui siamo noi
-		int destinatario_id = Integer.parseInt(request.getParameter("destinatarioId"));
+		int idDestinatario = Integer.parseInt(request.getParameter("idDestinatario"));
 		String message = request.getParameter("message");
 		Utente mittente = null;
 		Utente destinatario = null;
 		Messaggio messaggio = new Messaggio();
 		try {
-			// una volta che avremo login e utente salvato in sessione, potremo usare quello
-			// direttamente come mittente
 			mittente = utenteService.findByUsername(username);
-			// qui invece metto un campo hidden con l'id per poi risalire all'utente
-			// destinatario con una findByid (perché non saprei come inviare direttamente
-			// l'utente dell'annuncio (annuncio.getUtente()) in una form, non essendo questo
-			// salvato in sessione.)
-			destinatario = utenteService.findById(destinatario_id);
-			messaggio.setMittente(mittente);
-			messaggio.setDestinatario(destinatario);
-			messaggio.setCorpoMessaggio(message);
-			utenteService.saveMessaggio(messaggio);
-			response.sendRedirect("dettaglio.jsp");
+			destinatario = utenteService.findById(idDestinatario);
+			if(mittente.getId() == destinatario.getId()) {
+				//errore 500 da inserire
+				response.sendRedirect("404.jsp");
+				return;
+			} else {
+				messaggio.setMittente(mittente);
+				messaggio.setDestinatario(destinatario);
+				messaggio.setCorpoMessaggio(message);
+				utenteService.saveMessaggio(messaggio);
+				response.sendRedirect("listing-detail.jsp");
+			}
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}
