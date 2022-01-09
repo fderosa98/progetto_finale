@@ -9,7 +9,7 @@ public interface MessaggioDAO {
 
 	void saveMessaggio(Connection connection, Messaggio messaggio) throws DAOException;
 	
-	List<Messaggio> findAll(Connection connection) throws DAOException;
+	// List<Messaggio> findAll(Connection connection) throws DAOException;
 	
 	public List<Messaggio> findAllMessaggiMittentiDestinatari(Connection connection) throws DAOException;
 }

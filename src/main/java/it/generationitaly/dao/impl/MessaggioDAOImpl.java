@@ -40,7 +40,7 @@ public class MessaggioDAOImpl implements MessaggioDAO {
             DBUtil.close(statement); 
         }
 	}
-
+/*
 	@Override
 	public List<Messaggio> findAll(Connection connection) throws DAOException {
 		List<Messaggio> messaggi = new ArrayList<Messaggio>();
@@ -74,7 +74,8 @@ public class MessaggioDAOImpl implements MessaggioDAO {
 			DBUtil.close(statement);
 		}
 		return messaggi;
-	}
+	} 
+*/
 	
 	@Override
 	public List<Messaggio> findAllMessaggiMittentiDestinatari(Connection connection) throws DAOException {
