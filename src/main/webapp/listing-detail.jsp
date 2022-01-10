@@ -49,6 +49,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->  
+<script>
+	function changePrincipale(img) {
+		tmp = document.getElementById("fotoPrincipale").src;
+		document.getElementById("fotoPrincipale").src = img.src ;
+		img.src = tmp;
+		
+	}
+</script>
 </head>
 <body class="listing-detail-2">
 <!--Header-->
@@ -228,7 +236,25 @@
   </div>
 </section>
 <!-- /Filter-Form --> 
-
+<c:if test="${param.inviato != null}">
+	<div class="modal fade" id="loginform">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+          <div class="modal-header">
+          <div class="text-center">
+          <h3 class="text-center">Messaggio inviato con successo</h3>
+          <br>
+          <div class="text-center">
+          <div class="btn btn-xs uppercase" aria-label="Close">
+        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ok</span></button>
+        </div> 
+        </div>
+      </div>
+ 	</div>
+  </div>
+</div>
+</div>
+</c:if>
 <!--Listing-detail-->
 <section class="listing-detail">
   <div class="container">
@@ -238,14 +264,14 @@
           <div id="listing_images_slider" class="listing_images_slider">
 	          <c:forEach items="${annuncio.foto}" var="foto">
 	          	<c:if test="${foto.principale}">
-	            	<div><img src="${foto.url}" alt="image"></div>
+	            	<div><img id="fotoPrincipale" src="${foto.url}" alt="image"></div>
 	            </c:if>
 	          </c:forEach>
           </div>
           <div id="listing_images_slider_nav" class="listing_images_slider_nav">
            <c:forEach items="${annuncio.foto}" var="foto">
            <c:if test="${!foto.principale}">
-            <div><img src="${foto.url}" alt="image"></div>
+            <div><img  onclick="changePrincipale(this)" src="${foto.url}" alt="image"></div>
           </c:if>
            </c:forEach> 
           </div>
@@ -487,6 +513,7 @@
             <br>
             <form action="invia-messaggio" method="post"> 
             <input type="hidden" name="idDestinatario" value="${annuncio.utente.id}"/>
+            <input type="hidden" name="idAnnuncio" value="${annuncio.id}"/>
               <textarea rows="4" class="form-control" placeholder="Messaggio" name="message"></textarea>
             <div class="form-group">
             <div style="text-align:center;">
@@ -507,18 +534,30 @@
     <div class="similar_cars">
       <h3>Auto simili</h3>
       <div class="row">
+      
       <c:forEach items="${annunci}" var="annunc">
       <c:if test="${(annunc.automobile.marca eq annuncio.automobile.marca) && annuncio.id != annunc.id}">
         <div class="col-md-3 grid_listing">
           <div class="product-listing-m gray-bg">
           <c:forEach items="${annunc.foto}" var="foto">
           <c:if test="${foto.principale}">
-            <div class="product-listing-img"> <a href="#"><img src="${foto.url}" class="img-fluid" alt="image" /> </a>   
+            <div class="product-listing-img"> 
+            	<a href="
+            		<c:url value="/dettaglio-annuncio">
+                		<c:param name="id" value="${annunc.id}"/>
+         			</c:url>">
+         			<img src="${foto.url}" class="img-fluid" alt="image" /> 
+         		</a>   
             </div>
             </c:if>
             </c:forEach>
             <div class="product-listing-content">
-              <h5><a href="#">${annunc.automobile.marca} ${annunc.automobile.modello}</a></h5>
+              <h5>
+	              <a href="
+	              	<c:url value="/dettaglio-annuncio">
+	                	<c:param name="id" value="${annunc.id}"/>
+	         		</c:url>">${annunc.automobile.marca} ${annunc.automobile.modello}</a>
+         	  </h5>
               <p class="list-price">${annunc.automobile.prezzo} €</p>
               <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> ${annunc.indirizzo.citta}, ${annunc.indirizzo.provincia}</span></div>
               <ul class="features_list">

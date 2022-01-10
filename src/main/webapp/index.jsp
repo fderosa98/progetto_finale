@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page isELIgnored="false" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-
 <meta charset="ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,66 +52,8 @@
 </head>
 <body class="index2">
 
-<!--Header-->
-<header class="header_style2 nav-stacked affix-top" data-spy="affix" data-offset-top="1">
-  <!-- Navigation -->
-  <nav id="navigation_bar" class="navbar navbar-expand-lg">
-    <div class="container custom-con">
-	<div class="row header-row padding-remove">
-      <div class="navbar-header">
-      	<div class="logo"> <a href="index.jsp"><img src="assets/images/logo.png" alt="image"/></a> </div>
-		
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav"> 
-          <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-          	 <ul class="dropdown-menu">
-              <li><a href="index-2.html">Home Page</a></li>
-            </ul>
-          </li> -->
-          <li><a href="index.jsp"> Home</a></li> <!-- modifica del dropdown di Home-->
-          <li><a href="about-us.jsp">Chi siamo</a></li> <!-- modifica del dropdown di Chi siamo-->
-          <li><a href="listing-classic.jsp">Catalogo</a></li> <!-- modifica al dropdown catalogo-->
-          <li><a href="contact-us.jsp">Contattaci</a></li>
-          <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Catalogo</a>
-            <ul class="dropdown-menu">
-              <li><a href="listing-classic.html">Classic Style</a></li>
-              <li><a href="listing-detail-2.html">Detail Page Style 2</a></li>
-            </ul>
-          </li> -->
-          <!--<li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Pagine</a>
-            <ul class="dropdown-menu">
-              <li><a href="services.html">Servizi</a></li>
-              <li><a href="contact-us.html">Contattaci</a></li>
-              <li><a href="compare.html">Confronta i veicoli</a></li>
-              <li><a href="404.html">404 Error</a></li>
-            </ul>
-          </li> -->
-      </div>
-     
-      <div class="header_wrap margin-remove">
-        <div class="user_login">
-          <ul>
-            <li class="dropdown"> <a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="profile-settings.jsp">Impostazioni </a></li>
-                <li><a href="my-vehicles.jsp">I miei annunci</a></li>
-                <li><a href="post-vehicle.jsp">Crea un annuncio</a></li>
-                <li><a href="#">Esci</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-         <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi/Registrati</a> </div>
-      </div>
-      </div>
-    </div>
-  </nav>
-  <!-- Navigation end --> 
-  </ul>
-</header>
-<!-- /Header --> 
+
+<%@ include file="header.jsp"%>
 
 
 <!--Banner-->
@@ -139,7 +79,7 @@
               <img src="assets/images/bmw.jpg" alt="image" class="img-fluid">
               <div class="carousel-caption">
                   <div class="banner_text text-center div_zindex white-text">
-                        <h1> auto dei tuoi sogni.</h1>
+                        <h1> Trova l'auto dei tuoi sogni.</h1>
                         <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
                          <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
@@ -150,7 +90,7 @@
               <img src="assets/images/audi.jpg" alt="image" class="img-fluid">
               <div class="carousel-caption">
                   <div class="banner_text text-center div_zindex white-text">
-                        <h1>Trova l'auto dei tuoi sogni.</h1>
+                        <h1>Utilizza i filtri per trovarla in fretta.</h1>
                         <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
                          <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
@@ -161,7 +101,7 @@
               <img src="assets/images/mustang.jpg" alt="image" class="img-fluid">
               <div class="carousel-caption">
                   <div class="banner_text text-center div_zindex white-text">
-                        <h1>Trova l'auto dei tuoi sogni.</h1>
+                        <h1>Contatta il venditore e concludi un affare.</h1>
                         <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
                          <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
@@ -178,6 +118,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+  </div>
 </section>
 <!--/Banner-->
 
@@ -188,7 +129,7 @@
   	<div class="main_bg white-text">
         <h3>Trova l'auto dei tuoi sogni</h3>
        
-          <form action="ricerca-annunci" method="get">
+          <form action="ricerca-auto" method="get">
 		   <div class="row">
              <div class="form-group col-md-3 col-sm-6">
               <div class="select">           
@@ -381,13 +322,13 @@
     <div class=" col-md-6 vc_col section-padding">
         <div class="fact_m white-text">
             <h2>Informazioni su MacAuto</h2>
-            <p>Da circa 15 anni MacAuto verifica in maniera indipendente le auto usate e nuove e mette a tua disposizione la propria conoscenza in fatto di auto. Grazie a noi diventi un ricercatore! Qualsiasi sia il dettaglio o il settore riguardanti il mondo delle auto su cui hai dei dubbi, da noi trovi la risposta: vetture moderne o d'epoca, auto sportive o di servizio, le migliori officine, la messa a punto ottimale, gli accessori pi&ugrave; adatti e molto altro ancora. Ti baster&agrave; dare un'occhiata al nostro catalogo. </p>
+            <p>Da circa 15 anni MacAuto verifica in maniera indipendente le auto usate e nuove e mette a tua disposizione la propria conoscenza in fatto di auto. Grazie a noi diventi un ricercatore! Qualsiasi sia il dettaglio o il settore riguardanti il mondo delle auto su cui hai dei dubbi, da noi trovi la risposta: vetture moderne o d’epoca, auto sportive o di servizio, le migliori officine, la messa a punto ottimale, gli accessori più adatti e molto altro ancora. Ti basterà dare un’occhiata al nostro Catalogo. </p>
     
             <ul>
                 <li>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <h2>15+</h2>
-                    <p>Anni di attivit&agrave;</p>                    
+                    <p>Anni di attività</p>                    
                 </li>
                 
                 <li>
@@ -733,136 +674,7 @@
 <!-- /Footer--> 
 
 
-<!--Login-Form -->
-<div class="modal fade" id="loginform">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-    	
-      <div class="modal-header">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Login</h3>
-      </div>
-      <div class="modal-body">
-        
-          <div class="login_wrap">
-		  <div class="mx-auto">
-            <div class="text-center">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome utente o Indirizzo email">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password*">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">Ricordati di me</label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Login" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-             <!-- <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> LIscriviti con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
-            <div class="mid_divider"></div> -->
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></br>
-        <!--<a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">Hai dimenticato la password?</a></p> -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--/Login-Form --> 
-
-<!--Register-Form -->
-<div class="modal fade" id="signupform">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Iscriviti</h3>
-      </div>
-      <div class="modal-body">
-        
-          <div class="signup_wrap">
-		  <div class="row">
-            <div class="text-center">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome e cognome">
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Indirizzo Email">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Conferma password">
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="terms_agree">
-                  <label for="terms_agree">Sono d'accordo con <a href="#">Termini e Condizioni</a></label>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Registrati" class="btn btn-block">
-                </div>
-              </form>
-            </div>
-            <!--<div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Iscriviti con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Iscriviti con Twetter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div> -->
-        </div>
-      </div>
-      <div class="modal-footer text-center">
-        <p>Hai già un account? <a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal">Accedi qui</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Register-Form --> 
-
-<!--Forgot-password-Form -->
-<div class="modal fade" id="forgotpassword">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title">Recupero password</h3>
-      </div>
-      <div class="modal-body">
-        <div class="text-center">
-          <div class="forgotpassword_wrap">
-            <div class="col-md-12">
-              <form action="#" method="get">
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Your Email address*">
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Reset My Password" class="btn btn-block">
-                </div>
-              </form>
-              <!-- <div class="text-center">
-                <p class="gray_text">Per ragioni di sicurezza non conserviamo la tua password. La tua password sarà resettata e te ne sarà inviata una nuova.</p>
-                <p><a href="#loginform" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Torna al Login</a></p>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Forgot-password-Form --> 
+ 
 
 <!-- Scripts --> 
 <script src="assets/js/jquery.min.js"></script>

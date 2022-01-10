@@ -44,7 +44,7 @@ textarea.form-control {
 /*
 ===== index-2-page-style ===== */
 .facts_section_bg {
-    position:fixed;
+    position:unset;
 }
 body.index2 .header_wrap {
     width: 23%;

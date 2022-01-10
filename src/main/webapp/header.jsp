@@ -11,7 +11,8 @@
               <div class="header_widgets">
                 <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
                 <p class="uppercase_text">Scrivici: </p>
-                <a href="paolo_maccari@outlook.com" class="disabled">paolo_maccari@outlook.com</a> </div>
+                <a href="paolo_maccari@outlook.com" class="disabled">paolo_maccari@outlook.com</a> 
+              </div>
               <div class="header_widgets">
                 <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
                 <p class="uppercase_text">Contattaci: </p>
@@ -24,7 +25,34 @@
                   <li><a href="404.jsp"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                 </ul>
               </div>
-              <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Login / Registrati</a> </div>
+              <!--  
+              	<c:choose>
+					<c:when test="${sessionScope.username == null}">
+						<div class="login_btn"> 
+							<a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Login / Registrati</a> 
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="login_btn"> 
+							<form action="logout" method="post">
+								<input type="submit" class="btn btn-xs uppercase" value="Logout">
+							</form>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			-->
+					<c:if test="${sessionScope.username == null}">
+						<div class="login_btn"> 
+							<a href="#loginform" class="btn btn-xs uppercase" data-bs-toggle="modal" data-bs-dismiss="modal">Login / Registrati</a> 
+						</div>
+					</c:if>
+					<c:if test="${sessionScope.username != null}">
+						<div class="login_btn"> 
+							<form action="logout" method="post">
+								<input type="submit" class="btn btn-xs uppercase" value="Logout">
+							</form>
+						</div>
+					</c:if>
             </div>
           </div>
         </div>
@@ -79,18 +107,13 @@
         </li> -->
       </ul>
     </div>
-  <div class="header_wrap">
+    <div class="header_wrap d-flex flex-row-reverse">
       <div class="user_login">
         <ul>
           <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>${sessionScope.username}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="profile-settings.jsp">impostazioni profilo</a></li>
-              <li>
-              	<form action="annunci" method="get" id="form_annunci"> 
-            		<input type="hidden" name="myVehicles">
-            	</form>	
-              	<a class="dropdown-item" href="my-vehicles.jsp">I miei annunci</a>
-              </li>
+              <li><a class="dropdown-item" href="my-vehicles.jsp">I miei annunci</a></li>
               <li><a class="dropdown-item" href="post-vehicle.jsp">Crea un Annuncio</a></li>
               <li>
               	<form action="messaggi" method="get" id="form_messaggi_inviati">
@@ -103,8 +126,13 @@
 	            	<input type="hidden" name="ricevuti">
 	            </form>
 	            <a class="dropdown-item" href="javascript:;" onclick="document.getElementById('form_messaggi_ricevuti').submit();">Messaggi ricevuti</a>
-	          </li>               
-              <li><a class="dropdown-item" href="#">Esci</a></li>
+	          </li>
+	          <c:if test="${sessionScope.username != null}">
+              <li>
+             	<form action="logout" method="post" id="form_logout"></form>
+              	<a class="dropdown-item" href="javascript:;" onclick="document.getElementById('form_logout').submit();">Logout</a>
+              </li>
+              </c:if>
             </ul>
           </li>
         </ul>
@@ -230,10 +258,10 @@
             <div class="text-center">
               <form action="login" method="post">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" name="username">
+                  <input type="text" class="form-control" placeholder="Username" name="username" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" name="password">
+                  <input type="password" class="form-control" placeholder="Password" name="password" required>
                 </div>
                 <div class="form-group checkbox">
                   <input type="checkbox" id="remember">
@@ -273,24 +301,42 @@
           <div class="signup_wrap">
 		  <div class="row">
             <div class="text-center">
-              <form action="#" method="get">
+              <form action="registrazione" method="post">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome" name="nome">
+                  <input type="text" class="form-control" placeholder="Nome" name="nome" >
+                  <c:if test="${errorNome != null}">
+					<p class="text-danger">${errorNome}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Cognome" name="cognome">
+                  <input type="text" class="form-control" placeholder="Cognome" name="cognome" >
+                  <c:if test="${errorCognome != null}">
+					<p class="text-danger">${errorCognome}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Indirizzo email" name="email">
+                  <input type="email" class="form-control" placeholder="Indirizzo email" name="email" >
+                  <c:if test="${errorEmail != null}">
+					<p class="text-danger">${errorEmail}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Numero di telefono" name="telefono">
+                  <input type="tel" class="form-control" name="telefono" placeholder="Numero di telefono (123-45-67-890)" >
+                  <c:if test="${errorTelefono != null}">
+					<p class="text-danger">${errorTelefono}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" name="username">
+                  <input type="text" class="form-control" placeholder="Username" name="username" >
+                  <c:if test="${errorUsername != null}">
+					<p class="text-danger">${errorUsername}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" name="password">
+                  <input type="password" class="form-control" placeholder="Password" name="password" >
+                  <c:if test="${errorPassword != null}">
+					<p class="text-danger">${errorPassword}</p>
+				  </c:if>
                 </div>
                 <div class="form-group checkbox">
                   <input type="checkbox" id="terms_agree">
