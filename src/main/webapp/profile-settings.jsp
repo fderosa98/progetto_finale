@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="it.generationitaly.model.Utente" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,9 +94,29 @@
         <div class="profile_nav">
           <ul>
             <li class="active"><a href="profile-settings.jsp">Impostazioni profilo</a></li>
-            <li><a href="my-vehicles.jsp">I miei annunci</a></li>
-            <li><a href="post-vehicle.jsp">Crea un annuncio</a></li>
-            <li><a href="#">Esci</a></li>
+            <li>                       
+            	<a href="
+            		<c:url value="/annunci">
+                		<c:param name="myVehicles" value=""/>
+         			</c:url>">I miei annunci
+         		</a>
+            </li>
+            <li ><a href="post-vehicle.jsp">Crea un annuncio</a></li>
+            <li>	           
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="inviati" value=""/>
+         			</c:url>">Messaggi inviati
+         		</a>
+            </li>  
+            <li>	        
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="ricevuti" value=""/>
+         			</c:url>">Messaggi ricevuti
+         		</a>
+	        </li>  
+          <!--  <li><a href="#">Esci</a></li>  --> 
           </ul>
         </div>
       </div>

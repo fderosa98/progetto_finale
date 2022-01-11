@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="it.generationitaly.model.Utente" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,14 +102,34 @@
 					</p>
 				</div>
 			</div> -->
-			<div class="row">
-				  <div class="col-md-3 col-sm-3">
+	<div class="row">
+	  <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
             <li><a href="profile-settings.jsp">Impostazioni profilo</a></li>
-            <li class="active"><a href="my-vehicles.jsp">I miei annunci</a></li>
-            <li><a href="post-vehicle.jsp">Crea un annuncio</a></li>
-            <li><a href="#">Esci</a></li>
+            <li class="active">                       
+            	<a href="
+            		<c:url value="/annunci">
+                		<c:param name="myVehicles" value=""/>
+         			</c:url>">I miei annunci
+         		</a>
+            </li>
+            <li ><a href="post-vehicle.jsp">Crea un annuncio</a></li>
+            <li>	           
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="inviati" value=""/>
+         			</c:url>">Messaggi inviati
+         		</a>
+            </li>  
+            <li>	        
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="ricevuti" value=""/>
+         			</c:url>">Messaggi ricevuti
+         		</a>
+	        </li>  
+          <!--  <li><a href="#">Esci</a></li>  --> 
           </ul>
         </div>
       </div>
@@ -117,26 +139,35 @@
 							i miei annunci <span>(20 auto)</span>
 						</h5>
 						<div class="my_vehicles_list">
+						<c:forEach items="${annunci}" var="annuncio">
+						  <c:if test="${annuncio.utente.username eq sessionScope.username}">
 							<ul class="vehicle_listing">
 								<li>
 									<div class="vehicle_img">
-										<a href="#"><img src="assets/images/600x380.jpg"
-											alt="image"></a>
+										<c:forEach items="${annuncio.foto}" var="foto">
+										  	<c:if test="${foto.principale}">
+												<a href="#"><img src="${foto.url}"
+													alt="image"></a>
+											</c:if>
+										</c:forEach>
 									</div>
 									<div class="vehicle_title">
 										<h6>
-											<a href="#">Your Car Listing Name</a>
+											<a href="">${annuncio.titolo}</a>
 										</h6>
 									</div>
 									<div class="vehicle_status">
-										<a href="#" class="btn outline btn-xs active-btn">Active</a>
+									
 										<div class="clearfix"></div>
-										<a href="#"><i class="fa fa-pencil-square-o"
+										<a href="#">
+											<i class="fa fa-pencil-square-o"
 											aria-hidden="true"></i></a> <a href="#"><i
 											class="fa fa-trash" aria-hidden="true"></i></a>
 									</div>
 								</li>
 							</ul>
+						  </c:if>
+						</c:forEach>
 							<div class="pagination">
 								<ul>
 									<li class="current">1</li>

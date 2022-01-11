@@ -20,6 +20,8 @@
 <!--OWL Carousel slider-->
 <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
+<!-- css pop-up -->
+<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
 <!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
 <!--bootstrap-slider -->
@@ -237,22 +239,16 @@
 </section>
 <!-- /Filter-Form --> 
 <c:if test="${param.inviato != null}">
-	<div class="modal fade" id="loginform">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-          <div class="modal-header">
-          <div class="text-center">
-          <h3 class="text-center">Messaggio inviato con successo</h3>
-          <br>
-          <div class="text-center">
-          <div class="btn btn-xs uppercase" aria-label="Close">
-        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ok</span></button>
-        </div> 
+	<div class="overlay" id="pop">
+    <div class="popup">
+        <div class="text-center">
+        <h2>Messaggio inviato con successo!</h2>
+        <br>
+        <div class="btn btn-xs uppercase" aria-label="Close">
+        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
         </div>
-      </div>
- 	</div>
-  </div>
-</div>
+        </div>
+    </div>
 </div>
 </c:if>
 <!--Listing-detail-->
@@ -694,6 +690,7 @@
 <!--Slider-JS--> 
 <script src="assets/js/slick.min.js"></script> 
 <script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/pop-up.js"></script>
 
 </body>
 </html>

@@ -13,7 +13,36 @@ import it.generationitaly.dao.MessaggioDAO;
 import it.generationitaly.model.Messaggio;
 import it.generationitaly.model.Utente;
 
+
+
 public class MessaggioDAOImpl implements MessaggioDAO {
+	
+	public Messaggio findById(Connection connection, int id) throws DAOException {
+		String sql = "SELECT * FROM messaggio WHERE id=?";
+		System.out.println(sql);
+		Messaggio messaggio = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			// statement = connection.createStatement();
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, id);
+			// resultSet = statement.executeQuery(sql);
+			resultSet = statement.executeQuery();
+			if (resultSet.next()) {
+				messaggio = new Messaggio();
+				messaggio.setId(resultSet.getInt(1));
+				messaggio.setCorpoMessaggio(resultSet.getString(4));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
+		}
+		return messaggio;
+	}
 
 	@Override
 	public void saveMessaggio(Connection connection, Messaggio messaggio) throws DAOException {
@@ -122,6 +151,25 @@ public class MessaggioDAOImpl implements MessaggioDAO {
 			DBUtil.close(statement);
 		}
 		return messaggi;
+	}
+	
+	public void delete(Connection connection, Messaggio messaggio) throws DAOException {
+		String sql = "DELETE FROM messaggio WHERE id=?";
+		System.out.println(sql);
+		// Statement statement = null;
+		PreparedStatement statement = null;
+		try {
+			// statement = connection.createStatement();
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, messaggio.getId());
+			// statement.executeUpdate(sql);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(statement);
+		}
 	}
 
 

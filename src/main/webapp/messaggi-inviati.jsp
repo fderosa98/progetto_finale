@@ -93,27 +93,34 @@
 					</p>
 				</div>
 			</div> -->
-			<div class="row">
-				  <div class="col-md-3 col-sm-3">
+	<div class="row">
+	  <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
             <li><a href="profile-settings.jsp">Impostazioni profilo</a></li>
-            <li><a href="my-vehicles.jsp">I miei annunci</a></li>
-            <li><a href="post-vehicle.jsp">Crea un annuncio</a></li>
-            <li>
-	            <form action="messaggi" method="get" id="form_messaggi_inviati">
-	            	<input type="hidden" name="inviati">
-	            </form>
-	            <a href="javascript:;" onclick="document.getElementById('form_messaggi_inviati').submit();">Messaggi inviati</a>
+            <li>                       
+            	<a href="
+            		<c:url value="/annunci">
+                		<c:param name="myVehicles" value=""/>
+         			</c:url>">I miei annunci
+         		</a>
+            </li>
+            <li ><a href="post-vehicle.jsp">Crea un annuncio</a></li>
+            <li class="active">	           
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="inviati" value=""/>
+         			</c:url>">Messaggi inviati
+         		</a>
             </li>  
-            <li>
-	            <form action="messaggi" method="get" id="form_messaggi_ricevuti">
-	            	<input type="hidden" name="ricevuti">
-	            </form>
-	            <a href="javascript:;" onclick="document.getElementById('form_messaggi_ricevuti').submit();">Messaggi ricevuti</a>
-	        </li>    
-            <li><a href="#">Esci</a></li>
-            
+            <li>	        
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="ricevuti" value=""/>
+         			</c:url>">Messaggi ricevuti
+         		</a>
+	        </li>  
+          <!--  <li><a href="#">Esci</a></li>  --> 
           </ul>
         </div>
       </div>
@@ -126,10 +133,11 @@
 							<div class="my_vehicles_list">
 							<c:forEach items="${messaggi}" var="messaggio">
 								<c:if test="${messaggio.mittente.username eq sessionScope.username}">
-								<ul class="vehicle_listing">
+								  <ul class="vehicle_listing">
 									<li>
+									  <div class="vehicle_title">
 										<a class="accordion"  id="accordionExample" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-											<div class="vehicle_title">
+											
 												<h6>
 												
 												A: ${messaggio.destinatario.username}
@@ -145,13 +153,18 @@
 										
 									<div class="vehicle_status">
 										<div class="clearfix"></div>
-										 <a href="#"><i
-											class="fa fa-trash" aria-hidden="true"></i></a>
+										<form action="elimina-messaggio" method="post" id="form_eliminaMessaggio">
+											<input type="hidden" value="${messaggio.id}" name="id">
+											<input type="hidden" value="" name="inviati">
+										</form>
+										 <a href="javascript:;" onclick="document.getElementById('form_eliminaMessaggio').submit();">
+										 	<i	class="fa fa-trash" aria-hidden="true"></i>
+										 </a>
 									</div>
 								</li>
-							</ul>
+							  </ul>
 							</c:if>
-							</c:forEach>	
+						  </c:forEach>	
 						</div>
 		
 					</div>

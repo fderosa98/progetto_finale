@@ -39,7 +39,10 @@ public class FindAllAnnunci extends HttpServlet {
 		try {
 			annunci = annuncioService.findAll();
 			request.setAttribute("annunci", annunci);
-			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
+			if(request.getParameter("myVehicles") != null)
+				request.getRequestDispatcher("my-vehicles.jsp").forward(request, response);
+			else
+				request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 			

@@ -110,4 +110,37 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 		return messaggi;
 	}
+	
+	public void deleteMessaggio(Messaggio messaggio) throws ServiceException {
+		Connection connection = null;
+		try {
+			connection = DataSource.getInstance().getConnection();
+			DBUtil.setAutoCommit(connection, false);
+			messaggioDAO.delete(connection, messaggio);
+			DBUtil.commit(connection);
+		} catch (DAOException e) {
+			System.err.println(e.getMessage());
+			DBUtil.rollback(connection);
+			throw new ServiceException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(connection);
+		}	
+	}
+	
+	public Messaggio findMessaggioById(int id) throws ServiceException {
+		Messaggio messaggio = null;
+        Connection connection = null;
+        try {
+            connection = DataSource.getInstance().getConnection();
+            DBUtil.setAutoCommit(connection, false);
+            messaggio = messaggioDAO.findById(connection,id);
+            DBUtil.commit(connection);
+        } catch (DAOException e) {
+            System.err.println(e.getMessage());
+            throw new ServiceException(e.getMessage(), e);
+        }finally {
+            DBUtil.close(connection);
+        }
+        return messaggio;
+	}
 }

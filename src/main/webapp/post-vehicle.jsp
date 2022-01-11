@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="it.generationitaly.model.Utente" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,16 +94,43 @@
         <div class="profile_nav">
           <ul>
             <li><a href="profile-settings.jsp">Impostazioni profilo</a></li>
-            <li><a href="my-vehicles.jsp">I miei annunci</a></li>
+            <li>                       
+            	<a href="
+            		<c:url value="/annunci">
+                		<c:param name="myVehicles" value=""/>
+         			</c:url>">I miei annunci
+         		</a>
+            </li>
             <li class="active"><a href="post-vehicle.jsp">Crea un annuncio</a></li>
-            <li><a href="#">Esci</a></li>
+            <li>	           
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="inviati" value=""/>
+         			</c:url>">Messaggi inviati
+         		</a>
+            </li>  
+            <li>	        
+	            <a href="
+	            	<c:url value="/messaggi">
+                		<c:param name="ricevuti" value=""/>
+         			</c:url>">Messaggi ricevuti
+         		</a>
+	        </li>  
+          <!--  <li><a href="#">Esci</a></li>  --> 
           </ul>
         </div>
       </div>
+      
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
+        <c:if test="${param.error != null}">
+	  	  <p class="error">Per creare un annuncio devi essere loggato!</p>
+	 	</c:if>
           <h5 class="uppercase underline">Crea un nuovo annuncio</h5>
-          <form action="#" method="get">
+          <form action="save-annuncio" method="post">
+          <div class="form-group">
+              <input class="form-control white_bg" id="VehiclesTitle" type="hidden" value="${sessionScope.username}" name="usernameUtente">
+            </div>
             <div class="form-group">
               <label class="control-label">Titolo Annuncio</label>
               <input class="form-control white_bg" id="VehiclesTitle" type="text" name="titolo">
@@ -129,7 +158,7 @@
             <div class="form-group">
               <label class="control-label">Seleziona il tipo di carburante</label>
               <div class="select">
-                <select class="form-control white_bg">
+                <select name="carburante" class="form-control white_bg">
                   <option value="">Scegli un'opzione</option>
                   <option value="Benzina">Benzina</option>
                   <option value="Diesel">Diesel</option>
@@ -143,7 +172,7 @@
             <div class="form-group">
               <label class="control-label">Seleziona il numero di porte</label>
               <div class="select">
-                <select class="form-control white_bg">
+                <select name="numeroPorte" class="form-control white_bg">
                   <option value="">Scegli un'opzione</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -153,14 +182,16 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label">Upload Images  ( size = 900 x 560 )</label>
-              <div class="vehicle_images">
-                <div><img src="assets/images/900x560.jpg" alt="image"></div>
-                <div><img src="assets/images/900x560.jpg" alt="image"></div>
-                <div class="upload_more_img">
-                  <input name="upload" type="file">
-                </div>
-              </div>
+              <label class="control-label">Inserisci cittá</label>
+              <input class="form-control white_bg" id="VehiclesTitle" type="text" name="citta">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Inserisci provincia</label>
+              <input class="form-control white_bg" id="VehiclesTitle" type="text" placeholder="es. MI" name="provincia">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Descrizione Annuncio</label>
+              <textarea rows="4" class="form-control white_bg" id="VehiclesDescription" name="descrizione"></textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn">Crea Annuncio <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>

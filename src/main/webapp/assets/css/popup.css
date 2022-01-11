@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+.popup{
+	width: 500px;
+	height: 210px;
+	background: #fefefe;
+	margin: 200px auto;
+	padding: 35px 20px;
+	position: relative;
+	color: #333;
+}
+
+.overlay{
+	position: fixed; /* schermo intero*/
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+ 	height: 100vh;
+	background: rgba(0,0,0,0.8); /* colore sfondo e opcità */
+	text-align: center;
+	display: block; /*cambiaremo in display: none*/
+	overflow-y:auto;
+	outline:0;
+	z-index:1060;
+}
+
+#close{
+	color: #fff;
+}
+
+#close:hover{
+	cursor: pointer;
+}

@@ -16,4 +16,8 @@ public interface UtenteService {
 	void saveMessaggio(Messaggio messaggio) throws ServiceException;
 	
 	List<Messaggio> findAllMessaggiConUtenti() throws ServiceException;
+	
+	public void deleteMessaggio(Messaggio messaggio) throws ServiceException;
+	
+	public Messaggio findMessaggioById(int id) throws ServiceException;
 }
