@@ -76,18 +76,9 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h6>annunci/modelli piu visitati/venduti</h6>
+          <h6>Tutte le marche</h6>
           <ul>
-           
-             <!-- 
-            	<form id="form_marca" action="ricerca-annunci" method="get">
-            		<input id="marcaForm" type="hidden" name="marca" value=""/>
-	            	<input type="hidden" name="modello"/>
-	            	<input type="hidden" name="prezzoMin"/>
-	            	<input type="hidden" name="prezzoMax"/>
-            	</form>
-            -->
-           
+                                   
             <li>
             	<a href="
             		<c:url value="/ricerca-annunci">
@@ -115,7 +106,32 @@
          			</c:url>">Renault 
          		</a>
          	</li>
-             <li><a href="<c:url value="/ricerca-annunci">
+         	 <li>
+            	<a href="
+            		<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="peugeot"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Peugeot
+         		</a>
+            </li>
+            <li>
+            	<a href="
+            		<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="ford"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>"> Ford
+         		</a>
+            </li>
+          </ul>          
+        </div>
+        <div class="col">
+          <h6></h6> 
+          <ul>
+            <li><a href="<c:url value="/ricerca-annunci">
                 		<c:param name="marca" value="seat"/>
                 		<c:param name="modello" value=""/>
                 		<c:param name="prezzoMin" value=""/>
@@ -131,27 +147,59 @@
          			</c:url>">Mini 
          		</a>
          	</li>
-         
-          </ul>          
-        </div>
-        <div class="col">
-          <h6>Chi siamo</h6>
-          <ul>
-            <li><a href="#" class="disabled">Privacy</a></li>
-            <li><a href="#" class="disabled">Auto ibride</a></li>
-            <li><a href="#" class="disabled">Cookies</a></li>
-            <li><a href="#" class="disabled">Marchi</a></li>
-            <li><a href="#" class="disabled">Condizioni d'uso</a></li>
+             <li><a href="<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="bmw"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Bmw 
+         		</a>
+         	</li>
+         	 <li><a href="<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="audi"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Audi 
+         		</a>
+         	</li>
           </ul>
-        </div>
+       </div>
         <div class="col">
-          <h6>Link utili</h6> 
+          <h6></h6> 
           <ul>
-            <li><a href="#" class="disabled">I nostri partner</a></li>
-            <li><a href="#" class="disabled">Carriere</a></li>
-            <li><a href="#" class="disabled">Mappa del sito</a></li>
-            <li><a href="#" class="disabled">Investitori</a></li>
-            <li><a href="#" class="disabled">Richiedi un preventivo</a></li>
+           <li><a href="<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="mercedes-benz"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Mercedes-Benz 
+         		</a>
+         	</li>
+         	 <li><a href="<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="alfa romeo"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Alfa Romeo 
+         		</a>
+         	</li>
+         	 <li><a href="<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="mazda"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Mazda 
+         		</a>
+         	</li>
+         	 <li><a href="<c:url value="/ricerca-annunci">
+                		<c:param name="marca" value="wolkswagen"/>
+                		<c:param name="modello" value=""/>
+                		<c:param name="prezzoMin" value=""/>
+                		<c:param name="prezzoMax" value=""/>
+         			</c:url>">Wolkswagen
+         		</a>
+         	</li>
           </ul>
         </div>
       </div>
