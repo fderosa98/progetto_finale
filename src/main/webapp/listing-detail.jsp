@@ -119,26 +119,29 @@
 	  <div class="row">
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
-            <select class="form-control" name="marca" id="marca">
-              <option value="">Seleziona la marca </option>
-              <c:forEach items="${annunci}" var="annun">
-              <c:out value="${annun.automobile.marca}"></c:out>
-              <option value="${annun.automobile.marca}"><c:out value="${annun.automobile.marca}"></c:out></option>
-              </c:forEach>
-              
-            </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 col-sm-6 black_input">
-          <div class="select">
-            <select class="form-control" name="modello" id="modello">
-              <option value="">Seleziona il modello</option>
-              <option value="punto">punto</option>
-              <option value="Fiesta">Fiesta</option>
-              <option value="Hybrid">Hybrid</option>
-              <option value="classe c">classe c</option>
-            </select>
-          </div>
+			<select class="form-control" name="marca" id="marca" onchange="populate(this.id,'modello')">
+                 <option value="">Seleziona la marca</option>
+                 <option value="Alfa Romeo">Alfa Romeo</option>
+                 <option value="Audi">Audi</option>
+                 <option value="Bmw">Bmw</option>
+                 <option value="Ferrari">Ferrari</option>
+                 <option value="Fiat">Fiat</option>
+                 <option value="Ford">Ford</option>
+                 <option value="Mazda">Mazda</option>
+                 <option value="Mercedes">Mercedes</option>                 
+                 <option value="Mini">Mini</option>
+                 <option value="Peugeot">Peugeot</option>
+                 <option value="Renault">Renault</option>
+                 <option value="Seat">Seat</option>
+                 <option value="Volkswagen">Volkswagen</option>
+               </select>
+               </div>
+             </div>
+             <div class="form-group select">
+	            <select class="form-control" name="modello" id="modello">
+	              <option value="">Seleziona il modello</option>
+	            </select>
+            </div>
         </div>
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
@@ -685,12 +688,14 @@
 <script src="assets/js/popper.min.js"></script> 
 <script src="assets/js/bootstrap.min.js"></script> 
 <script src="assets/js/interface.js"></script> 
+<script src="assets/js/dynamic-form.js"></script>
 <!--bootstrap-slider-JS--> 
 <script src="assets/js/bootstrap-slider.min.js"></script> 
 <!--Slider-JS--> 
 <script src="assets/js/slick.min.js"></script> 
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/pop-up.js"></script>
+
 
 </body>
 </html>

@@ -280,7 +280,7 @@
         </div>
       </div>
       <div class="modal-footer text-center">
-        <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></br>
+        <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></p><br>
         <!--<a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">Hai dimenticato la password?</a></p> -->
       </div>
     </div>
@@ -290,7 +290,7 @@
 <!--/Login-Form --> 
 <!--Register-Form -->
 <div class="modal fade" id="signupform">
-  <div class="modal-dialog modal-lg" role="document">
+<div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -360,6 +360,8 @@
     </div>
   </div>
 </div>
+</div>
+  
 <!--/Register-Form --> 
   
 </header>
