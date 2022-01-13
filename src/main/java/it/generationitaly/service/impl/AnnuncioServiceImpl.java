@@ -178,5 +178,21 @@ public class AnnuncioServiceImpl implements AnnuncioService {
         return annuncio;
     }
 	
+	public void deleteAnnuncio(Annuncio annuncio) throws ServiceException {
+		Connection connection = null;
+		try {
+			connection = DataSource.getInstance().getConnection();
+			DBUtil.setAutoCommit(connection, false);
+			annuncioDAO.deleteAnnuncio(connection, annuncio);
+			DBUtil.commit(connection);
+		} catch (DAOException e) {
+			System.err.println(e.getMessage());
+			DBUtil.rollback(connection);
+			throw new ServiceException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(connection);
+		}	
+	}
+	
 
 }

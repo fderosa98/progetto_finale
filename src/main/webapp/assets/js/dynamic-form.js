@@ -3,8 +3,9 @@ function populate(s1,s2){
   var s2 = document.getElementById('modello');
 
   s2.innerHTML = "";
-
-  if (s1.value == "Alfa Romeo"){
+  if (s1.value == "") {
+  	var optionArray = [' '];
+  } else if (s1.value == "Alfa Romeo"){
     var optionArray = [' ','Giulietta','Spider','Stelvio'];
   } else if (s1.value == "Audi") {
     var optionArray = [' ','A4','Q3','TT'];
@@ -13,7 +14,7 @@ function populate(s1,s2){
   } else if (s1.value == "Ferrari") {
     var optionArray = [' ','California','F8','F348','FF','Mondial','Portofino','Roma','SF90'];
   } else if (s1.value == "Fiat") {
-    var optionArray = [' ','500','Panda','Punto','Punto'];
+    var optionArray = [' ','500','Panda','Punto'];
   } else if (s1.value == "Ford") {
     var optionArray = [' ','Edge','Focus','Ka','Mustang'];
   } else if (s1.value == "Mazda") {

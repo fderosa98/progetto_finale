@@ -115,7 +115,7 @@
       <div class="col-md-6 col-sm-6">
         <div class="about_content row">
           <div class="col-md-5 col-sm-4 col-xs-4">
-            <div class="about_img"> <img src="assets/images/foto_about_us/business%20woman.jpg" alt="image"> </div>
+            <div class="about_img"> <img src="assets/images/foto_about_us/business4.jpg" alt="image"> </div>
           </div>
           <div class="col-md-7 col-sm-8 col-xs-8">
             <h3>La Mission</h3>

@@ -16,6 +16,8 @@ public interface AnnuncioDAO {
 	
 	public void  saveAnnuncio(Connection connection, Annuncio annuncio) throws DAOException;
 	
+	void deleteAnnuncio(Connection connection, Annuncio annuncio) throws DAOException;
+	
 	Annuncio findDettaglioById(Connection connection, int id) throws DAOException;
 
 }

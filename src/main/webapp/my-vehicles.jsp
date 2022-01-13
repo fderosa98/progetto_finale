@@ -159,15 +159,18 @@
 									<div class="vehicle_status">
 									
 										<div class="clearfix"></div>
-										<a href="#">
-											<i class="fa fa-pencil-square-o"
-											aria-hidden="true"></i></a> <a href="#"><i
-											class="fa fa-trash" aria-hidden="true"></i></a>
+										<form action="delete-annuncio" method="post" id="form_eliminaAnnuncio">
+											<input type="hidden" value="${annuncio.id}" name="id">											
+										</form>
+										<a href="javascript:;" onclick="document.getElementById('form_eliminaAnnuncio').submit();">
+         		                            <i class="fa fa-trash" aria-hidden="true"></i>
+         		                        </a>
 									</div>
 								</li>
 							</ul>
 						  </c:if>
 						</c:forEach>
+						<!--  
 							<div class="pagination">
 								<ul>
 									<li class="current">1</li>
@@ -177,6 +180,7 @@
 									<li><a href="#">5</a></li>
 								</ul>
 							</div>
+						-->
 						</div>
 					</div>
 				</div>

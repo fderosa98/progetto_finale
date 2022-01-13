@@ -2,6 +2,7 @@ package it.generationitaly.service;
 
 import java.util.List;
 
+import it.generationitaly.model.Annuncio;
 import it.generationitaly.model.Messaggio;
 import it.generationitaly.model.Utente;
 
@@ -21,6 +22,6 @@ public interface UtenteService {
 	
 	public Messaggio findMessaggioById(int id) throws ServiceException;
 
-	 public void updatePassword(Utente utente) throws ServiceException;
+	public void updatePassword(Utente utente) throws ServiceException;
 
 }

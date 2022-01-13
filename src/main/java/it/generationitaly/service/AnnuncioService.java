@@ -24,4 +24,6 @@ public interface AnnuncioService {
 	List<Automobile> carFindAll() throws ServiceException;
 	
 	Annuncio findDettaglioById(int id) throws ServiceException;
+	
+	void deleteAnnuncio(Annuncio annuncio) throws ServiceException;
 }

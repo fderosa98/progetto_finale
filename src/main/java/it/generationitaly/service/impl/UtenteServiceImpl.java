@@ -10,6 +10,7 @@ import it.generationitaly.dao.MessaggioDAO;
 import it.generationitaly.dao.UtenteDAO;
 import it.generationitaly.dao.impl.MessaggioDAOImpl;
 import it.generationitaly.dao.impl.UtenteDAOImpl;
+import it.generationitaly.model.Annuncio;
 import it.generationitaly.model.Messaggio;
 import it.generationitaly.model.Utente;
 import it.generationitaly.service.ServiceException;
@@ -161,4 +162,6 @@ public class UtenteServiceImpl implements UtenteService {
         }
 
     }
+
+
 }

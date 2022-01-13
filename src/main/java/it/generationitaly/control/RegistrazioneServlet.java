@@ -44,7 +44,8 @@ public class RegistrazioneServlet extends HttpServlet {
 		
 		try {
 			utenteService.saveUtente(utente);
-			response.sendRedirect("index.jsp");
+			request.getSession().setAttribute("username", utente.getUsername());
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 			response.sendRedirect("404.jsp");
@@ -56,8 +57,11 @@ public class RegistrazioneServlet extends HttpServlet {
     	String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String email = request.getParameter("email");
-		long telefono =  Long.parseLong(request.getParameter("telefono"));
-		String username = request.getParameter("username");
+		long telefono = 0;
+		if (request.getParameter("telefono") != "") {
+			telefono =  Long.parseLong(request.getParameter("telefono"));
+		}
+			String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
 		boolean hasErrors = false;
@@ -77,7 +81,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			hasErrors = true;
 		}
 		
-		if ((Long)telefono == null) {
+		if (telefono == 0) {
 			request.setAttribute("errorTelefono", "Campo telefono obbligatorio");
 			hasErrors = true;
 		}
@@ -91,7 +95,7 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.setAttribute("errorPassword", "Campo password obbligatorio");
 			hasErrors = true;
 		}
-
+		request.setAttribute("hasErrorsRegistrazione", hasErrors);
 		return hasErrors;
 	}
 

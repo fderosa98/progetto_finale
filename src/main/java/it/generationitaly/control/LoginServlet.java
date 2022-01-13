@@ -38,10 +38,10 @@ public class LoginServlet extends HttpServlet {
 			Utente utente = utenteService.findByUsername(request.getParameter("username"));
 			if(utente != null && utente.getPassword().equals(request.getParameter("password"))) {
 				request.getSession().setAttribute("username", utente.getUsername());
-//				response.sendRedirect("index.jsp");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			} else {
-				response.sendRedirect("500.html");
+				request.setAttribute("errorCredenzialiErrate", "Attenzione! Credenziali errate.");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
@@ -64,6 +64,7 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("errorPassword", "Campo password obbligatorio");
 			hasErrors = true;
 		}
+		request.setAttribute("hasErrorsLogin", hasErrors);
 		return hasErrors;
 	}
 

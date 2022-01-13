@@ -58,11 +58,15 @@ public class InviaMessaggioServlet extends HttpServlet {
 				return;
 			} catch (ServiceException e) {
 				System.err.println(e.getMessage());
+				response.sendRedirect("404.jsp");
 			}						
 		}
 		
-		String username = (String) request.getSession().getAttribute("username");		
-		int idDestinatario = Integer.parseInt(request.getParameter("idDestinatario"));
+		String username = (String) request.getSession().getAttribute("username");
+		int idDestinatario = 0;
+		if(request.getParameter("idDestinatario") != null) {
+			idDestinatario = Integer.parseInt(request.getParameter("idDestinatario"));	
+		}
 		String message = request.getParameter("message");
 		Utente mittente = null;
 		Utente destinatario = null;
@@ -73,23 +77,25 @@ public class InviaMessaggioServlet extends HttpServlet {
 			annunci = annuncioService.findAll();
 			mittente = utenteService.findByUsername(username);
 			destinatario = utenteService.findById(idDestinatario);
+			request.setAttribute("annuncio", annuncio);
+			request.setAttribute("annunci", annunci);
 			if(mittente.getId() == destinatario.getId()) {
-				//errore 500 da inserire
-				response.sendRedirect("404.jsp");
+				request.getRequestDispatcher("listing-detail.jsp?teStesso").forward(request, response);
 				return;
 			} else {
 				messaggio.setMittente(mittente);
 				messaggio.setDestinatario(destinatario);
 				messaggio.setCorpoMessaggio(message);
-				utenteService.saveMessaggio(messaggio);
-				request.setAttribute("annuncio", annuncio);
-				request.setAttribute("annunci", annunci);
+				utenteService.saveMessaggio(messaggio);				
 				request.getRequestDispatcher("listing-detail.jsp?inviato").forward(request, response);				
 			}
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
+			response.sendRedirect("404.jsp");
 		}
 	}
+	
+	
 	
 	
 

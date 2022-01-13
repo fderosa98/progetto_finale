@@ -137,7 +137,8 @@
                </select>
                </div>
              </div>
-             <div class="form-group select">
+         <div class="form-group col-md-3 col-sm-6 black_input">
+             <div class="select">
 	            <select class="form-control" name="modello" id="modello">
 	              <option value="">Seleziona il modello</option>
 	            </select>
@@ -209,30 +210,7 @@
             </select>
           </div>
         </div>
-<!--         <div class="form-group col-md-3 col-sm-6 black_input"> -->
-<!--           <div class="select"> -->
-<!--             <select class="form-control"> -->
-<!--               <option>Anno del modello </option> -->
-<!--               <option>2016</option> -->
-<!--               <option>2015</option> -->
-<!--               <option>2014</option> -->
-<!--             </select> -->
-<!--           </div> -->
-<!--         </div> -->
-<!--         <div class="form-group col-md-6 col-sm-6 black_input"> -->
-<!--           <label class="form-label">Fascia di prezzo (â¬)</label> -->
-<!--           <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/> -->
-<!--         </div> -->
-<!--         <div class="form-group col-md-3 col-sm-6 black_input"> -->
-<!--           <div class="select"> -->
-<!--             <select class="form-control"> -->
-<!--               <option>Tipo di auto </option> -->
-<!--               <option>Auto nuova</option> -->
-<!--               <option>Auto usata</option> -->
-<!--             </select> -->
-<!--           </div> -->
-<!--         </div> -->
-        <div class="row justify-content-start">
+        <div class="text-center">
           <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Cerca auto </button>
         </div>
 		</div>
@@ -259,6 +237,19 @@
     <div class="popup">
         <div class="text-center">
         <h2>Devi essere loggato per inviare un messaggio!</h2>
+        <br>
+        <div class="btn btn-xs uppercase" aria-label="Close">
+        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+        </div>
+        </div>
+    </div>
+</div>
+</c:if>
+<c:if test="${param.teStesso != null}">
+	<div class="overlay" id="pop">
+    <div class="popup">
+        <div class="text-center">
+        <h2>Ehi, non puoi inviare un messaggio a te stesso!</h2>
         <br>
         <div class="btn btn-xs uppercase" aria-label="Close">
         <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
@@ -526,7 +517,7 @@
             <form action="invia-messaggio" method="post"> 
             <input type="hidden" name="idDestinatario" value="${annuncio.utente.id}"/>
             <input type="hidden" name="idAnnuncio" value="${annuncio.id}"/>
-              <textarea rows="4" class="form-control" placeholder="Messaggio" name="message"></textarea>
+              <textarea rows="4" class="form-control" placeholder="Messaggio" name="message" required></textarea>
             <div class="form-group">
             <div style="text-align:center;">
             <br>         

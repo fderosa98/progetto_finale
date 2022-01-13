@@ -70,7 +70,7 @@
                  <div class="banner_text text-center div_zindex white-text">
                        <h1>Compra auto in modo facile da una selezione di oltre 1000 veicoli</h1>
                         <h3>Cosa aspetti? Trova subito l'auto pi&ugrave; adatta a te</h3>
-                        <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
+                        <a href="about-us.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
           </div>
@@ -83,7 +83,7 @@
                         <h1>Vendi le tue auto velocemente e senza difficolt&agrave ai migliori prezzi in tutta Europa!</h1>
                         <h3>Pubblica subito il tuo annuncio! </h3>
 
-                         <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
+                         <a href="about-us.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
           </div>
@@ -95,7 +95,7 @@
                         <h1>Che tipo di auto cerchi? Nuova o usata?</h1>
                         <h3>Usa i filtri per trovare l'auto pi&ugrave; adatta alle tue esigenze </h3>
 
-                         <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
+                         <a href="about-us.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
           </div>
@@ -107,7 +107,7 @@
                         <h1>Diverse tipologie di finanziamento</h1>
                         <h3>Prestito personale, prestito finalizzato, leasing ... Non ti preoccupare, ti aiutiamo noi!</h3>
 
-                         <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
+                         <a href="about-us.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
           </div>
@@ -473,7 +473,7 @@
                   <h5>Mario Rossi</h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-             <p>Consiglio a tutti questa concessionaria per la professionalit&agrave;, competenza e soprattutto gentilezza del titolare Paolo. Dopo aver girato diverse concessionarie, ho trovato una concessionaria del gruppo MacAuto che mi ha saputo guidare nella scelta dell'auto. Consiglierei ai dipendenti di grandi concessionarie di farsi un giretto da MacAuto per imparare come comportarsi. Alle volte basta poco per soddisfare un cliente.</p>
+             <p>Consiglio a tutti questa concessionaria per la professionalit&agrave;, competenza e soprattutto gentilezza del titolare Paolo. Consiglierei ai dipendenti di grandi concessionarie di farsi un giretto da MacAuto per imparare come comportarsi.</p>
 			</div>
            
            <div class="testimonial_wrap">
@@ -484,7 +484,7 @@
                   <h5>Enzo Giovanotelli </h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-           <p>Dopo svariate ricerche e delusioni in pi&ugrave; concessionarie, sono approdato in una concessionatria di MacAuto, dove ho comprato un'auto nuova grazie ai consigli e alla professionalit&agrave; dei consulenti. Consigliatissimo!</p>
+           <p>Dopo svariate ricerche e delusioni in pi&ugrave; concessionarie, sono approdato in una concessionatria di MacAuto, dove ho comprato un'auto nuova grazie ai consigli e alla professionalit&agrave; dei consulenti.  Alle volte basta poco per soddisfare un cliente, consigliatissimo!</p>
 			</div>
            
            <div class="testimonial_wrap">
@@ -506,7 +506,7 @@
                   <h5>Gianfranco Fumagalli </h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-               <p>Da anni io e mia moglie ci affidiamo al Sig. Paolo Maccari, venditore serio e professionale. Per qualsiasi necessit&agrave;, anche nel post vendita, &egrave; sempre a disposizione. Siamo sempre stati soddisfatti e soprattutto ben consigliati. Che dire, 5 stelle sono troppo poche, ne meriterebbe molte di pi&ugrave;!.</p>
+               <p>Da anni io e mia moglie ci affidiamo al Sig. Paolo Maccari, venditore serio e professionale. Per qualsiasi necessit&agrave;, anche nel post vendita, &egrave; sempre a disposizione. Siamo sempre stati soddisfatti e soprattutto ben consigliati. Che dire, esperienza piacevolissima!</p>
            </div>
            
            <div class="testimonial_wrap">
@@ -517,7 +517,7 @@
                   <h5>Marta Brambilla </h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-               <p>Ho acquistato una Fiat 500 usata molto bella da MacAuto, con pochissimi chilometri, ottimo prezzo ma soprattutto ho trovato una grande disponibilit&agrave; e professionalit&agrave;. Chiedete di Fabio, sapr&agrave; sicuramente consigliarvi al meglio.</p>
+               <p>Ho acquistato una Fiat 500 usata molto bella da MacAuto, con pochissimi chilometri, ottimo prezzo ma soprattutto ho trovato una grande disponibilit&agrave; e professionalit&agrave;. Chiedete di Fabio, sapr&agrave; sicuramente consigliarvi al meglio. 5 stelle sarebbero troppo poche!</p>
 			</div>
 	      </div>
 	    </div>
@@ -646,6 +646,21 @@
 <script src="assets/js/bootstrap.min.js"></script> 
 <script src="assets/js/interface.js"></script> 
 <script src="assets/js/dynamic-form.js"></script> 
+<c:if test="${hasErrorsLogin || errorCredenzialiErrate != null}">
+<script type="text/javascript">
+var myModal = document.getElementById("loginform");
+var modal = new bootstrap.Modal(myModal);
+modal.show();
+</script>
+</c:if>
+
+<c:if test="${hasErrorsRegistrazione}">
+<script type="text/javascript">
+var myModal = document.getElementById("signupform");
+var modal = new bootstrap.Modal(myModal);
+modal.show();
+</script>
+</c:if>
 <!--bootstrap-slider-JS--> 
 <script src="assets/js/bootstrap-slider.min.js"></script> 
 <!--Slider-JS--> 

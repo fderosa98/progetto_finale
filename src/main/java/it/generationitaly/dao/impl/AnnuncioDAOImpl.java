@@ -262,7 +262,7 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 
 	@Override
 	public void saveAnnuncio(Connection connection, Annuncio annuncio) throws DAOException {
-		String sql = "INSERT INTO annuncio(titolo,descrizione,utente_id,automobile_id,indirizzo_id) VALUES(?,?,?,?)";
+		String sql = "INSERT INTO annuncio(titolo,descrizione,utente_id,automobile_id,indirizzo_id) VALUES(?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement statement = null;
 		ResultSet generatedKeys = null;
@@ -355,6 +355,26 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(statement);
 		}
 		return annuncio;
+	}
+	
+	public void deleteAnnuncio(Connection connection, Annuncio annuncio) throws DAOException {
+		String sql = "DELETE FROM annuncio WHERE id=?";
+		System.out.println(sql);
+		// Statement statement = null;
+		PreparedStatement statement = null;
+		try {
+			// statement = connection.createStatement();
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, annuncio.getId());
+			// statement.executeUpdate(sql);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(statement);
+		}
+		
 	}
 
 }

@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,107 +83,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-9 col-md-push-3">
-	  <div class="mobile_search">
-		 <div class="sidebar_widget">
-          <div class="widget_heading">
-            <h5><i class="fa fa-filter" aria-hidden="true"></i> Trova l'auto dei tuoi sogni </h5>
-          </div>
-          <div class="sidebar_filter">
-            <form action="ricerca-annunci" method="get">
-              <div class="form-group select">
-              <div class="select">
-                <select class="form-control" name="marca" id="marca" onchange="populate(this.id,'modello')">
-                  <option value="">Seleziona la marca</option>
-                  <option value="Alfa Romeo">Alfa Romeo</option>
-                  <option value="Audi">Audi</option>
-                  <option value="Bmw">Bmw</option>
-                  <option value="Ferrari">Ferrari</option>
-                  <option value="Fiat">Fiat</option>
-                  <option value="Ford">Ford</option>
-                  <option value="Mazda">Mazda</option>
-                  <option value="Mercedes">Mercedes</option>                 
-                  <option value="Mini">Mini</option>
-                  <option value="Peugeot">Peugeot</option>
-                  <option value="Renault">Renault</option>
-                  <option value="Seat">Seat</option>
-                  <option value="Volkswagen">Volkswagen</option>
-                </select>
-               </div>
-              </div>
-              <div class="form-group select">
-                <select class="form-control" name="modello" id="modello">
-                  <option value="">Seleziona il modello</option>
-                </select>
-              </div>
-              <div class="form-group select">
-                <select class="form-control" name="prezzoMin" id="prezzoMin">
-                  <option value="">Prezzo da</option>
-                  <option value="500">500 &euro;</option>
-                  <option value="1000">1.000 &euro;</option>
-                  <option value="2000">2.000 &euro;</option>
-                  <option value="3000">3.000 &euro;</option>
-                  <option value="4000">4.000 &euro;</option>
-                  <option value="5000">5.000 &euro;</option>
-                  <option value="6000">6.000 &euro;</option>
-                  <option value="7000">7.000 &euro;</option>
-                  <option value="8000">8.000 &euro;</option>
-                  <option value="9000">9.000 &euro;</option>
-                  <option value="10000">10.000 &euro;</option>
-                  <option value="12500">12.500 &euro;</option>
-                  <option value="15000">15.000 &euro;</option>
-                  <option value="17500">17.500 &euro;</option>
-                  <option value="20000">20.000 &euro;</option>
-                  <option value="25000">25.000 &euro;</option>
-                  <option value="30000">30.000 &euro;</option>
-                  <option value="40000">40.000 &euro;</option>
-                  <option value="50000">50.000 &euro;</option>
-                  <option value="60000">60.000 &euro;</option>
-                  <option value="70000">70.000 &euro;</option>
-                  <option value="80000">80.000 &euro;</option>
-                  <option value="90000">90.000 &euro;</option>
-                  <option value="100000">100.000 &euro;</option>
-                  <option value="250000">250.000 &euro;</option>
-                  <option value="500000">500.000 &euro;</option>
-                </select>
-              </div>
-               <div class="form-group select">
-                <select class="form-control" name="prezzoMax" id="prezzoMax">
-                  <option value=""> a</option>
-                  <option value="500">500 &euro;</option>
-                  <option value="1000">1.000 &euro;</option>
-                  <option value="2000">2.000 &euro;</option>
-                  <option value="3000">3.000 &euro;</option>
-                  <option value="4000">4.000 &euro;</option>
-                  <option value="5000">5.000 &euro;</option>
-                  <option value="6000">6.000 &euro;</option>
-                  <option value="7000">7.000 &euro;</option>
-                  <option value="8000">8.000 &euro;</option>
-                  <option value="9000">9.000 &euro;</option>
-                  <option value="10000">10.000 &euro;</option>
-                  <option value="12500">12.500 &euro;</option>
-                  <option value="15000">15.000 &euro;</option>
-                  <option value="17500">17.500 &euro;</option>
-                  <option value="20000">20.000 &euro;</option>
-                  <option value="25000">25.000 &euro;</option>
-                  <option value="30000">30.000 &euro;</option>
-                  <option value="40000">40.000 &euro;</option>
-                  <option value="50000">50.000 &euro;</option>
-                  <option value="60000">60.000 &euro;</option>
-                  <option value="70000">70.000 &euro;</option>
-                  <option value="80000">80.000 &euro;</option>
-                  <option value="90000">90.000 &euro;</option>
-                  <option value="100000">100.000 &euro;</option>
-                  <option value="250000">250.000 &euro;</option>
-                  <option value="500000">500.000 &euro;</option>
-                </select>
-              </div>
-            </form>
-          </div>
-        </div>
-	   </div>
         <div class="result-sorting-wrapper">
           <div class="sorting-count">
-            <p>1 - 8 <span>di 50 annunci</span></p>
+            <p>${fn:length(annunci)} annunci trovati</p>
           </div>
           <div class="result-sorting-by">
             <p>Ordina per:</p>
@@ -248,15 +152,15 @@
 	        </c:forEach>
 		</c:if>
  
-        <div class="pagination">
-          <ul>
-            <li class="current">1</li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-          </ul>
-        </div>
+<!--         <div class="pagination"> -->
+<!--           <ul> -->
+<!--             <li class="current">1</li> -->
+<!--             <li><a href="#">2</a></li> -->
+<!--             <li><a href="#">3</a></li> -->
+<!--             <li><a href="#">4</a></li> -->
+<!--             <li><a href="#">5</a></li> -->
+<!--           </ul> -->
+<!--         </div> -->
       </div>
       
       <!--Side-Bar-->
@@ -269,7 +173,7 @@
             <form action="ricerca-annunci" method="get">
               <div class="form-group select">
               <div class="select">
-				<select class="form-control" name="marca" id="marca" onchange="populate(this.id,'modello')">
+                <select class="form-control" name="marca" id="marca" onchange="populate(this.id,'modello')">
                   <option value="">Seleziona la marca</option>
                   <option value="Alfa Romeo">Alfa Romeo</option>
                   <option value="Audi">Audi</option>
@@ -354,27 +258,6 @@
                   <option value="500000">500.000 &euro;</option>
                 </select>
               </div>
-              <!-- <div class="form-group select">
-                <select class="form-control">
-                  <option>Anno del Modello </option>
-                  <option>2016</option>
-                  <option>2015</option>
-                  <option>2014</option>
-                  <option>2013</option>
-                </select>
-              </div> -->
-              
-              <!--<div class="form-group">
-                  <label class="form-label">Fascia di prezzo ($)</label>
-                  <input id="price_range" type="text" class="span2" value="" data-slider-min="50" data-slider-max="6000" data-slider-step="5" data-slider-value="[1000,5000]"/>
-              </div> -->
-              <!-- <div class="form-group select">
-                <select class="form-control">
-                  <option>Tipo di auto </option>
-                  <option>Auto Nuova</option>
-                  <option>Auto usata</option>
-                </select>
-              </div>  -->
               <div class="form-group">
                 <button type="submit" class="btn btn-block"><i class="fa fa-search" aria-hidden="true"></i> Cerca auto</button>
               </div>
@@ -385,7 +268,7 @@
           <div class="white-text div_zindex text-center">
             <h3>Ti serve una mano?</h3>
             <p>Possiamo aiutarti a trovare l'auto che fa per te!</p>
-            <a href="contact-us.jsp" class="btn">Contattaci <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
+            <a href="about-us.jsp" class="btn">Per saperne di pi&ugrave; <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a> </div>
           <div class="dark-overlay"></div>
         </div>
         <div class="sidebar_widget">
@@ -406,25 +289,6 @@
 	                </div>
 		            </li>
 				</c:forEach>
-              
-<!--               <li class="gray-bg"> -->
-<!--                 <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div> -->
-<!--                 <div class="recent_post_title"> <a href="#">Auto elencate di recente</a> -->
-<!--                   <p class="widget_price">$92,000</p> -->
-<!--                 </div> -->
-<!--               </li> -->
-<!--               <li class="gray-bg"> -->
-<!--                 <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div> -->
-<!--                 <div class="recent_post_title"> <a href="#">Auto elencate di recente</a> -->
-<!--                   <p class="widget_price">$92,000</p> -->
-<!--                 </div> -->
-<!--               </li> -->
-<!--               <li class="gray-bg"> -->
-<!--                 <div class="recent_post_img"> <a href="#"><img src="assets/images/200x200.jpg" alt="image"></a> </div> -->
-<!--                 <div class="recent_post_title"> <a href="#">Auto elencate di recente </a> -->
-<!--                   <p class="widget_price">$92,000</p> -->
-<!--                 </div> -->
-<!--               </li> -->
             </ul>
           </div>
         </div>
@@ -448,13 +312,12 @@
 <script src="assets/js/popper.min.js"></script> 
 <script src="assets/js/bootstrap.min.js"></script> 
 <script src="assets/js/interface.js"></script>
-<script src="assets/js/dynamic-form.js"></script>
 <!--bootstrap-slider-JS--> 
 <script src="assets/js/bootstrap-slider.min.js"></script> 
 <!--Slider-JS--> 
 <script src="assets/js/slick.min.js"></script> 
 <script src="assets/js/owl.carousel.min.js"></script>
-
+<script src="assets/js/dynamic-form.js"></script>
 
 </body>
 </html>
