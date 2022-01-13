@@ -23,6 +23,7 @@ public class RicercaAnnunciServlet extends HttpServlet {
 
 	private AnnuncioService annuncioService = new AnnuncioServiceImpl();
 	private List<Annuncio> annunci = new ArrayList<Annuncio>();
+	private List<Annuncio> annunciSide = new ArrayList<Annuncio>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -39,7 +40,7 @@ public class RicercaAnnunciServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String marca = request.getParameter("marca");
-		String modello = request.getParameter("modello");
+		String modello = request.getParameter("modello").trim();
 		int prezzoMin = 0;
 		int prezzoMax = 0;
 		String orderBy = request.getParameter("orderBy");
@@ -57,6 +58,9 @@ public class RicercaAnnunciServlet extends HttpServlet {
 			request.setAttribute("modello", modello);
 			request.setAttribute("prezzoMin", prezzoMin);
 			request.setAttribute("prezzoMax", prezzoMax);
+			
+			annunciSide = annuncioService.findAll();
+			request.setAttribute("annunciSide", annunciSide);
 
 			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {

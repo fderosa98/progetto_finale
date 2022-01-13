@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,30 +79,34 @@
 <section class="about_us section-padding">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Benvenuti <span>su MacAuto</span></h2>
-      <p>Ti aiutiamo a trovare l'auto giusta per te, quella che cercavi, quella che proprio ti piace, quella perfetta per le tue esigenze, ma soprattutto un'auto che sia davvero affidabile. </p>
+      <h2>Benvenuti su MacAuto</h2>
+      <p>Cerchi un'auto nuova, o un'auto usata ma come nuova?
+         Per fortuna puoi scegliere in tutta sicurezza su MacAuto! </p>
     </div>
     <div class="row">
       <div class="col-md-6 col-sm-6">
         <div class="about_content row">
           <div class="col-md-5 col-sm-4 col-xs-4">
-            <div class="about_img"> <img src="assets/images/foto_about_us/Luca.png" alt="image"> </div>
+            <div class="about_img"> <img src="assets/images/foto_about_us/business3.jpg" alt="image"> </div>
           </div>
           <div class="col-md-7 col-sm-8 col-xs-8">
             <h3>Chi Siamo</h3>
-            <p>Siamo nati ufficialmente nel 2010 come declinazione italiana del sito mobile.de, il pi&ugrave; grande marketplace tedesco di autoveicoli. Ogni mese 3 milioni di persone raggiungono il nostro sito e noi le aiutiamo a trovare l'auto perfetta per loro.</p>
+            <p>Siamo nati ufficialmente nel 2010 dalla passione per il settore automotive.
+               Crediamo nel progresso della mobilit&agrave; in Italia e nel cambiamento tecnologico.
+               Formiamo quotidianamente il nostro staff ed i nostri store sono in continuo aggiornamento, per garantirvi un'esperienza unica che sia sempre orientata al futuro in termini di offerta di prodotto e di servizi.
+               Venite a trovarci, la vostra nuova auto vi aspetta! </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-sm-6">
         <div class="about_content row">
           <div class="col-md-5 col-sm-4 col-xs-4">
-            <div class="about_img"> <img src="assets/images/foto_about_us/Luca.png" alt="image"> </div>
+            <div class="about_img"> <img src="assets/images/foto_about_us/business1.jpg" alt="image"> </div>
           </div>
           <div class="col-md-7 col-sm-8 col-xs-8">
             <h3>Il nostro manifesto</h3>
-            <p>Noi di MacAuto sappiamo che comprare un'auto, soprattutto se usata, &egrave; una cosa seria. Non si fa ad occhi chiusi.
-			Per questo noi di MacAuto ci impegniamo ad accogliere in piattaforma rivenditori solidi, seri e sicuri. 
+            <p>Noi di MacAuto sappiamo che comprare un'auto, soprattutto se usata, &egrave; una cosa seria.
+			Per questo ci impegniamo ogni giorno a verificare auto usate e nuove e ad accogliere in piattaforma rivenditori solidi, seri e sicuri. 
 			</p>
           </div>
         </div>
@@ -109,18 +115,18 @@
       <div class="col-md-6 col-sm-6">
         <div class="about_content row">
           <div class="col-md-5 col-sm-4 col-xs-4">
-            <div class="about_img"> <img src="assets/images/foto_about_us/Luca.png" alt="image"> </div>
+            <div class="about_img"> <img src="assets/images/foto_about_us/business%20woman.jpg" alt="image"> </div>
           </div>
           <div class="col-md-7 col-sm-8 col-xs-8">
             <h3>La Mission</h3>
-            <p>Ti aiutiamo a trovare l'auto giusta per te, quella che cercavi, quella che proprio ti piace, quella perfetta per le tue esigenze, ma soprattutto un'auto che sia davvero affidabile.</p>
+            <p>Per noi di MacAuto &egrave; importante trovare l'auto giusta per te, adatta alle tue esigenze, ma soprattutto un'auto che sia davvero affidabile.</p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-sm-6">
         <div class="about_content row">
           <div class="col-md-5 col-sm-4 col-xs-4">
-            <div class="about_img"> <img src="assets/images/foto_about_us/Luca.png" alt="image"> </div>
+            <div class="about_img"> <img src="assets/images/foto_about_us/business2.jpg" alt="image"> </div>
           </div>
           <div class="col-md-7 col-sm-8 col-xs-8">
             <h3>I nostri principi</h3>
@@ -138,7 +144,7 @@
   <div class="container">
     <div class="section-header text-center">
       <h2>Perch&egrave; scegliere noi?</h2>
-      <p>Scegliere dei professionisti &egrave; sempre la scelta migliore quando si cerca un prodotto o servizio di qualit&agrave;. Noi cerchiamo di esserlo, ma desideriamo siano i nostri stessi clienti a ritenerci tali, per questo c'impegnano quotidianamente per migliorarci. Se dovessimo rispondere alla domanda: "perch&egrave; sceglierci?" molto probabilmente lo faremmo elencando questi 2 semplici ma importanti aspetti:</p>
+      <div align=left>Scegliere dei professionisti &egrave; sempre la scelta migliore quando si cerca un prodotto o servizio di qualit&agrave;. Noi cerchiamo di esserlo, ma desideriamo siano i nostri stessi clienti a ritenerci tali, per questo c'impegnano quotidianamente per migliorarci. Se dovessimo rispondere alla domanda: "perch&egrave; sceglierci?" molto probabilmente lo faremmo elencando questi 2 semplici ma importanti aspetti:</div>
     </div>
      <div class="row">
       <div class="col-md-6 col-sm-6">
@@ -156,9 +162,7 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-6">
-        <div class="video_box">
-          <iframe class="mfp-iframe" src="https://www.youtube.com/embed/rqSoXtKMU3Q" allowfullscreen></iframe>
-        </div>
+        <img src="assets/images/donnavolante.jpg">
       </div>
     </div>
   </div>

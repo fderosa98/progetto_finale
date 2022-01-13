@@ -95,7 +95,6 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			DBUtil.close(resultSet);
 			DBUtil.close(statement);
 		}
-		System.out.println(annunci);
 		return annunci;
 	}
 

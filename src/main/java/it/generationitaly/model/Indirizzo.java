@@ -42,6 +42,11 @@ public class Indirizzo {
 		this.annuncio = annuncio;
 	}
 
+	@Override
+	public String toString() {
+		return "Indirizzo [id=" + id + ", citta=" + citta + ", provincia=" + provincia + "]";
+	}
+
 	
 	
 	

@@ -29,11 +29,14 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+    	if (validate(request)) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			return;
+    	}
+		
 		try {
-			Utente utente = utenteService.findByUsername(username);
-			if(utente != null && utente.getPassword().equals(password)) {
+			Utente utente = utenteService.findByUsername(request.getParameter("username"));
+			if(utente != null && utente.getPassword().equals(request.getParameter("password"))) {
 				request.getSession().setAttribute("username", utente.getUsername());
 //				response.sendRedirect("index.jsp");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -44,6 +47,24 @@ public class LoginServlet extends HttpServlet {
 			System.err.println(e.getMessage());
 			throw new ServletException(e.getMessage(),e);
 		}
+	}
+	
+	private boolean validate(HttpServletRequest request) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		boolean hasErrors = false;
+
+		if (username == null || username.trim().isEmpty()) {
+			request.setAttribute("errorUsername", "Campo username obbligatorio");
+			hasErrors = true;
+		}
+		
+		if (password == null || password.trim().isEmpty()) {
+			request.setAttribute("errorPassword", "Campo password obbligatorio");
+			hasErrors = true;
+		}
+		return hasErrors;
 	}
 
 }

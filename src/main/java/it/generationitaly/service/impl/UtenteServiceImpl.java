@@ -143,4 +143,22 @@ public class UtenteServiceImpl implements UtenteService {
         }
         return messaggio;
 	}
+	
+	@Override
+    public void updatePassword(Utente utente) throws ServiceException {
+        Connection connection = null;
+        try {
+            connection = DataSource.getInstance().getConnection();
+            DBUtil.setAutoCommit(connection, false);
+            utenteDAO.updatePassword(connection, utente);
+            DBUtil.commit(connection);
+        } catch (DAOException e) {
+            System.err.println(e.getMessage());
+            DBUtil.rollback(connection);
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(connection);
+        }
+
+    }
 }

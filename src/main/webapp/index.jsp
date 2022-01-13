@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -68,8 +68,8 @@
               <img src="assets/images/sls.jpg" class="img-fluid" alt="image">
               <div class="carousel-caption">
                  <div class="banner_text text-center div_zindex white-text">
-                        <h1>Compra la tua auto nuova o usata. </h1>
-                        <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
+                       <h1>Compra auto in modo facile da una selezione di oltre 1000 veicoli</h1>
+                        <h3>Cosa aspetti? Trova subito l'auto pi&ugrave; adatta a te</h3>
                         <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
@@ -80,8 +80,9 @@
               <img src="assets/images/bmw.jpg" alt="image" class="img-fluid">
               <div class="carousel-caption">
                   <div class="banner_text text-center div_zindex white-text">
-                        <h1> Trova l'auto dei tuoi sogni.</h1>
-                        <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
+                        <h1>Vendi le tue auto velocemente e senza difficolt&agrave ai migliori prezzi in tutta Europa!</h1>
+                        <h3>Pubblica subito il tuo annuncio! </h3>
+
                          <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
@@ -91,8 +92,9 @@
               <img src="assets/images/audi.jpg" alt="image" class="img-fluid">
               <div class="carousel-caption">
                   <div class="banner_text text-center div_zindex white-text">
-                        <h1>Utilizza i filtri per trovarla in fretta.</h1>
-                        <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
+                        <h1>Che tipo di auto cerchi? Nuova o usata?</h1>
+                        <h3>Usa i filtri per trovare l'auto pi&ugrave; adatta alle tue esigenze </h3>
+
                          <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
@@ -102,8 +104,9 @@
               <img src="assets/images/mustang.jpg" alt="image" class="img-fluid">
               <div class="carousel-caption">
                   <div class="banner_text text-center div_zindex white-text">
-                        <h1>Contatta il venditore e concludi un affare.</h1>
-                        <h3>Abbiamo pi&ugrave; di mille auto da scegliere. </h3>
+                        <h1>Diverse tipologie di finanziamento</h1>
+                        <h3>Prestito personale, prestito finalizzato, leasing ... Non ti preoccupare, ti aiutiamo noi!</h3>
+
                          <a href="listing-classic.jsp" class="btn">Per saperne di pi&ugrave;</a> 
                     </div> 
               </div>
@@ -274,8 +277,11 @@
 	<div class="container">
     	<div class="section-header text-center">
         	<h2>Benvenuti su MacAuto</h2>
-            <p>Nel nostro mercato on-line di autoveicoli puoi trovare auto usate o nuove in pochi click, proprio con le caratteristiche che cercavi e sempre con un contatto diretto con venditori o concessionari. Il nostro motto &egrave;: sei tu a decidere quello che trovi! Il dove e il come cercare, sei sempre tu a stabilirlo, grazie ai criteri di ricerca che andrai a impostare, come la marca preferita, il modello o l'anno.</p>
-        </div>
+            <div align=left>Sul nostro sito di auto puoi trovare auto usate o nuove in pochi click, proprio con le caratteristiche che cercavi e sempre con un contatto 
+               diretto con i venditori o concessionari. Il nostro motto &egrave;: sei tu a decidere quello che trovi! 
+               Il dove e il come cercare, sei sempre tu a stabilirlo, grazie ai criteri di ricerca che andrai a impostare, come la marca preferita, il modello, i chilometri o l'anno.
+            </div>
+
         
         <div class="row">
         	<div class="col-md-3 col-sm-6">
@@ -327,8 +333,7 @@
     <div class=" col-md-6 vc_col section-padding">
         <div class="fact_m white-text">
             <h2>Informazioni su MacAuto</h2>
-            <p>Da circa 15 anni MacAuto verifica in maniera indipendente le auto usate e nuove e mette a tua disposizione la propria conoscenza in fatto di auto. Grazie a noi diventi un ricercatore! Qualsiasi sia il dettaglio o il settore riguardanti il mondo delle auto su cui hai dei dubbi, da noi trovi la risposta: vetture moderne o d’epoca, auto sportive o di servizio, le migliori officine, la messa a punto ottimale, gli accessori più adatti e molto altro ancora. Ti basterà dare un’occhiata al nostro Catalogo. </p>
-    
+  			<p>Da oltre 10 anni MacAuto verifica le auto usate e nuove, mettendo a tua disposizione la propria conoscenza in fatto di auto. Grazie a noi diventi un ricercatore! Qualsiasi sia il dettaglio o il settore riguardanti il mondo delle auto su cui hai dei dubbi, da noi trovi la risposta: auto moderne o d'epoca, auto sportive o utilitarie, gli accessori pi&ugrave; adatti e molto altro ancora. Ti baster&agrave; dare un'occhiata al nostro Catalogo. </p>
             <ul>
                 <li>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -367,94 +372,47 @@
 <section class="section-padding">
   <div class="container">
     <div class="section-header text-center">
-      <h2>Auto in primo piano Offerte speciali</h2>
-      <p>Ci sono molte varianti di passaggi di MacAuto disponibili, ma la maggior parte ha subito alterazioni in qualche forma, con umorismo iniettato, o parole casuali che non sembrano nemmeno lontanamente credibili. Se hai intenzione di usare un passaggio di Lorem Ipsum, devi essere sicuro che non ci sia nulla di imbarazzante nascosto in mezzo al testo. </p>
+      <h2>Auto in primo piano</h2>
+      <p>Consulta la nostra selezione di auto settimanale, vogliamo aiutarti a scegliere l'auto adatta alle tue esigenze e al miglior prezzo!  </p>
     </div>
     <div class="row">
+     <c:forEach items="${annunci}" begin="0" end="2" var="annuncio">
       <div class="col-list-3">
         <div class="featured-car-list">
-          <div class="featured-car-img"> <a href=""><img src="assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>
-            <div class="label_icon">Nuovo</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" id="compare">
-                <label for="compare">Confronta</label>
-              </div>
-            </div>
+        <c:forEach items="${annuncio.foto}" var="foto">
+         <c:if test="${foto.principale}">
+          <div class="featured-car-img"> 
+          	<a href="
+          		<c:url value="/dettaglio-annuncio">
+                	<c:param name="id" value="${annuncio.id}"/>
+         		</c:url>">"><img src="${foto.url}" class="img-fluid" alt="Image">
+         	</a>
+         </c:if>  
+            </c:forEach>                    
           </div>
           <div class="featured-car-content">
-            <h6><a href="#">Nome della nuova auto</a></h6>
+            <h6>
+            	<a href="
+            		<c:url value="/dettaglio-annuncio">
+                		<c:param name="id" value="${annuncio.id}"/>
+         			</c:url>">${annuncio.titolo}
+         		</a>
+         	</h6>
             <div class="price_info">
-              <p class="featured-price">$90,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
+              <p class="featured-price">${annuncio.automobile.prezzo}0 €</p>
+              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i>${annuncio.indirizzo.citta}, ${annuncio.indirizzo.provincia}</span></div>
             </div>
             <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 modello</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
+              <li><i class="fa fa-road" aria-hidden="true"></i>${annuncio.automobile.km} km</li>
+              <li><i class="fa fa-calendar" aria-hidden="true"></i>${annuncio.automobile.anno}</li>
+              <li><i class="fa fa-car" aria-hidden="true"></i>${annuncio.automobile.carburante.value}</li>
+              <li><i class="fa fa-user" aria-hidden="true"></i>${annuncio.automobile.numeroPorte.value}</li>              
             </ul>
           </div>
         </div>
       </div>
-      <div class="col-list-3">
-        <div class="featured-car-list">
-          <div class="featured-car-img"> <a href=""><img src="assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>
-            <div class="label_icon">Usato</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" id="compare2">
-                <label for="compare2">Confronta</label>
-              </div>
-            </div>
-          </div>
-          <div class="featured-car-content">
-            <h6><a href="#">Nome dell'auto usata</a></h6>
-            <div class="price_info">
-              <p class="featured-price">$90,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-            </div>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-list-3">
-        <div class="featured-car-list">
-          <div class="featured-car-img"> <a href=""><img src="assets/images/600x380.jpg" class="img-fluid" alt="Image"></a>
-            <div class="label_icon">Usata</div>
-            <div class="compare_item">
-              <div class="checkbox">
-                <input type="checkbox" id="compare3">
-                <label for="compare3">Confronta</label>
-              </div>
-            </div>
-          </div>
-          <div class="featured-car-content">
-            <h6><a href="#">Nome dell'auto usata</a></h6>
-            <div class="price_info">
-              <p class="featured-price">$90,000</p>
-              <div class="car-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i> Colorado, USA</span></div>
-            </div>
-            <ul>
-              <li><i class="fa fa-road" aria-hidden="true"></i>0,000 km</li>
-              <li><i class="fa fa-tachometer" aria-hidden="true"></i>30.000 miles</li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>2005 model</li>
-              <li><i class="fa fa-car" aria-hidden="true"></i>Diesel</li>
-              <li><i class="fa fa-user" aria-hidden="true"></i>5 seats</li>
-              <li><i class="fa fa-superpowers" aria-hidden="true"></i>143 kW</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+     </c:forEach>
+           
     </div>
   </div>
 </section>
@@ -471,10 +429,11 @@
     <div class=" col-md-6 vc_col section-padding">
         <div class="our_services white-text">
             <h2>I nostri servizi</h2>
-            <p>Siamo nati ufficialmente nel 2007 come declinazione italiana del sito mobile.de, il pi&ugrave; grande marketplace tedesco di autoveicoli. 
-			Ogni mese 3 milioni di persone raggiungono 
-			il nostro sito e noi le aiutiamo a trovare l'auto perfetta per loro. 
-			come puoi notare, forniamo la possbilit&agrave; agli utenti di vendere le proprie auto attraverso il nostro portale</p>
+            <p>Siamo nati ufficialmente nel 2010 dalla passione per il settore automotive.
+               Crediamo nel progresso della mobilit&agrave; in Italia e nel cambiamento tecnologico.
+               Formiamo quotidianamente il nostro staff ed i nostri store sono in continuo aggiornamento, per garantirvi un'esperienza unica che sia sempre orientata al futuro in termini di offerta di prodotto e di servizi.
+               Venite a trovarci, la vostra nuova auto vi aspetta! 
+            </p>
             <!--Services-info-->
             <div class="services_info">
                 <div class="icon_box">
@@ -514,8 +473,8 @@
                   <h5>Mario Rossi</h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-               <p>Buongiorno consiglio a tutti questa concessionaria per la professionalit&agrave;, competenza ma soprattutto gentilezza del titolare Paolo. Dopo aver girato diverse concessionarie dove sono stata trattata con superficialit&agrave;, ho trovato Giancarlo che mi ha saputo consigliare e ha trovato lauto che cercavo. Consiglierei ai dipendenti di grandi concessionarie di farsi un giretto da MacAuto per imparare come comportarsi. Alle volte basta poco per soddisfare un cliente.</p>
-           </div>
+             <p>Consiglio a tutti questa concessionaria per la professionalit&agrave;, competenza e soprattutto gentilezza del titolare Paolo. Dopo aver girato diverse concessionarie, ho trovato una concessionaria del gruppo MacAuto che mi ha saputo guidare nella scelta dell'auto. Consiglierei ai dipendenti di grandi concessionarie di farsi un giretto da MacAuto per imparare come comportarsi. Alle volte basta poco per soddisfare un cliente.</p>
+			</div>
            
            <div class="testimonial_wrap">
           	   <div class="testimonial-img">
@@ -525,8 +484,8 @@
                   <h5>Enzo Giovanotelli </h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-               <p>Salve, ho comprato una autovettura da Pietro ( MacAuto concessionaria)solo dopo aver letto tutte le recensioni , ho comprato senza vedere la macchina, mi sono solo fidato di lui, tutto vero quello che dice e non solo, molto disponibile, seria, e ti da molti consigli, e io mi sono fatto 3000 km per acquistare la macchina come nelle foto e come spiegata da lui insomma una persona molto seria....</p>
-           </div>
+           <p>Dopo svariate ricerche e delusioni in pi&ugrave; concessionarie, sono approdato in una concessionatria di MacAuto, dove ho comprato un'auto nuova grazie ai consigli e alla professionalit&agrave; dei consulenti. Consigliatissimo!</p>
+			</div>
            
            <div class="testimonial_wrap">
           	   <div class="testimonial-img">
@@ -536,8 +495,8 @@
                   <h5>Lucia Bianchi</h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-               <p>&Egrave; TUTTO VERO E RARO. RECENSIONE POSITIVA!! PERSONE QUALIFICATE PRECISE E SOPRATUTTO SPIEGANO AL DETTAGLIO IL CONTRATTO DI VENDITA IN FASE DI ACQUISTO. CONSIGLIO SENZA SORPRESE.</p>
-           </div>
+               <p>Ho acquistato un Audi A4 Avant Sport edition presso una delle concessionarie di MacAuto e devo dire che raramente ho avuto una migliore assistenza pre e post vendita. Pazienza e professionalit&agrave; al massimo grado. Assolutamente consigliato.</p>
+			</div>
            
            <div class="testimonial_wrap">
           	   <div class="testimonial-img">
@@ -555,14 +514,14 @@
                	  <img src="assets/images/profili_feedback/profilo5.jpg" alt="image">
                </div>
                <div class="testimonial-heading">
-                  <h5>Roberto Serritella </h5>
+                  <h5>Marta Brambilla </h5>
                   <span class="client-designation">MacAuto</span> 
                </div>
-               <p>&Egrave; gi&agrave; la seconda volta che mi affido a loro e come sempre Giancarlo e il suo staff sono stati disponibili dei professionisti seri e competenti organizzati in tutto, sempre pronti a dare qualsiasi spiegazione. &Egrave; stato un piacere acquistare la mia auto da loro mi hanno supportato durante l'iter di vendita del mio precedente mezzo e sono stati precisi, attenti ai dettagli e molto professionali per l'acquisto della mia nuova macchina. Un lavoro svolto con passione e si percepisce non appena entri nell'auto salone. Grazie per tutto!.</p>
-           </div>
-      </div>
-    </div>
-  </div>
+               <p>Ho acquistato una Fiat 500 usata molto bella da MacAuto, con pochissimi chilometri, ottimo prezzo ma soprattutto ho trovato una grande disponibilit&agrave; e professionalit&agrave;. Chiedete di Fabio, sapr&agrave; sicuramente consigliarvi al meglio.</p>
+			</div>
+	      </div>
+	    </div>
+	  </div>
 
 </section>
 <!-- /Testimonial--> 
@@ -573,7 +532,7 @@
 	<div class="container">
     	<div class="div_zindex white-text text-center">
             <h2>Hai qualche domanda?<br>
-            +39 342 162 6277</h2>
+            +39 345 789 4522</h2>
         </div>
     </div>
     

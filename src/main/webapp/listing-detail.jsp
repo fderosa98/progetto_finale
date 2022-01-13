@@ -254,6 +254,19 @@
     </div>
 </div>
 </c:if>
+<c:if test="${param.login != null}">
+	<div class="overlay" id="pop">
+    <div class="popup">
+        <div class="text-center">
+        <h2>Devi essere loggato per inviare un messaggio!</h2>
+        <br>
+        <div class="btn btn-xs uppercase" aria-label="Close">
+        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+        </div>
+        </div>
+    </div>
+</div>
+</c:if>
 <!--Listing-detail-->
 <section class="listing-detail">
   <div class="container">

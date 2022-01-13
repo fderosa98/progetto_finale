@@ -103,5 +103,25 @@ public class UtenteDAOImpl implements UtenteDAO {
         }
         return utente;
 	}
+	
+	@Override
+    public void updatePassword(Connection connection, Utente utente) throws DAOException {
+        String sql ="UPDATE utente SET password=? WHERE id=?";
+        System.out.println(sql);
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, utente.getPassword());
+            statement.setInt(2, utente.getId());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new DAOException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(statement);
+        }
+
+    }
 
 }

@@ -11,4 +11,6 @@ public interface UtenteDAO {
 	Utente findByUsername(Connection connection, String username) throws DAOException;
 	
 	Utente findById(Connection connection, int id) throws DAOException;
+	
+	public void updatePassword(Connection connection, Utente utente) throws DAOException;
 }

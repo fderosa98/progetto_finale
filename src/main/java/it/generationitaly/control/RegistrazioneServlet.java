@@ -29,28 +29,70 @@ public class RegistrazioneServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("nome");
+    	if (validate(request)) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			return;
+    	}
+		
+		Utente utente = new Utente();
+		utente.setNome(request.getParameter("nome"));
+		utente.setCognome(request.getParameter("cognome"));
+		utente.setEmail(request.getParameter("email"));
+		utente.setTelefono(Long.parseLong(request.getParameter("telefono")));
+		utente.setUsername(request.getParameter("username"));
+		utente.setPassword(request.getParameter("password"));
+		
+		try {
+			utenteService.saveUtente(utente);
+			response.sendRedirect("index.jsp");
+		} catch (ServiceException e) {
+			System.err.println(e.getMessage());
+			response.sendRedirect("404.jsp");
+		}
+		
+	}
+    
+    private boolean validate(HttpServletRequest request) {
+    	String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String email = request.getParameter("email");
 		long telefono =  Long.parseLong(request.getParameter("telefono"));
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
-		Utente utente = new Utente();
-		utente.setNome(nome);
-		utente.setCognome(cognome);
-		utente.setEmail(email);
-		utente.setTelefono(telefono);
-		utente.setUsername(username);
-		utente.setPassword(password);
-		
-		try {
-			utenteService.saveUtente(utente);
-			response.sendRedirect("login");
-		} catch (ServiceException e) {
-			System.err.println(e.getMessage());
+
+		boolean hasErrors = false;
+
+		if (nome == null || nome.trim().isEmpty()) {
+			request.setAttribute("errorNome", "Campo nome obbligatorio");
+			hasErrors = true;
 		}
 		
+		if (cognome == null || cognome.trim().isEmpty()) {
+			request.setAttribute("errorCognome", "Campo cognome obbligatorio");
+			hasErrors = true;
+		}
+		
+		if (email == null || email.trim().isEmpty()) {
+			request.setAttribute("errorEmail", "Campo email obbligatorio");
+			hasErrors = true;
+		}
+		
+		if ((Long)telefono == null) {
+			request.setAttribute("errorTelefono", "Campo telefono obbligatorio");
+			hasErrors = true;
+		}
+
+		if (username == null || username.trim().isEmpty()) {
+			request.setAttribute("errorUsername", "Campo username obbligatorio");
+			hasErrors = true;
+		}
+
+		if (password == null || password.trim().isEmpty()) {
+			request.setAttribute("errorPassword", "Campo password obbligatorio");
+			hasErrors = true;
+		}
+
+		return hasErrors;
 	}
 
 }

@@ -20,4 +20,7 @@ public interface UtenteService {
 	public void deleteMessaggio(Messaggio messaggio) throws ServiceException;
 	
 	public Messaggio findMessaggioById(int id) throws ServiceException;
+
+	 public void updatePassword(Utente utente) throws ServiceException;
+
 }

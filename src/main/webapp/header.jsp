@@ -69,13 +69,19 @@
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav">
-      	<li><a href="index.jsp"> Home</a></li>
+      	<li>
+      		<a href="
+      			<c:url value="/">               	
+         		</c:url>"> Home
+        	</a>
+        </li>
       	<li><a href="about-us.jsp">Chi siamo</a></li>     	
       	<li>
-      		<form action="annunci" method="get" id="form_annunci"></form>
-      		<a href="javascript:;" onclick="document.getElementById('form_annunci').submit();">Catalogo</a>
+      		<a href="
+      			<c:url value="/annunci">
+         		</c:url>" >Catalogo
+         	</a>
       	</li>
-      	<li><a href="contact-us.jsp">Contattaci</a></li>
         <!--li class="dropdown"><a href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
            <ul class="dropdown-menu">
             <li><a href="index-2 U.html">Index-2</a></li> 
@@ -110,6 +116,7 @@
     <div class="header_wrap d-flex flex-row-reverse">
       <div class="user_login">
         <ul>
+         <c:if test="${sessionScope.username != null}"> 
           <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>${sessionScope.username}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="profile-settings.jsp">impostazioni profilo</a></li>
@@ -127,7 +134,6 @@
 	            </form>
 	            <a class="dropdown-item" href="javascript:;" onclick="document.getElementById('form_messaggi_ricevuti').submit();">Messaggi ricevuti</a>
 	          </li>
-	          <c:if test="${sessionScope.username != null}">
               <li>
              	<form action="logout" method="post" id="form_logout"></form>
               	<a class="dropdown-item" href="javascript:;" onclick="document.getElementById('form_logout').submit();">Logout</a>
@@ -137,13 +143,6 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="header_search">
-        <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
-        <form action="#" method="get" id="header-search-form">
-          <input type="text" placeholder="Cerca..." class="form-control">
-          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
-      </div> -->
     </div>
   </div>
 	
@@ -245,47 +244,47 @@
   <!--Login-Form -->
 <div class="modal fade" id="loginform">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-    	
+    <div class="modal-content">	
       <div class="modal-header">
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title">Login</h3>
       </div>
-      <div class="modal-body">
-        
+      <div class="modal-body">     
           <div class="login_wrap">
 		  <div class="mx-auto">
             <div class="text-center">
               <form action="login" method="post">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Username" name="username" required>
+                  <c:if test="${errorUsernameLogin != null}">
+					<p class="text-danger">${errorUsernameLogin}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Password" name="password" required>
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="remember">
-                  <label for="remember">Ricordati di me</label>
+                  <c:if test="${errorPasswordLogin != null}">
+					<p class="text-danger">${errorPasswordLogin}</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Login" class="btn btn-block">
                 </div>
+                <c:if test="${errorCredenzialiErrate != null}">
+					<p class="text-danger">${errorCredenzialiErrate}</p>
+				  </c:if>
               </form>
             </div>
-             <!-- <div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Accedi con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> LIscriviti con Twitter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
-            <div class="mid_divider"></div> -->
           </div>
         </div>
       </div>
       <div class="modal-footer text-center">
         <p>Non hai un'account? <a href="#signupform" data-bs-toggle="modal" data-bs-dismiss="modal">Iscriviti qui</a></p><br>
-        <!--<a href="#forgotpassword" data-bs-toggle="modal" data-bs-dismiss="modal">Hai dimenticato la password?</a></p> -->
       </div>
     </div>
   </div>
 </div>
+
+
 
 <!--/Login-Form --> 
 <!--Register-Form -->
@@ -303,55 +302,47 @@
             <div class="text-center">
               <form action="registrazione" method="post">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome" name="nome" >
+                  <input type="text" class="form-control" placeholder="Nome" name="nome" required>
                   <c:if test="${errorNome != null}">
 					<p class="text-danger">${errorNome}</p>
 				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Cognome" name="cognome" >
+                  <input type="text" class="form-control" placeholder="Cognome" name="cognome" required>
                   <c:if test="${errorCognome != null}">
 					<p class="text-danger">${errorCognome}</p>
 				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Indirizzo email" name="email" >
+                  <input type="email" class="form-control" placeholder="Indirizzo email" name="email" required>
                   <c:if test="${errorEmail != null}">
 					<p class="text-danger">${errorEmail}</p>
 				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="tel" class="form-control" name="telefono" placeholder="Numero di telefono (123-45-67-890)" >
+                  <input type="tel" class="form-control" name="telefono" placeholder="3487956789" pattern="[0-9]{10}" required>
                   <c:if test="${errorTelefono != null}">
 					<p class="text-danger">${errorTelefono}</p>
 				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" name="username" >
-                  <c:if test="${errorUsername != null}">
-					<p class="text-danger">${errorUsername}</p>
+                  <input type="text" class="form-control" placeholder="Username" name="username" required>
+                  <c:if test="${errorUsernameRegistrazione != null}">
+					<p class="text-danger">${errorUsernameRegistrazione}</p>
 				  </c:if>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" name="password" >
-                  <c:if test="${errorPassword != null}">
-					<p class="text-danger">${errorPassword}</p>
+                  <input type="password" class="form-control" placeholder="Password" name="password" required>
+                  <c:if test="${errorPasswordRegistrazione != null}">
+					<p class="text-danger">${errorPasswordRegistrazione}</p>
 				  </c:if>
-                </div>
-                <div class="form-group checkbox">
-                  <input type="checkbox" id="terms_agree">
-                  <label for="terms_agree">Sono d'accordo con <a href="#">Termini e Condizioni</a></label>
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Registrati" class="btn btn-block">
                 </div>
               </form>
             </div>
-            <!--<div class="col-md-6 col-sm-6">
-              <h6 class="gray_text">Accedi in modo veloce</h6>
-              <a href="#" class="btn btn-block facebook-btn"><i class="fa fa-facebook-square" aria-hidden="true"></i> Iscriviti con Facebook</a> <a href="#" class="btn btn-block twitter-btn"><i class="fa fa-twitter-square" aria-hidden="true"></i> Iscriviti con Twetter</a> <a href="#" class="btn btn-block googleplus-btn"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Iscriviti con Google+</a> </div>
-            <div class="mid_divider"></div>
-          </div> -->
+
         </div>
       </div>
       <div class="modal-footer text-center">

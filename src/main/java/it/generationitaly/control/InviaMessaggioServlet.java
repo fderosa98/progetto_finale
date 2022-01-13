@@ -41,23 +41,35 @@ public class InviaMessaggioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// il mittente sará poi l'utente loggato in sessione
-		// int mittente_id = Integer.parseInt(request.getParameter("mittenteId"));
-		if(request.getSession().getAttribute("username") == null) {
-			response.sendRedirect("index.jsp");
-			return;
+		int idAnnuncio = 0;
+		List<Annuncio> annunci = null;
+		Annuncio annuncio = null;
+		if(request.getParameter("idAnnuncio") != null ) {
+			idAnnuncio = Integer.parseInt(request.getParameter("idAnnuncio"));
+		}
+				
+		if(request.getSession().getAttribute("username") == null) {			
+			try {
+				annuncio = annuncioService.findDettaglioById(idAnnuncio);
+				annunci = annuncioService.findAll();
+				request.setAttribute("annuncio", annuncio);
+				request.setAttribute("annunci", annunci);
+				request.getRequestDispatcher("listing-detail.jsp?login").forward(request, response);
+				return;
+			} catch (ServiceException e) {
+				System.err.println(e.getMessage());
+			}						
 		}
 		
-		String username = (String) request.getSession().getAttribute("username");
-		int idAnnuncio = Integer.parseInt(request.getParameter("idAnnuncio"));
+		String username = (String) request.getSession().getAttribute("username");		
 		int idDestinatario = Integer.parseInt(request.getParameter("idDestinatario"));
 		String message = request.getParameter("message");
 		Utente mittente = null;
 		Utente destinatario = null;
 		Messaggio messaggio = new Messaggio();
-		List<Annuncio> annunci = null;
+		
 		try {
-			Annuncio annuncio = annuncioService.findDettaglioById(idAnnuncio);
+			annuncio = annuncioService.findDettaglioById(idAnnuncio);
 			annunci = annuncioService.findAll();
 			mittente = utenteService.findByUsername(username);
 			destinatario = utenteService.findById(idDestinatario);
@@ -72,13 +84,13 @@ public class InviaMessaggioServlet extends HttpServlet {
 				utenteService.saveMessaggio(messaggio);
 				request.setAttribute("annuncio", annuncio);
 				request.setAttribute("annunci", annunci);
-				request.getRequestDispatcher("listing-detail.jsp?inviato").forward(request, response);
-				
+				request.getRequestDispatcher("listing-detail.jsp?inviato").forward(request, response);				
 			}
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}
-
 	}
+	
+	
 
 }

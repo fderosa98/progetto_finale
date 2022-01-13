@@ -1,7 +1,6 @@
 package it.generationitaly.control;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import it.generationitaly.model.Annuncio;
@@ -16,20 +15,18 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class FindAllAnnunci
+ * Servlet implementation class Index
  */
-@WebServlet("/annunci")
-public class FindAllAnnunci extends HttpServlet {
+@WebServlet("")
+public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private AnnuncioService annuncioService = new AnnuncioServiceImpl();
-	private List<Annuncio> annunci = new ArrayList<Annuncio>();
-	private List<Annuncio> annunciSide = new ArrayList<Annuncio>();
+	AnnuncioService annuncioService = new AnnuncioServiceImpl();
 
     /**
      * Default constructor. 
      */
-    public FindAllAnnunci() {
+    public Index() {
         // TODO Auto-generated constructor stub
     }
 
@@ -37,22 +34,16 @@ public class FindAllAnnunci extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("sono in index servlet");
 		try {
-			annunci = annuncioService.findAll();
+			List<Annuncio> annunci = annuncioService.findAll();
 			request.setAttribute("annunci", annunci);
-			
-			annunciSide = annuncioService.findAll();
-			request.setAttribute("annunciSide", annunciSide);
-			
-			if(request.getParameter("myVehicles") != null)
-				request.getRequestDispatcher("my-vehicles.jsp").forward(request, response);
-			else
-				request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
-			
 		}
-
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
+
+	
 
 }

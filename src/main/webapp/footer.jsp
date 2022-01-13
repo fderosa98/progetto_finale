@@ -193,11 +193,11 @@
          		</a>
          	</li>
          	 <li><a href="<c:url value="/ricerca-annunci">
-                		<c:param name="marca" value="wolkswagen"/>
+                		<c:param name="marca" value="volkswagen"/>
                 		<c:param name="modello" value=""/>
                 		<c:param name="prezzoMin" value=""/>
                 		<c:param name="prezzoMax" value=""/>
-         			</c:url>">Wolkswagen
+         			</c:url>">Volkswagen
          		</a>
          	</li>
           </ul>
