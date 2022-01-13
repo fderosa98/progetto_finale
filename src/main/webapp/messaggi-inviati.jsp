@@ -97,7 +97,11 @@
 	  <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-            <li><a href="profile-settings.jsp">Impostazioni profilo</a></li>
+            <li><a href="	
+	            	<c:url value="/dettaglio-utente">
+	         		</c:url>">Impostazioni profilo
+	         	</a>
+	        </li>
             <li>                       
             	<a href="
             		<c:url value="/annunci">

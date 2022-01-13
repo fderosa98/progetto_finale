@@ -194,5 +194,38 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		}	
 	}
 	
+	public void saveAutomobile(Automobile automobile) throws ServiceException {
+		Connection connection = null;
+		try {
+			connection = DataSource.getInstance().getConnection();
+			DBUtil.setAutoCommit(connection, false);
+			automobileDAO.saveAutomobile(connection, automobile);
+			DBUtil.commit(connection);
+		} catch (DAOException e) {
+			System.err.println(e.getMessage());
+			DBUtil.rollback(connection);
+			throw new ServiceException(e.getMessage(), e);
+		}finally {
+			DBUtil.close(connection);			
+		}						
+	}
+	
+	public void saveIndirizzo(Indirizzo indirizzo) throws ServiceException {
+        Connection connection = null;
+        try {
+            connection = DataSource.getInstance().getConnection();
+            DBUtil.setAutoCommit(connection, false);
+            indirizzoDAO.saveIndirizzo(connection, indirizzo);
+            DBUtil.commit(connection);
+        } catch (DAOException e) {
+            System.err.println(e.getMessage());
+            DBUtil.rollback(connection);
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(connection);
+        }
+    }
 
+	
+	
 }

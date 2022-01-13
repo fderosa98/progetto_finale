@@ -93,7 +93,12 @@
       <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-            <li class="active"><a href="profile-settings.jsp">Impostazioni profilo</a></li>
+            <li class="active">
+	            <a href="	
+	            	<c:url value="/dettaglio-utente">
+	         		</c:url>">Impostazioni profilo
+	         	</a>
+         	</li>
             <li>                       
             	<a href="
             		<c:url value="/annunci">
@@ -123,50 +128,63 @@
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
           <h5 class="uppercase underline"> Cambia i tuoi dati personali</h5>
-          <form action="#" method="get">
+          
             <div class="form-group">
               <label class="control-label">Nome</label>
-              <input class="form-control white_bg" id="fullname" type="text" name="nome">
+              <input class="form-control gray_bg" id="fullname" type="text" name="nome" value="${utente.nome}" disabled>
             </div>
             <div class="form-group">
               <label class="control-label">Cognome</label>
-              <input class="form-control white_bg" id="email" type="email" name="cognome">
+              <input class="form-control gray_bg" id="email" type="email" name="cognome" value="${utente.cognome}" disabled>
             </div>
             <div class="form-group">
               <label class="control-label">Indirizzo email</label>
-              <input class="form-control white_bg" id="phone-number" type="text" name="email">
+              <input class="form-control gray_bg" id="phone-number" type="text" name="email" placeholder="${utente.email}" disabled>
             </div>
             <div class="form-group">
               <label class="control-label">Telefono</label>
-              <input class="form-control white_bg" id="birth-date" type="text" name="telefono">
+              <input class="form-control gray_bg" id="birth-date" type="text" name="telefono" placeholder="${utente.telefono}" disabled>
             </div>
             
             <div class="gray-bg field-title">
               <h6>Cambia Username</h6>
             </div>
+            <form action="update-username" method="post">
             <div class="form-group">
               <label class="control-label">Username</label>
-              <input class="form-control white_bg" id="password" type="text" name="username">
+              <input class="form-control gray_bg" id="password" type="text" name="username" value="${utente.username}" disabled>
             </div>
             <div class="form-group">
-              <label class="control-label">Conferma Username</label>
-              <input class="form-control white_bg" id="c-password" type="text" name="username">
+              <label class="control-label">Inserisci nuovo Username</label>
+              <input class="form-control white_bg" id="c-password" type="text" name="newUsername">
+            </div>
+             <div class="form-group">
+              <label class="control-label">Conferma nuovo Username</label>
+              <input class="form-control white_bg" id="c-password" type="text" name="confirmUusername">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn">Salva nuovo Username <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
             </div>
             
+            </form>
             <div class="gray-bg field-title">
               <h6>Cambia password</h6>
             </div>
+            <form action="update-username" method="post">
             <div class="form-group">
               <label class="control-label">Password</label>
-              <input class="form-control white_bg" id="password" type="password">
+              <input class="form-control gray_bg" id="password" type="password" value="${utente.password}" name="password" disabled>
             </div>
             <div class="form-group">
-              <label class="control-label">Conferma Password</label>
-              <input class="form-control white_bg" id="c-password" type="password">
+              <label class="control-label">Inserisci nuova Password</label>
+              <input class="form-control white_bg" id="c-password" type="password" name="newPassword">
             </div>
-            
             <div class="form-group">
-              <button type="submit" class="btn">Salva nuove impostazioni <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+              <label class="control-label">Conferma nuova Password</label>
+              <input class="form-control white_bg" id="c-password" type="password" name="confirmPassword">
+            </div>            
+            <div class="form-group">
+              <button type="submit" class="btn">Salva nuova Password <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
             </div>
           </form>
         </div>

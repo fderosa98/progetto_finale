@@ -23,5 +23,8 @@ public interface UtenteService {
 	public Messaggio findMessaggioById(int id) throws ServiceException;
 
 	public void updatePassword(Utente utente) throws ServiceException;
+	
+	public void updateUsername(Utente utente) throws ServiceException;
 
+    public List<Utente> findAllUtenti() throws ServiceException;
 }

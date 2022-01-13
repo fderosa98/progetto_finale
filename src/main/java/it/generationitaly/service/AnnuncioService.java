@@ -26,4 +26,8 @@ public interface AnnuncioService {
 	Annuncio findDettaglioById(int id) throws ServiceException;
 	
 	void deleteAnnuncio(Annuncio annuncio) throws ServiceException;
+	
+	public void saveAutomobile(Automobile automobile) throws ServiceException;
+	
+	public void saveIndirizzo(Indirizzo indirizzo) throws ServiceException;
 }

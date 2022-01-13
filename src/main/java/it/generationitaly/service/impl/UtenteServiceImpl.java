@@ -160,8 +160,40 @@ public class UtenteServiceImpl implements UtenteService {
         } finally {
             DBUtil.close(connection);
         }
-
+    }
+	
+	@Override
+    public void updateUsername(Utente utente) throws ServiceException {
+         Connection connection = null;
+            try {
+                connection = DataSource.getInstance().getConnection();
+                DBUtil.setAutoCommit(connection, false);
+                utenteDAO.updateUsername(connection, utente);
+                DBUtil.commit(connection);
+            } catch (DAOException e) {
+                System.err.println(e.getMessage());
+                DBUtil.rollback(connection);
+                throw new ServiceException(e.getMessage(), e);
+            } finally {
+                DBUtil.close(connection);
+            }
     }
 
-
+	@Override
+    public List<Utente> findAllUtenti() throws ServiceException {
+        Connection connection = null;
+        List<Utente> utenti = null;
+        try {
+            connection = DataSource.getInstance().getConnection();
+            DBUtil.setAutoCommit(connection, false);
+            utenti = utenteDAO.findAllUtenti(connection);
+            DBUtil.commit(connection);
+        } catch (DAOException e) {
+            System.err.println(e.getMessage());
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(connection);
+        }
+        return utenti;
+    }
 }

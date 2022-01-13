@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="it.generationitaly.model.Utente" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,6 +20,8 @@
 <!--OWL Carousel slider-->
 <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
+<!-- css pop-up -->
+<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
 <!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
 <!--bootstrap-slider -->
@@ -51,6 +53,7 @@
 <![endif]-->
 </head>
 <body>
+
 <!--Header-->
 		<!-- Navigation -->
 			<%@ include file="header.jsp"%>
@@ -62,18 +65,26 @@
     <div class="page-header_wrap">
       <div class="page-heading">
         <h1>Crea un annuncio</h1>
-      </div>
-      <ul class="coustom-breadcrumb">
-        <li><a href="index.jsp">Home</a></li>
-        <li>Crea un annuncio</li>
-      </ul>
+      </div>        
     </div>
   </div>
   <!-- Dark Overlay-->
   <div class="dark-overlay"></div>
 </section>
+<c:if test="${param.success != null}">
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h2>Complimenti, hai postato il tuo annuncio con successo!</h2>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
+</c:if>    
 <!-- /Page Header--> 
-
 <!--Post-vehicle-->
 <section class="user_profile inner_pages">
   <div class="container">
@@ -93,7 +104,11 @@
         <div class="col-md-3 col-sm-3">
         <div class="profile_nav">
           <ul>
-            <li><a href="profile-settings.jsp">Impostazioni profilo</a></li>
+            <li><a href="	
+	            	<c:url value="/dettaglio-utente">
+	         		</c:url>">Impostazioni profilo
+	         	</a>
+	        </li>
             <li>                       
             	<a href="
             		<c:url value="/annunci">
@@ -148,7 +163,7 @@
               <input class="form-control white_bg" id="VehiclesTitle" type="text" name="anno">
             </div>
             <div class="form-group">
-              <label class="control-label">Inserisci il prezzo</label>
+              <label class="control-label">Inserisci il prezzo €</label>
               <input class="form-control white_bg" id="VehiclesTitle" type="text" name="prezzo">            
             </div>
             <div class="form-group">
@@ -182,7 +197,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label">Inserisci citt�</label>
+              <label class="control-label">Inserisci cittá</label>
               <input class="form-control white_bg" id="VehiclesTitle" type="text" name="citta">
             </div>
             <div class="form-group">
@@ -215,6 +230,7 @@
 <script src="assets/js/popper.min.js"></script> 
 <script src="assets/js/bootstrap.min.js"></script> 
 <script src="assets/js/interface.js"></script> 
+<script src="assets/js/pop-up.js"></script>
 <!--bootstrap-slider-JS--> 
 <script src="assets/js/bootstrap-slider.min.js"></script> 
 <!--Slider-JS--> 

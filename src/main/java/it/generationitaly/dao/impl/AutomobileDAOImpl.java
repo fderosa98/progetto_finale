@@ -12,10 +12,40 @@ import it.generationitaly.dao.DAOException;
 import it.generationitaly.dao.DBUtil;
 import it.generationitaly.model.Automobile;
 import it.generationitaly.model.Carburante;
+import it.generationitaly.model.Messaggio;
 import it.generationitaly.model.NumeroPorte;
 
 public class AutomobileDAOImpl implements AutomobileDAO{
 
+	public void saveAutomobile(Connection connection, Automobile automobile) throws DAOException {
+		String sql ="insert into automobile (marca, modello, anno, prezzo, km, carburante, numero_porte) values (?,?,?,?,?,?,?);";
+		System.out.println(sql);
+		PreparedStatement statement = null;
+        ResultSet generatedKeys = null;
+        try {
+            statement = connection.prepareStatement(sql, new String[] { "id" });
+            statement.setString(1, automobile.getMarca());
+            statement.setString(2, automobile.getModello());
+            statement.setInt(3, automobile.getAnno());
+            statement.setDouble(4, automobile.getPrezzo());
+            statement.setInt(5, automobile.getKm());
+            statement.setString(6, automobile.getCarburante().getValue());
+            statement.setInt(7, automobile.getNumeroPorte().getValue());
+            statement.executeUpdate();
+            generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int id = generatedKeys.getInt(1);
+                automobile.setId(id);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new DAOException(e.getMessage(), e);
+        } finally {
+            DBUtil.close(generatedKeys);
+            DBUtil.close(statement); 
+        }
+	}
+	
 	@Override
 	public List<Automobile> carFindAll(Connection connection) throws DAOException {
 		List<Automobile> automobili = new ArrayList<Automobile>();

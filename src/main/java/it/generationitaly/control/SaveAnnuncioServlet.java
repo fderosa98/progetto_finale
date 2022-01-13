@@ -65,7 +65,7 @@ public class SaveAnnuncioServlet extends HttpServlet {
 		if(request.getParameter("prezzo") != "") {
 			prezzo = Integer.parseInt(request.getParameter("prezzo"));
 		}
-		if(request.getParameter("prezzo") != "") {
+		if(request.getParameter("km") != "") {
 			km = Integer.parseInt(request.getParameter("km"));
 		}
 		
@@ -90,19 +90,33 @@ public class SaveAnnuncioServlet extends HttpServlet {
 		automobile.setKm(km);
 		automobile.setCarburante(carburante);
 		automobile.setNumeroPorte(numeroPorte);
+		automobile.setAnnuncio(annuncio);
 		
-		annuncio.setAutomobile(automobile);
-		
+		try {
+			annuncioService.saveAutomobile(automobile);
+			
+			System.out.println(automobile.getId());
+			annuncio.setAutomobile(automobile);			
+		} catch (ServiceException e1) {
+			System.err.println(e1.getMessage());
+		}
+					
 		Indirizzo indirizzo = new Indirizzo();
 		indirizzo.setCitta(citta);
 		indirizzo.setProvincia(provincia);
-		
-		annuncio.setIndirizzo(indirizzo);
+		indirizzo.setAnnuncio(annuncio);
+		try {
+			annuncioService.saveIndirizzo(indirizzo);
+			annuncio.setIndirizzo(indirizzo);		
+		} catch (ServiceException e1) {
+			System.err.println(e1.getMessage());
+		}
 		
 		try {
 			Utente utente = utenteService.findByUsername(username);
 			annuncio.setUtente(utente);
 			annuncioService.saveAnnuncio(annuncio);
+			request.getRequestDispatcher("post-vehicle.jsp?success").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}

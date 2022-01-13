@@ -119,8 +119,18 @@
          <c:if test="${sessionScope.username != null}"> 
           <li class="dropdown dropdown-toggle"> <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>${sessionScope.username}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="profile-settings.jsp">impostazioni profilo</a></li>
-              <li><a class="dropdown-item" href="my-vehicles.jsp">I miei annunci</a></li>
+              <li>
+              	<a class="dropdown-item" href="	
+	            	<c:url value="/dettaglio-utente">
+	         		</c:url>">impostazioni profilo
+	         	</a>
+	           </li>
+              <li><a class="dropdown-item" href="
+            		<c:url value="/annunci">
+                		<c:param name="myVehicles" value=""/>
+         			</c:url>">I miei annunci
+         		  </a>
+         	  </li>
               <li><a class="dropdown-item" href="post-vehicle.jsp">Crea un Annuncio</a></li>
               <li>
               	<form action="messaggi" method="get" id="form_messaggi_inviati">
