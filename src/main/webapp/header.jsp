@@ -334,11 +334,17 @@
                   <c:if test="${errorTelefono != null}">
 					<p class="text-danger">${errorTelefono}</p>
 				  </c:if>
+				  <c:if test="${param.telefonoEsistente != null}"> 
+				  	<p class="text-danger">Il numero di telefono inserito è già stato utilizzato.</p>
+				  </c:if>
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Username" name="username" required>
                   <c:if test="${errorUsernameRegistrazione != null}">
 					<p class="text-danger">${errorUsernameRegistrazione}</p>
+				  </c:if>
+				  <c:if test="${param.usernameEsistente != null}"> 
+				  	<p class="text-danger">Lo username inserito è già stato utilizzato.</p>
 				  </c:if>
                 </div>
                 <div class="form-group">

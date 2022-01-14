@@ -147,7 +147,7 @@
         <div class="form-group col-md-3 col-sm-6 black_input">
           <div class="select">
             <select class="form-control" name="prezzoMin" id="prezzoMin">
-              	<option value="">prezzo da</option>
+              	<option value="">Prezzo da</option>
                   <option value="500">500 &euro;</option>
                   <option value="1000">1.000 &euro;</option>
                   <option value="2000">2.000 &euro;</option>
