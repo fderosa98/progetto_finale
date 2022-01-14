@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
 <!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
+<!-- css pop-up -->
+<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
 <!--bootstrap-slider -->
 <link href="assets/css/bootstrap-slider.min.css" rel="stylesheet">
 <!--FontAwesome Font Style -->
@@ -73,7 +75,32 @@
   <div class="dark-overlay"></div>
 </section>
 <!-- /Page Header--> 
-
+<c:if test="${param.successPassword != null}">
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h2>Complimenti, hai cambiato la tua password con successo!</h2>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
+</c:if>  
+<c:if test="${param.passwordDiverse != null}">
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h2>Le 2 password inserite non corrispondono!</h2>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
+</c:if>    
 <!--Profile-setting-->
 <section class="user_profile inner_pages">
   <div class="container">
@@ -160,7 +187,7 @@
             </div>
              <div class="form-group">
               <label class="control-label">Conferma nuovo Username</label>
-              <input class="form-control white_bg" id="c-password" type="text" name="confirmUusername">
+              <input class="form-control white_bg" id="c-password" type="text" name="confirmUsername">
             </div>
             <div class="form-group">
               <button type="submit" class="btn">Salva nuovo Username <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
@@ -170,7 +197,7 @@
             <div class="gray-bg field-title">
               <h6>Cambia password</h6>
             </div>
-            <form action="update-username" method="post">
+            <form action="update-password" method="post">
             <div class="form-group">
               <label class="control-label">Password</label>
               <input class="form-control gray_bg" id="password" type="password" value="${utente.password}" name="password" disabled>
@@ -207,6 +234,7 @@
 <script src="assets/js/interface.js"></script> 
 <!--bootstrap-slider-JS--> 
 <script src="assets/js/bootstrap-slider.min.js"></script> 
+<script src="assets/js/pop-up.js"></script>
 <!--Slider-JS--> 
 <script src="assets/js/slick.min.js"></script> 
 <script src="assets/js/owl.carousel.min.js"></script>

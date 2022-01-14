@@ -32,30 +32,29 @@ public class UpdatePasswordServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if (request.getSession().getAttribute("idUtente") == null) {
-			response.sendRedirect("login.jsp");
+		if (request.getSession().getAttribute("username") == null) {
+			response.sendRedirect("index.jsp?hasErrorsLogin");
 			return;
 		}
 		
-		String password = request.getParameter("password");
+		//String password = request.getParameter("password");
 		String newPassword = request.getParameter("newPassword");
 		String confirmPassword = request.getParameter("confirmPassword");
 		
-		try {
-			
-			Utente utente = utenteService.findById((Integer) (request.getSession().getAttribute("idUtente")));
-
-			if (password.equals(utente.getPassword())) {
+		try {			
+			Utente utente = utenteService.findByUsername((String) (request.getSession().getAttribute("username")));
+			request.setAttribute("utente", utente);
+//			if (password.equals(utente.getPassword())) {				
+			if (newPassword.equals(confirmPassword)) {
 				utente.setPassword(newPassword);
-				if (newPassword.equals(confirmPassword)) {
-					utenteService.updatePassword(utente);
-					System.out.println("password cambiata con successo");
-					response.sendRedirect("index.jsp");
-				} else {
-					request.getRequestDispatcher("500.html").forward(request, response);
-					System.out.println("password non cambiata merda");
-				}
+				utenteService.updatePassword(utente);
+				System.out.println("password cambiata con successo");				
+				request.getRequestDispatcher("profile-settings.jsp?successPassword").forward(request, response);
+			} else {
+				System.out.println("password non cambiata merda");
+				request.getRequestDispatcher("profile-settings.jsp?PasswordDiverse").forward(request, response);					
 			}
+//			}
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}

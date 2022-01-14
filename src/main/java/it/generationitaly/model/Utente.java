@@ -76,6 +76,12 @@ public class Utente {
 	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
+
+	@Override
+	public String toString() {
+		return "Utente [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", telefono="
+				+ telefono + ", username=" + username + ", password=" + password + "]";
+	}
 	
 	
 
