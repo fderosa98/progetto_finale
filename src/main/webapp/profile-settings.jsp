@@ -75,7 +75,7 @@
   <div class="dark-overlay"></div>
 </section>
 <!-- /Page Header--> 
-<c:if test="${param.successPassword != null}">
+<c:if test="${param.passwordModificata != null}">
      <div class="overlay" id="pop">
   	  <div class="popup">
        <div class="text-center">
@@ -92,7 +92,7 @@
      <div class="overlay" id="pop">
   	  <div class="popup">
        <div class="text-center">
-       <h2>Le 2 password inserite non corrispondono!</h2>
+       <h4>Le due password inserite non corrispondono!</h4>
        <br>
        <div class="btn btn-xs uppercase" aria-label="Close">
        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
@@ -100,7 +100,47 @@
        </div>
    	</div>
      	</div>
-</c:if>    
+</c:if> 
+<c:if test="${param.usernameModificato != null}">
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h4>Complimenti, hai cambiato il tuo username con successo!</h4>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
+</c:if>  
+<c:if test="${param.usernameDuplicato != null}">
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h4>Impossibile cambiare lo username perché qualcun altro lo ha scelto prima di te :(</h4>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
+</c:if>  
+<c:if test="${param.usernameDiversi != null}">
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h4>I due username inseriti non corrispondono!</h4>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
+</c:if>  
+   
 <!--Profile-setting-->
 <section class="user_profile inner_pages">
   <div class="container">

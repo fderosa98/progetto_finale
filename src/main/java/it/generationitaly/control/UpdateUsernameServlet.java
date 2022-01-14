@@ -42,27 +42,37 @@ public class UpdateUsernameServlet extends HttpServlet {
 			return;
 		}
 
-//		String username = request.getParameter("username");
+	//	String username = request.getParameter("username");
 		String newUsername = request.getParameter("newUsername");
 		String confirmUsername = request.getParameter("confirmUsername");
 		
 		try {
 			Utente utente = utenteService.findByUsername((String) (request.getSession().getAttribute("username")));
-			utenti = utenteService.findAllUtenti();
+			//Utente utente = utenteService.findByUsername(username);
+			utenti = utenteService.findAllUtenti();			
 			if (newUsername.equals(confirmUsername)) {
 				System.out.println("sono entrato nel primo if");
 				utente.setUsername(newUsername);
+				request.setAttribute("utente", utente);
+			} else {	
+				request.setAttribute("utente", utente);
+				request.getRequestDispatcher("profile-settings?usernameDiversi").forward(request, response);
+				return;
+				}
 				for (Utente utente2 : utenti) {
+				//	if (utente.getUsername().equals(utente2.getUsername())) {
 					if (utente.getUsername().equals(utente2.getUsername())) {
 						System.out.println("Username non cambiato");
-						request.getRequestDispatcher("profile-settings.jsp?usernameDuplicato").forward(request, response);
-					} else {
-						utenteService.updateUsername(utente);
-						request.getRequestDispatcher("profile-settings.jsp?usernameModificato").forward(request, response);
-						System.out.println("Username cambiato merda");
-					}
+						request.getRequestDispatcher("profile-settings.jsp?usernameDuplicato").forward(request, response);	
+						return;
+					} 					
 				}
-			}
+				utenteService.updateUsername(utente);
+				System.out.println("Username cambiato merda");
+				request.getSession().invalidate();
+				request.getSession().setAttribute("username", utente.getUsername());
+				request.getRequestDispatcher("profile-settings.jsp?usernameModificato").forward(request, response);						
+				return;					
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 		}

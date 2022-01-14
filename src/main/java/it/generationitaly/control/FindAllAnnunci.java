@@ -44,9 +44,16 @@ public class FindAllAnnunci extends HttpServlet {
 			annunciSide = annuncioService.findAll();
 			request.setAttribute("annunciSide", annunciSide);
 			
-			if(request.getParameter("myVehicles") != null)
+			if(request.getParameter("myVehicles") != null) {
+				List<Annuncio> annunciUtente = new ArrayList<Annuncio>();
+				for(Annuncio annuncio : annunci) {
+					if (annuncio.getUtente().getUsername().equals(request.getSession().getAttribute("username")) ) {
+						annunciUtente.add(annuncio);
+					}
+				}
+				request.setAttribute("annunciUtenteSize", annunciUtente.size());
 				request.getRequestDispatcher("my-vehicles.jsp").forward(request, response);
-			else
+			} else
 				request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());

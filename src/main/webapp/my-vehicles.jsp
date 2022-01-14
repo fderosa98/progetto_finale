@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="it.generationitaly.model.Utente" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,8 +140,8 @@
       </div>
 				<div class="col-md-6 col-sm-8">
 					<div class="profile_wrap">
-						<h5 class="uppercase underline">
-							i miei annunci <span>(20 auto)</span>
+						<h5 class="uppercase underline">					
+							i miei annunci <span>(${annunciUtenteSize} auto)</span>							
 						</h5>
 						<div class="my_vehicles_list">
 						<c:forEach items="${annunci}" var="annuncio">

@@ -49,10 +49,10 @@ public class UpdatePasswordServlet extends HttpServlet {
 				utente.setPassword(newPassword);
 				utenteService.updatePassword(utente);
 				System.out.println("password cambiata con successo");				
-				request.getRequestDispatcher("profile-settings.jsp?successPassword").forward(request, response);
+				request.getRequestDispatcher("profile-settings.jsp?passwordModificata").forward(request, response);
 			} else {
 				System.out.println("password non cambiata merda");
-				request.getRequestDispatcher("profile-settings.jsp?PasswordDiverse").forward(request, response);					
+				request.getRequestDispatcher("profile-settings.jsp?passwordDiverse").forward(request, response);					
 			}
 //			}
 		} catch (ServiceException e) {
