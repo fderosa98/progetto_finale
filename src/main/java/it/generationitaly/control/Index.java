@@ -36,7 +36,7 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("sono in index servlet");
 		try {
-			List<Annuncio> annunci = annuncioService.findAll();
+			List<Annuncio> annunci = annuncioService.findAllLimited();
 			request.setAttribute("annunci", annunci);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());

@@ -115,7 +115,7 @@
 	        <c:forEach items="${annuncio.foto}" var="foto">
 	        <c:if test="${foto.principale}">
 	        <div class="product-listing-img"><img src="${foto.url}" class="img-fluid" alt="image">
-	            <div class="label_icon">Nuovo</div>
+	            <div class="label_icon">Usato</div>
 	        </div>
 	        </c:if>
 	        </c:forEach>
@@ -277,7 +277,7 @@
           </div>
           <div class="recent_addedcars">
             <ul>
-	            <c:forEach items="${annunciSide}" begin="0" end="2" var="annuncio2">
+	            <c:forEach items="${annunciSide}" var="annuncio2">
 					<li class="gray-bg">
 					<c:forEach items="${annuncio2.foto}" var="foto2">
 						<c:if test="${foto2.principale}">

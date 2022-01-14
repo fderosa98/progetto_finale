@@ -11,6 +11,8 @@ public interface AnnuncioService {
 	
 	List<Annuncio> findAll() throws ServiceException;
 	
+	List<Annuncio> findAllLimited() throws ServiceException;
+	
 	List<Annuncio> findFiltered(String marca, String modello, int prezzoMin, int prezzoMax, String orderBy) throws ServiceException;
 	
 	Annuncio findById(int id) throws ServiceException;

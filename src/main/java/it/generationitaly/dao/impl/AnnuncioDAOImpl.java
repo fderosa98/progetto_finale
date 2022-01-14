@@ -97,6 +97,73 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		}
 		return annunci;
 	}
+	
+	@Override
+	public List<Annuncio> findAllLimited(Connection connection) throws DAOException {
+		List<Annuncio> annunci = new ArrayList<Annuncio>();
+		int index = 0;
+		System.out.println("QUERY DI FIND ALL LIMITED");
+		String sql = "SELECT * FROM annuncio JOIN automobile ON annuncio.automobile_id = automobile.id JOIN indirizzo ON annuncio.indirizzo_id = indirizzo.id JOIN foto ON annuncio.id = foto.annuncio_id WHERE principale=1 LIMIT 4";
+		System.out.println(sql);
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.prepareStatement(sql);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				Annuncio annuncio = new Annuncio();
+				if (index != resultSet.getInt(1)) {
+					index = resultSet.getInt(1);
+					annuncio.setId(resultSet.getInt(1));
+					annuncio.setTitolo(resultSet.getString(2));
+					annuncio.setDescrizione(resultSet.getString(3));
+
+					// System.out.println(annuncio);
+
+					Automobile automobile = new Automobile();
+					automobile.setId(resultSet.getInt(5));
+					automobile.setMarca(resultSet.getString(8));
+					automobile.setModello(resultSet.getString(9));
+					automobile.setAnno(resultSet.getInt(10));
+					automobile.setPrezzo(resultSet.getInt(11));
+					automobile.setKm(resultSet.getInt(12));
+					automobile.setCarburante(Carburante.fromValue(resultSet.getString(13)));
+					automobile.setNumeroPorte(NumeroPorte.fromValue(resultSet.getInt(14)));
+					
+					// System.out.println(automobile);
+					annuncio.setAutomobile(automobile);
+					automobile.setAnnuncio(annuncio);
+					
+					
+					Indirizzo indirizzo = new Indirizzo();
+					indirizzo.setId(resultSet.getInt(15));
+					indirizzo.setCitta(resultSet.getString(16));
+					indirizzo.setProvincia(resultSet.getString(17));
+					
+					annuncio.setIndirizzo(indirizzo);
+					indirizzo.setAnnuncio(annuncio);
+					
+					annunci.add(annuncio);
+				}
+
+				if (annuncio.getId() == resultSet.getInt(21)) {
+					Foto foto = new Foto();
+					foto.setId(resultSet.getInt(18));
+					foto.setUrl(resultSet.getString(19)); 
+					foto.setPrincipale(resultSet.getBoolean(20));
+					foto.setAnnuncio(annuncio);
+					annuncio.getFoto().add(foto);
+				}
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(resultSet);
+			DBUtil.close(statement);
+		}
+		return annunci;
+	}
 
 	@Override
 	public List<Annuncio> findFiltered(Connection connection, String marca, String modello, int prezzoMin,

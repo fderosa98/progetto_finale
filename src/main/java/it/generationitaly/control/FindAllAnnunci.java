@@ -41,7 +41,7 @@ public class FindAllAnnunci extends HttpServlet {
 			annunci = annuncioService.findAll();
 			request.setAttribute("annunci", annunci);
 			
-			annunciSide = annuncioService.findAll();
+			annunciSide = annuncioService.findAllLimited();
 			request.setAttribute("annunciSide", annunciSide);
 			
 			if(request.getParameter("myVehicles") != null) {

@@ -42,6 +42,25 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		}
 		return annunci;
 	}
+	
+	@Override
+	public List<Annuncio> findAllLimited() throws ServiceException {
+		Connection connection = null;
+		List<Annuncio> annunci = null;
+		try {
+			connection = DataSource.getInstance().getConnection();
+			DBUtil.setAutoCommit(connection, false);
+			annunci = annuncioDAO.findAllLimited(connection);
+			DBUtil.commit(connection);
+		    } catch (DAOException e) {
+		System.err.println(e.getMessage());
+		throw new ServiceException(e.getMessage(), e);
+		} finally {
+			DBUtil.close(connection);
+			
+		}
+		return annunci;
+	}
 
 	@Override
 	public List<Annuncio> findFiltered(String marca, String modello, int prezzoMin, int prezzoMax, String orderBy) throws ServiceException {

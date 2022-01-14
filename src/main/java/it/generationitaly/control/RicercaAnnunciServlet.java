@@ -59,7 +59,7 @@ public class RicercaAnnunciServlet extends HttpServlet {
 			request.setAttribute("prezzoMin", prezzoMin);
 			request.setAttribute("prezzoMax", prezzoMax);
 			
-			annunciSide = annuncioService.findAll();
+			annunciSide = annuncioService.findAllLimited();
 			request.setAttribute("annunciSide", annunciSide);
 
 			request.getRequestDispatcher("listing-classic.jsp").forward(request, response);
