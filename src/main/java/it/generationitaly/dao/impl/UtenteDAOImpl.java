@@ -16,7 +16,7 @@ public class UtenteDAOImpl implements UtenteDAO {
 
 	@Override
 	public void saveUtente(Connection connection, Utente utente) throws DAOException {
-		String sql ="INSERT INTO Utente(nome,cognome,email,telefono,username,password) VALUES(?,?,?,?,?,?)";
+		String sql ="INSERT INTO Utente(nome,cognome,mail,telefono,username,password) VALUES(?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement statement = null;
         ResultSet generatedKeys = null;

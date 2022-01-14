@@ -572,6 +572,32 @@
    	   </div>
      </div>
 </c:if> 
+<c:if test="${param.usernameEsistente != null}"> 
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       	<h4>Username giá esistente </h4>
+       	<br>
+       	 <div class="btn btn-xs uppercase" aria-label="Close">
+       		<button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+         </div>
+       </div>
+   	   </div>
+     </div>
+</c:if> 
+<c:if test="${param.emailEsistente != null}"> 
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       	<h4>Username giá esistente </h4>
+       	<br>
+       	 <div class="btn btn-xs uppercase" aria-label="Close">
+       		<button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+         </div>
+       </div>
+   	   </div>
+     </div>
+</c:if> 
 <!-- Pop-up -->
 
 

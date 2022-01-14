@@ -151,14 +151,21 @@
 									<div class="vehicle_img">
 										<c:forEach items="${annuncio.foto}" var="foto">
 										  	<c:if test="${foto.principale}">
-												<a href="#"><img src="${foto.url}"
-													alt="image"></a>
+												<a href="
+								            		<c:url value="/dettaglio-annuncio">
+								                		<c:param name="id" value="${annuncio.id}"/>
+								         			</c:url>"><img src="${foto.url}" alt="image">
+												</a>
 											</c:if>
 										</c:forEach>
 									</div>
 									<div class="vehicle_title">
 										<h6>
-											<a href="">${annuncio.titolo}</a>
+											<a href="
+							            		<c:url value="/dettaglio-annuncio">
+							                		<c:param name="id" value="${annuncio.id}"/>
+							         			</c:url>">${annuncio.titolo}
+								         	</a>
 										</h6>
 									</div>
 									<div class="vehicle_status">

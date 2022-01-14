@@ -1,6 +1,8 @@
 package it.generationitaly.control;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.generationitaly.model.Utente;
 import it.generationitaly.service.ServiceException;
@@ -20,6 +22,7 @@ public class RegistrazioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	UtenteService utenteService = new UtenteServiceImpl();
+	List<Utente> utenti = new ArrayList<Utente>();
 
     /**
      * Default constructor. 
@@ -43,6 +46,23 @@ public class RegistrazioneServlet extends HttpServlet {
 		utente.setPassword(request.getParameter("password"));
 		
 		try {
+			utenti = utenteService.findAllUtenti();
+			for(Utente utente1 : utenti) {
+				if(utente.getEmail().equals(utente1.getEmail())) {
+					System.out.println("email giá esistente");
+					request.getRequestDispatcher("index.jsp?emailEsistente").forward(request, response);
+					return;
+				} else if(utente.getUsername().equals(utente1.getUsername())) {
+					System.out.println("username giá esistente");
+					request.getRequestDispatcher("index.jsp?usernameEsistente").forward(request, response);		
+					return;
+				} else if(utente.getTelefono() == utente1.getTelefono()) {
+					System.out.println("telefono giá esistente");
+					request.getRequestDispatcher("index.jsp?telefonoEsistente").forward(request, response);		
+					return;
+				}
+			}
+			
 			utenteService.saveUtente(utente);
 			request.getSession().setAttribute("username", utente.getUsername());
 			request.getRequestDispatcher("index.jsp?registrazioneSuccess").forward(request, response);
