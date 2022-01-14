@@ -45,7 +45,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		try {
 			utenteService.saveUtente(utente);
 			request.getSession().setAttribute("username", utente.getUsername());
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp?registrazioneSuccess").forward(request, response);
 		} catch (ServiceException e) {
 			System.err.println(e.getMessage());
 			response.sendRedirect("404.jsp");

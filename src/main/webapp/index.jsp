@@ -19,6 +19,8 @@
 <!--OWL Carousel slider-->
 <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css">
+<!-- css pop-up -->
+<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
 <!--slick-slider -->
 <link href="assets/css/slick.css" rel="stylesheet">
 <!--bootstrap-slider -->
@@ -541,92 +543,36 @@
 </section>
 <!-- /Help-Number--> 
 
+<!-- Pop-up -->
 
-<!--Blog -->
-<!-- <section class="section-padding">
-  <div class="container">
-    <div class="section-header text-center">
-      <h2>Ultimi aggiornamenti nell'industria automobilistica</h2>
-      <p>Ci sono molte varianti di passaggi di Lorem Ipsum disponibili, ma la maggior parte ha subito alterazioni in qualche forma, con umorismo iniettato, o parole casuali che non sembrano nemmeno lontanamente credibili. Se hai intenzione di usare un passaggio di Lorem Ipsum, devi essere sicuro che non ci sia nulla di imbarazzante nascosto in mezzo al testo. </p>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-4">
-        <article class="blog-list">
-          <div class="blog-info-box"> 
-            <div class="share_article">
-            	<p><i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                <ul>
-                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-            <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
-            <ul>
-              <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Latest Cars</a></li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>15 Nov 2016</li>
-              <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>10 Comments</a></li>
-            </ul>
-          </div>
-          <div class="blog-content">
-            <h5><a href="#">Ma devo spiegarvi come tutta questa idea sbagliata.</a></h5>
-            <p>esporre gli attuali insegnamenti del grande esploratore della verità, il maestro costruttore della felicità umana. Nessuno rifiuta, non ama o evita il piacere in sé, perché</p>
-            <a href="#" class="btn-link">Per Saperne di più <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
-        </article>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <article class="blog-list">
-          <div class="blog-info-box"> 
-            <div class="share_article">
-            	<p><i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                <ul>
-                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-            <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
-            <ul>
-              <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Ultime auto</a></li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>10 Nov 2016</li>
-              <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>21 Commenti</a></li>
-            </ul>
-          </div>
-          <div class="blog-content">
-            <h5><a href="#">Dall'altra parte, denunciamo con giusta indignazione.</a></h5>
-            <p>esporre gli attuali insegnamenti del grande esploratore della verità, il maestro costruttore della felicità umana. Nessuno rifiuta, non ama o evita il piacere in sé, perché</p>
-            <a href="#" class="btn-link">Per saperne di più <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
-        </article>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <article class="blog-list">
-          <div class="blog-info-box"> 
-             <div class="share_article">
-            	<p><i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                <ul>
-                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-            <a href="#"><img src="assets/images/600x380.jpg" class="img-fluid" alt="image"></a>
-            <ul>
-              <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Ultime auto</a></li>
-              <li><i class="fa fa-calendar" aria-hidden="true"></i>05 Nov 2016</li>
-              <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>18 Commenti</a></li>
-            </ul>
-          </div>
-          <div class="blog-content">
-            <h5><a href="#">Dall'altra parte, denunciamo con giusta indignazione.</a></h5>
-            <p>esporre gli attuali insegnamenti del grande esploratore della verità, il maestro costruttore della felicità umana. Nessuno rifiuta, non ama o evita il piacere in sé, perché</p>
-            <a href="#" class="btn-link">Per saperne di più <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /Blog--> 
+<c:if test="${param.loginSuccess != null}"> 
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       	<h4>Benvenuto ${sessionScope.username}! Hai effettuato il login con successo. </h4>
+       	<br>
+       	 <div class="btn btn-xs uppercase" aria-label="Close">
+       		<button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+         </div>
+       </div>
+   	   </div>
+     </div>
+</c:if>  
 
+<c:if test="${param.registrazioneSuccess != null}"> 
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       	<h4>Benvenuto ${sessionScope.username}! Hai effettuato la registrazione con successo. </h4>
+       	<br>
+       	 <div class="btn btn-xs uppercase" aria-label="Close">
+       		<button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+         </div>
+       </div>
+   	   </div>
+     </div>
+</c:if> 
+<!-- Pop-up -->
 
 
 <!--Footer -->
@@ -646,6 +592,7 @@
 <script src="assets/js/bootstrap.min.js"></script> 
 <script src="assets/js/interface.js"></script> 
 <script src="assets/js/dynamic-form.js"></script> 
+<script src="assets/js/pop-up.js"></script>
 <c:if test="${hasErrorsLogin || errorCredenzialiErrate != null}">
 <script type="text/javascript">
 var myModal = document.getElementById("loginform");

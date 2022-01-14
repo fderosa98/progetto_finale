@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 			Utente utente = utenteService.findByUsername(request.getParameter("username"));
 			if(utente != null && utente.getPassword().equals(request.getParameter("password"))) {
 				request.getSession().setAttribute("username", utente.getUsername());
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				request.getRequestDispatcher("index.jsp?loginSuccess").forward(request, response);
 			} else {
 				request.setAttribute("errorCredenzialiErrate", "Attenzione! Credenziali errate.");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
