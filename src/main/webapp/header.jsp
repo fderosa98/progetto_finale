@@ -325,8 +325,11 @@
                 </div>
                 <div class="form-group">
                   <input type="email" class="form-control" placeholder="Indirizzo email" name="email" required>
-                  <c:if test="${errorEmail != null}">
+                  <c:if test="${errorEmail != null}"> 
 					<p class="text-danger">${errorEmail}</p>
+				  </c:if>
+				  <c:if test="${param.emailEsistente != null}"> 
+				  	<p class="text-danger">L'indirizzo email inserito è già stato utilizzato.</p>
 				  </c:if>
                 </div>
                 <div class="form-group">

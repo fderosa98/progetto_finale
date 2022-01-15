@@ -635,6 +635,14 @@ modal.show();
 </script>
 </c:if>
 
+<c:if test="${param.emailEsistente != null}"> 
+	<script type="text/javascript">
+	var myModal = document.getElementById("signupform");
+	var modal = new bootstrap.Modal(myModal);
+	modal.show();
+	</script>
+</c:if>
+
 <c:if test="${param.telefonoEsistente != null}"> 
 	<script type="text/javascript">
 	var myModal = document.getElementById("signupform");
