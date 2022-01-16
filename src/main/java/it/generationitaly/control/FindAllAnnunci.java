@@ -36,7 +36,8 @@ public class FindAllAnnunci extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		
 		try {
 			annunci = annuncioService.findAll();
 			request.setAttribute("annunci", annunci);
@@ -45,11 +46,15 @@ public class FindAllAnnunci extends HttpServlet {
 			request.setAttribute("annunciSide", annunciSide);
 			
 			if(request.getParameter("myVehicles") != null) {
+				if (request.getSession().getAttribute("username") == null) {
+					response.sendRedirect("index.jsp?error");
+					return;
+				}
+				
 				List<Annuncio> annunciUtente = new ArrayList<Annuncio>();
 				for(Annuncio annuncio : annunci) {
-					if (annuncio.getUtente().getUsername().equals(request.getSession().getAttribute("username")) ) {
-						annunciUtente.add(annuncio);
-					}
+					if (annuncio.getUtente().getUsername().equals(request.getSession().getAttribute("username")) ) 
+						annunciUtente.add(annuncio);					
 				}
 				request.setAttribute("annunciUtenteSize", annunciUtente.size());
 				request.getRequestDispatcher("my-vehicles.jsp").forward(request, response);
