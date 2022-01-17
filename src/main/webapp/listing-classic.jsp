@@ -284,7 +284,12 @@
 							<div class="recent_post_img"> <a href="#"><img src="${foto2.url}" alt="image"></a> </div>
 						</c:if>
 				    </c:forEach>
-	                <div class="recent_post_title"> <a href="#">${annuncio2.titolo}</a>
+	                <div class="recent_post_title"> 
+	                <a href="<c:url value="/dettaglio-annuncio">
+               		<c:param name="id" value="${annuncio2.id}"/>
+        			</c:url>">
+	                ${annuncio2.titolo}
+	                </a>
 	                  <p class="widget_price"><i class="fa fa-eur" aria-hidden="true"></i>${annuncio2.automobile.prezzo}</p>
 	                </div>
 		            </li>
