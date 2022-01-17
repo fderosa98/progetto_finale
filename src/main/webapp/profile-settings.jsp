@@ -79,7 +79,7 @@
      <div class="overlay" id="pop">
   	  <div class="popup">
        <div class="text-center">
-       <h2>Complimenti, hai cambiato la tua password con successo!</h2>
+       <h4>Complimenti, hai cambiato la tua password con successo!</h4>
        <br>
        <div class="btn btn-xs uppercase" aria-label="Close">
        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>

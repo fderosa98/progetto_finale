@@ -153,8 +153,11 @@
 									 </div>
 									<div class="vehicle_status">
 										<div class="clearfix"></div>
-										
-										 <a href="#"><i
+										<form action="elimina-messaggio" method="post" id="form_eliminaMessaggio">
+											<input type="hidden" value="${messaggio.id}" name="id">
+											<input type="hidden" value="" name="ricevuti">
+										</form>
+										 <a href="javascript:;" onclick="document.getElementById('form_eliminaMessaggio').submit();"><i
 											class="fa fa-trash" aria-hidden="true"></i></a>
 									</div>
 								</li>

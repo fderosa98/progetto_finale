@@ -249,7 +249,7 @@
 	<div class="overlay" id="pop">
     <div class="popup">
         <div class="text-center">
-        <h2>Ehi, non puoi inviare un messaggio a te stesso!</h2>
+        <h4>Ehi c'é stato un errore! Non puoi inviare un messaggio a te stesso.</h4>
         <br>
         <div class="btn btn-xs uppercase" aria-label="Close">
         <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
