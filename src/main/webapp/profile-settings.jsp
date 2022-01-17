@@ -118,7 +118,7 @@
      <div class="overlay" id="pop">
   	  <div class="popup">
        <div class="text-center">
-       <h4>Impossibile cambiare lo username perché qualcun altro lo ha scelto prima di te :(</h4>
+       <h4>Impossibile cambiare il tuo username con quello desiderato perché qualcun altro lo ha scelto prima di te :(</h4>
        <br>
        <div class="btn btn-xs uppercase" aria-label="Close">
        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
@@ -194,7 +194,7 @@
       </div>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline"> Cambia i tuoi dati personali</h5>
+          <h5 class="uppercase underline">I tuoi dati personali</h5>
           
             <div class="form-group">
               <label class="control-label">Nome</label>

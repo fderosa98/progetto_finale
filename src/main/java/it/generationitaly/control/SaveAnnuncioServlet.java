@@ -57,7 +57,7 @@ public class SaveAnnuncioServlet extends HttpServlet {
 		int km = 0;
 		NumeroPorte numeroPorte = null;
 		
-		String username = request.getParameter("usernameUtente");		
+		String username = (String) request.getSession().getAttribute("username");		
 		
 		if(request.getParameter("anno") != "") {
 			anno = Integer.parseInt(request.getParameter("anno"));
@@ -93,12 +93,11 @@ public class SaveAnnuncioServlet extends HttpServlet {
 		automobile.setAnnuncio(annuncio);
 		
 		try {
-			annuncioService.saveAutomobile(automobile);
-			
+			annuncioService.saveAutomobile(automobile);			
 			System.out.println(automobile.getId());
 			annuncio.setAutomobile(automobile);			
-		} catch (ServiceException e1) {
-			System.err.println(e1.getMessage());
+		} catch (ServiceException e) {
+			System.err.println(e.getMessage());
 		}
 					
 		Indirizzo indirizzo = new Indirizzo();
@@ -108,8 +107,8 @@ public class SaveAnnuncioServlet extends HttpServlet {
 		try {
 			annuncioService.saveIndirizzo(indirizzo);
 			annuncio.setIndirizzo(indirizzo);		
-		} catch (ServiceException e1) {
-			System.err.println(e1.getMessage());
+		} catch (ServiceException e) {
+			System.err.println(e.getMessage());
 		}
 		
 		try {

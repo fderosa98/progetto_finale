@@ -36,6 +36,11 @@ public class FindAllMessaggiServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if (request.getSession().getAttribute("username") == null) {
+			response.sendRedirect("index.jsp?error");
+			return;
+		}
+		
 		try {
 			messaggi = utenteService.findAllMessaggiConUtenti();
 			System.out.println(messaggi);

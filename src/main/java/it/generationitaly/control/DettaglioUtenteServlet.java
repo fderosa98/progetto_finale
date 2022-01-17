@@ -34,8 +34,8 @@ public class DettaglioUtenteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if(request.getSession().getAttribute("username") == null) {
-			response.sendRedirect("404.jsp");
+		if (request.getSession().getAttribute("username") == null) {
+			response.sendRedirect("index.jsp?error");
 			return;
 		}
 			

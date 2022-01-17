@@ -56,11 +56,7 @@ public class RegistrazioneServlet extends HttpServlet {
 					System.out.println("username giá esistente");
 					request.getRequestDispatcher("index.jsp?usernameEsistente").forward(request, response);		
 					return;
-				} else if(utente.getTelefono() == utente1.getTelefono()) {
-					System.out.println("telefono giá esistente");
-					request.getRequestDispatcher("index.jsp?telefonoEsistente").forward(request, response);		
-					return;
-				}
+				} 
 			}
 			
 			utenteService.saveUtente(utente);

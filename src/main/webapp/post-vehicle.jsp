@@ -75,7 +75,7 @@
      <div class="overlay" id="pop">
   	  <div class="popup">
        <div class="text-center">
-       <h2>Complimenti, hai postato il tuo annuncio con successo!</h2>
+       <h4>Ci siamo, il tuo annuncio é stato pubblicato con successo!</h4>
        <br>
        <div class="btn btn-xs uppercase" aria-label="Close">
        <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
@@ -139,13 +139,20 @@
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
         <c:if test="${param.error != null}">
-	  	  <p class="error">Per creare un annuncio devi essere loggato!</p>
+	  	  <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       <h4>Per creare un annuncio devi essere loggato!</h4>
+       <br>
+       <div class="btn btn-xs uppercase" aria-label="Close">
+       <button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+       </div>
+       </div>
+   	</div>
+     	</div>
 	 	</c:if>
           <h5 class="uppercase underline">Crea un nuovo annuncio</h5>
-          <form action="save-annuncio" method="post">
-          <div class="form-group">
-              <input class="form-control white_bg" id="VehiclesTitle" type="hidden" value="${sessionScope.username}" name="usernameUtente">
-            </div>
+          <form action="save-annuncio" method="post">         
             <div class="form-group">
               <label class="control-label">Titolo Annuncio</label>
               <input class="form-control white_bg" id="VehiclesTitle" type="text" name="titolo">

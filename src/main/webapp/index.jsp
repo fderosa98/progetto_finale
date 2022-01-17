@@ -572,6 +572,20 @@
    	   </div>
      </div>
 </c:if> 
+
+<c:if test="${param.error != null}"> 
+     <div class="overlay" id="pop">
+  	  <div class="popup">
+       <div class="text-center">
+       	<h4>Devi essere loggato per accedere alla tua sezione personale!</h4>
+       	<br>
+       	 <div class="btn btn-xs uppercase" aria-label="Close">
+       		<button type="button" class="btn btn-xs uppercase" data-bs-dismiss="modal" aria-label="Close" id="close">Ok</button>
+         </div>
+       </div>
+   	   </div>
+     </div>
+</c:if>  
 <%-- <c:if test="${param.usernameEsistente != null}">  --%>
 <!--      <div class="overlay" id="pop"> -->
 <!--   	  <div class="popup"> -->
@@ -636,14 +650,6 @@ modal.show();
 </c:if>
 
 <c:if test="${param.emailEsistente != null}"> 
-	<script type="text/javascript">
-	var myModal = document.getElementById("signupform");
-	var modal = new bootstrap.Modal(myModal);
-	modal.show();
-	</script>
-</c:if>
-
-<c:if test="${param.telefonoEsistente != null}"> 
 	<script type="text/javascript">
 	var myModal = document.getElementById("signupform");
 	var modal = new bootstrap.Modal(myModal);
