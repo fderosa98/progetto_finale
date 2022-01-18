@@ -387,7 +387,7 @@
           	<a href="
           		<c:url value="/dettaglio-annuncio">
                 	<c:param name="id" value="${annuncio.id}"/>
-         		</c:url>">"><img src="${foto.url}" class="img-fluid" alt="Image">
+         		</c:url>"><img src="${foto.url}" class="img-fluid" alt="Image">
          	</a>
          </c:if>  
             </c:forEach>                    

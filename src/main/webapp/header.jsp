@@ -11,7 +11,7 @@
               <div class="header_widgets">
                 <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
                 <p class="uppercase_text">Scrivici: </p>
-                <a href="paolo_maccari@outlook.com" class="disabled">paulpaul96@gmail.com</a> 
+                <a href="macauto@outlook.com" class="disabled">macauto@gmail.com</a> 
               </div>
               <div class="header_widgets">
                 <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
